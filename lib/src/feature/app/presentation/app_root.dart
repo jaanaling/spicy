@@ -9,6 +9,17 @@ class AppRoot extends StatelessWidget {
     return CupertinoApp.router(
       routerConfig: buildGoRouter,
       debugShowCheckedModeBanner: false,
+      theme: const CupertinoThemeData(
+        brightness: Brightness.light,
+        primaryColor: const Color(0xFF9A0A10),
+        textTheme: CupertinoTextThemeData(
+          textStyle: TextStyle(
+            fontFamily: 'poppins',
+            fontWeight: FontWeight.w400,
+            fontSize: 21,
+          ),
+        ),
+      ),
     );
   }
 }

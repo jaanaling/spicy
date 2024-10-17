@@ -6,7 +6,7 @@
         "servings": 4,
         "difficulty": "Medium",
         "cuisine": "Thai",
-        "time": "30 minutes",
+        "time": "30 min",
         "ingredients": [
             {
                 "name": "Shrimp",
@@ -58,7 +58,7 @@
         "servings": 10,
         "difficulty": "Hard",
         "cuisine": "Korean",
-        "time": "1 day (fermentation)",
+        "time": "1 day",
         "ingredients": [
             {
                 "name": "Napa cabbage",
@@ -106,7 +106,7 @@
         "servings": 2,
         "difficulty": "Easy",
         "cuisine": "Thai",
-        "time": "15 minutes",
+        "time": "15 min",
         "ingredients": [
             {
                 "name": "Papaya",
@@ -153,7 +153,7 @@
         "servings": 4,
         "difficulty": "Easy",
         "cuisine": "Vietnamese",
-        "time": "20 minutes",
+        "time": "20 min",
         "ingredients": [
             {
                 "name": "Cabbage",
@@ -192,7 +192,7 @@
         "servings": 3,
         "difficulty": "Medium",
         "cuisine": "Chinese",
-        "time": "25 minutes",
+        "time": "25 min",
         "ingredients": [
             {
                 "name": "Tofu",
@@ -236,7 +236,7 @@
         "servings": 4,
         "difficulty": "Medium",
         "cuisine": "Thai",
-        "time": "30 minutes",
+        "time": "30 min",
         "ingredients": [
             {
                 "name": "Rice noodles",
@@ -288,7 +288,7 @@
         "servings": 3,
         "difficulty": "Medium",
         "cuisine": "Indian",
-        "time": "40 minutes",
+        "time": "40 min",
         "ingredients": [
             {
                 "name": "Chicken",
@@ -335,7 +335,7 @@
         "servings": 2,
         "difficulty": "Easy",
         "cuisine": "Vietnamese",
-        "time": "10 minutes",
+        "time": "10 min",
         "ingredients": [
             {
                 "name": "Cucumbers",
@@ -373,7 +373,7 @@
         "servings": 3,
         "difficulty": "Medium",
         "cuisine": "Chinese",
-        "time": "35 minutes",
+        "time": "35 min",
         "ingredients": [
             {
                 "name": "Chicken",
@@ -421,7 +421,7 @@
         "servings": 4,
         "difficulty": "Hard",
         "cuisine": "Chinese",
-        "time": "40 minutes",
+        "time": "40 min",
         "ingredients": [
             {
                 "name": "Tofu",
@@ -469,7 +469,7 @@
         "servings": 3,
         "difficulty": "Medium",
         "cuisine": "Chinese",
-        "time": "25 minutes",
+        "time": "25 min",
         "ingredients": [
             {
                 "name": "Noodles",
@@ -512,7 +512,7 @@
         "servings": 4,
         "difficulty": "Medium",
         "cuisine": "Vietnamese",
-        "time": "60 minutes",
+        "time": "60 min",
         "ingredients": [
             {
                 "name": "Beef",
@@ -564,7 +564,7 @@
         "servings": 4,
         "difficulty": "Medium",
         "cuisine": "Indian",
-        "time": "45 minutes",
+        "time": "45 min",
         "ingredients": [
             {
                 "name": "Chicken",
@@ -611,7 +611,7 @@
         "servings": 3,
         "difficulty": "Medium",
         "cuisine": "Indian",
-        "time": "30 minutes",
+        "time": "30 min",
         "ingredients": [
             {
                 "name": "Rice",
@@ -654,7 +654,7 @@
         "servings": 2,
         "difficulty": "Easy",
         "cuisine": "Vietnamese",
-        "time": "20 minutes",
+        "time": "20 min",
         "ingredients": [
             {
                 "name": "Baguette",
@@ -696,7 +696,7 @@
         "servings": 4,
         "difficulty": "Hard",
         "cuisine": "Chinese",
-        "time": "60 minutes",
+        "time": "60 min",
         "ingredients": [
             {
                 "name": "Beef",
@@ -739,7 +739,7 @@
         "servings": 4,
         "difficulty": "Medium",
         "cuisine": "Thai",
-        "time": "30 minutes",
+        "time": "30 min",
         "ingredients": [
             {
                 "name": "Seafood",
@@ -787,7 +787,7 @@
         "servings": 3,
         "difficulty": "Medium",
         "cuisine": "Malaysian",
-        "time": "25 minutes",
+        "time": "25 min",
         "ingredients": [
             {
                 "name": "Beef",
@@ -831,7 +831,7 @@
         "servings": 4,
         "difficulty": "Medium",
         "cuisine": "Indian",
-        "time": "45 minutes",
+        "time": "45 min",
         "ingredients": [
             {
                 "name": "Red kidney beans",
@@ -875,7 +875,7 @@
         "servings": 3,
         "difficulty": "Medium",
         "cuisine": "Thai",
-        "time": "35 minutes",
+        "time": "35 min",
         "ingredients": [
             {
                 "name": "Coconut milk",
@@ -918,7 +918,7 @@
         "servings": 4,
         "difficulty": "Medium",
         "cuisine": "Thai",
-        "time": "30 minutes",
+        "time": "30 min",
         "ingredients": [
             {
                 "name": "Chicken",
@@ -966,7 +966,7 @@
         "servings": 3,
         "difficulty": "Medium",
         "cuisine": "Chinese",
-        "time": "20 minutes",
+        "time": "20 min",
         "ingredients": [
             {
                 "name": "Mustard greens",
@@ -1005,7 +1005,7 @@
         "servings": 2,
         "difficulty": "Hard",
         "cuisine": "Korean",
-        "time": "40 minutes",
+        "time": "40 min",
         "ingredients": [
             {
                 "name": "Chicken feet",
@@ -1049,7 +1049,7 @@
         "servings": 4,
         "difficulty": "Medium",
         "cuisine": "Indian",
-        "time": "50 minutes",
+        "time": "50 min",
         "ingredients": [
             {
                 "name": "Chicken",
