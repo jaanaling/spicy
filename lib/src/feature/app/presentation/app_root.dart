@@ -9,18 +9,19 @@ class AppRoot extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => RecipeBloc()..add(LoadRecipes()),
+    return CupertinoApp.router(
+      routerConfig: buildGoRouter,
+      debugShowCheckedModeBanner: false,
+      theme: const CupertinoThemeData(
+        brightness: Brightness.light,
+        primaryColor: const Color(0xFF9A0A10),
+        textTheme: CupertinoTextThemeData(
+          textStyle: TextStyle(
+            fontFamily: 'poppins',
+            fontWeight: FontWeight.w400,
+            fontSize: 21,
+          ),
         ),
-        BlocProvider(
-          create: (context) => ChallengeBloc()..add(LoadChallengesEvent()),
-        ),
-      ],
-      child: CupertinoApp.router(
-        routerConfig: buildGoRouter,
-        debugShowCheckedModeBanner: false,
       ),
     );
   }

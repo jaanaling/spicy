@@ -10,7 +10,7 @@ void main() async {
     WidgetsFlutterBinding.ensureInitialized();
     setupDependencyInjection();
 
-    await AmplitudeUtil.initializeAmplitude('your_amplitude_key');
+    // await AmplitudeUtil.initializeAmplitude('your_amplitude_key');
 
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,

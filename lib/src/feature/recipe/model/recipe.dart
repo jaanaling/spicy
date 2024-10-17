@@ -94,7 +94,7 @@ class RecipeModel extends Equatable {
       'servings': servings,
       'difficulty': difficulty,
       'cuisine': cuisine,
-      'time': time, // добавлено поле time
+      'time': time,
       'ingredients': ingredients.map((x) => x.toMap()).toList(),
       'steps': steps,
       'calories': calories,
@@ -113,17 +113,18 @@ class RecipeModel extends Equatable {
       servings: map['servings'] as int,
       difficulty: map['difficulty'] as String,
       cuisine: map['cuisine'] as String,
-      time: map['time'] as String, // добавлено поле time
+      time: map['time'] as String,
       ingredients: List<Ingredient>.from(
-        (map['ingredients'] as List<dynamic>)
-            .map((x) => Ingredient.fromMap(x as Map<String, dynamic>)),
+        (map['ingredients'] as List<dynamic>).map<Ingredient>(
+          (x) => Ingredient.fromMap(x as Map<String, dynamic>),
+        ),
       ),
-      steps: List<String>.from(map['steps'] as List<String>),
+      steps: List<String>.from(map['steps'] as List<dynamic>),
       calories: map['calories'] as double,
       proteins: map['proteins'] as double,
       fats: map['fats'] as double,
       carbs: map['carbs'] as double,
-      isFavorite: map['isFavorite'] as bool?,
+      isFavorite: map['isFavorite'] != null ? map['isFavorite'] as bool : null,
     );
   }
 

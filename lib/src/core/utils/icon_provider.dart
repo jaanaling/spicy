@@ -20,6 +20,8 @@ enum IconProvider {
   south_korea(imageName: 'south-korea.svg'),
   thailand(imageName: 'thailand.svg'),
   vietnam(imageName: 'vietnam.svg'),
+  dish_card(imageName: 'dish_card.svg'),
+  logo(imageName: 'logo.png'),
   calories(imageName: 'calories.svg'),
 
   unknown(imageName: '');
