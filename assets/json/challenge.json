@@ -1,0 +1,39 @@
+ [
+      {
+        "name": "Pakhala",
+        "spiciness": 5,
+        "cuisine": "Indian",
+        "imageUrl": "assets/images/Group 22.png",
+        "isFavorite": false
+      },
+      {
+        "name": "Laksa with Chili",
+        "spiciness": 4,
+        "cuisine": "Malaysian",
+        "imageUrl": "assets/images/Group 23.png",
+        "isFavorite": false
+      },
+      {
+        "name": "Sichuan Crispy Chicken",
+        "spiciness": 5,
+        "cuisine": "Chinese",
+        "imageUrl": "assets/images/Group 24.png",
+        "isFavorite": false
+      },
+      {
+        "name": "Dakbal in Chili Sauce",
+        "spiciness": 5,
+        "cuisine": "Korean",
+        "imageUrl": "assets/images/Group 25.png",
+        "isFavorite": false
+      },
+      {
+        "name": "Chicken in Spicy Sauce",
+        "spiciness": 5,
+        "cuisine": "Indian",
+        "imageUrl": "assets/images/Group 26.png",
+        "isFavorite": false
+      }
+    ]
+  
+  

@@ -1,0 +1,610 @@
+[
+    {
+        "name": "Tom Yum Kung",
+        "imagePath": "assets/images/tom yum.png",
+        "spicinessLevel": 4,
+        "servings": 4,
+        "difficulty": "Medium",
+        "cuisine": "Thai",
+        "ingredients": [
+            "Shrimp",
+            "Lemongrass",
+            "Galangal",
+            "Kaffir lime leaves",
+            "Chili peppers",
+            "Fish sauce",
+            "Lime juice"
+        ],
+        "steps": [
+            "Boil water with lemongrass, galangal, and lime leaves.",
+            "Add shrimp and cook until done.",
+            "Season with fish sauce, lime juice, and chili peppers."
+        ],
+        "calories": 150.0,
+        "proteins": 12.0,
+        "fats": 5.0,
+        "carbs": 15.0
+    },
+    {
+        "name": "Kimchi",
+        "imagePath": "assets/images/kimchi.png",
+        "spicinessLevel": 5,
+        "servings": 10,
+        "difficulty": "Hard",
+        "cuisine": "Korean",
+        "ingredients": [
+            "Napa cabbage",
+            "Chili powder",
+            "Garlic",
+            "Ginger",
+            "Fish sauce",
+            "Scallions"
+        ],
+        "steps": [
+            "Salt the cabbage and let it sit for a few hours.",
+            "Make the chili paste with garlic, ginger, and fish sauce.",
+            "Mix the cabbage with the chili paste and let it ferment."
+        ],
+        "calories": 50.0,
+        "proteins": 2.0,
+        "fats": 0.5,
+        "carbs": 10.0
+    },
+    {
+        "name": "Papaya Salad",
+        "imagePath": "assets/images/Papaya salad.png",
+        "spicinessLevel": 3,
+        "servings": 2,
+        "difficulty": "Easy",
+        "cuisine": "Thai",
+        "ingredients": [
+            "Papaya",
+            "Chili peppers",
+            "Lime juice",
+            "Fish sauce",
+            "Garlic",
+            "Peanuts"
+        ],
+        "steps": [
+            "Shred the papaya.",
+            "Mix chili, lime juice, and fish sauce.",
+            "Toss the papaya with the sauce and garnish with peanuts."
+        ],
+        "calories": 120.0,
+        "proteins": 2.0,
+        "fats": 3.0,
+        "carbs": 20.0
+    },
+    {
+        "name": "Cabbage with Chili",
+        "imagePath": "assets/images/Cabbage with pepper.png",
+        "spicinessLevel": 2,
+        "servings": 4,
+        "difficulty": "Easy",
+        "cuisine": "Vietnamese",
+        "ingredients": [
+            "Cabbage",
+            "Chili sauce",
+            "Garlic",
+            "Fish sauce"
+        ],
+        "steps": [
+            "Shred the cabbage.",
+            "Stir-fry garlic and add chili sauce.",
+            "Mix cabbage with the sauce."
+        ],
+        "calories": 80.0,
+        "proteins": 2.0,
+        "fats": 2.0,
+        "carbs": 10.0
+    },
+    {
+        "name": "Tofu and Seaweed Soup",
+        "imagePath": "assets/images/Soup with tofu and seaweed.png",
+        "spicinessLevel": 1,
+        "servings": 3,
+        "difficulty": "Medium",
+        "cuisine": "Chinese",
+        "ingredients": [
+            "Tofu",
+            "Seaweed",
+            "Chili flakes",
+            "Soy sauce",
+            "Ginger"
+        ],
+        "steps": [
+            "Boil water with ginger and chili flakes.",
+            "Add tofu and seaweed.",
+            "Season with soy sauce."
+        ],
+        "calories": 90.0,
+        "proteins": 6.0,
+        "fats": 3.0,
+        "carbs": 8.0
+    },
+    {
+        "name": "Pad Thai",
+        "imagePath": "assets/images/Pad Thai.png",
+        "spicinessLevel": 3,
+        "servings": 4,
+        "difficulty": "Medium",
+        "cuisine": "Thai",
+        "ingredients": [
+            "Rice noodles",
+            "Tofu",
+            "Shrimp",
+            "Chili sauce",
+            "Peanuts",
+            "Fish sauce",
+            "Bean sprouts"
+        ],
+        "steps": [
+            "Cook noodles.",
+            "Stir-fry tofu and shrimp with chili sauce.",
+            "Mix noodles with the sauce and garnish with peanuts and sprouts."
+        ],
+        "calories": 350.0,
+        "proteins": 15.0,
+        "fats": 12.0,
+        "carbs": 45.0
+    },
+    {
+        "name": "Chili Chicken",
+        "imagePath": "assets/images/Chili-chicken.png",
+        "spicinessLevel": 5,
+        "servings": 3,
+        "difficulty": "Medium",
+        "cuisine": "Indian",
+        "ingredients": [
+            "Chicken",
+            "Chili powder",
+            "Garlic",
+            "Ginger",
+            "Onions",
+            "Soy sauce"
+        ],
+        "steps": [
+            "Marinate chicken with chili and spices.",
+            "Stir-fry onions and garlic.",
+            "Add chicken and cook until done."
+        ],
+        "calories": 300.0,
+        "proteins": 25.0,
+        "fats": 10.0,
+        "carbs": 15.0
+    },
+    {
+        "name": "Cucumber Salad with Chili",
+        "imagePath": "assets/images/Cucumber and pepper salad.png",
+        "spicinessLevel": 2,
+        "servings": 2,
+        "difficulty": "Easy",
+        "cuisine": "Vietnamese",
+        "ingredients": [
+            "Cucumbers",
+            "Chili sauce",
+            "Garlic",
+            "Fish sauce"
+        ],
+        "steps": [
+            "Slice cucumbers.",
+            "Mix chili sauce with garlic and fish sauce.",
+            "Toss cucumbers with the sauce."
+        ],
+        "calories": 60.0,
+        "proteins": 1.0,
+        "fats": 2.0,
+        "carbs": 10.0
+    },
+    {
+        "name": "Chicken in Sweet-Sour Sauce",
+        "imagePath": "assets/images/Chicken in hot and sour sauce.png",
+        "spicinessLevel": 3,
+        "servings": 3,
+        "difficulty": "Medium",
+        "cuisine": "Chinese",
+        "ingredients": [
+            "Chicken",
+            "Chili",
+            "Vinegar",
+            "Garlic",
+            "Onions",
+            "Sugar"
+        ],
+        "steps": [
+            "Marinate chicken with vinegar and sugar.",
+            "Stir-fry onions, garlic, and chili.",
+            "Add chicken and cook until done."
+        ],
+        "calories": 280.0,
+        "proteins": 22.0,
+        "fats": 8.0,
+        "carbs": 25.0
+    },
+    {
+        "name": "Mapo Tofu",
+        "imagePath": "assets/images/Mapo Tofu.png",
+        "spicinessLevel": 5,
+        "servings": 4,
+        "difficulty": "Hard",
+        "cuisine": "Chinese",
+        "ingredients": [
+            "Tofu",
+            "Minced pork",
+            "Chili paste",
+            "Garlic",
+            "Soy sauce",
+            "Sichuan peppercorn"
+        ],
+        "steps": [
+            "Stir-fry garlic and minced pork.",
+            "Add tofu and chili paste.",
+            "Simmer with soy sauce and peppercorn."
+        ],
+        "calories": 250.0,
+        "proteins": 14.0,
+        "fats": 16.0,
+        "carbs": 10.0
+    },
+    {
+        "name": "Noodles with Chili",
+        "imagePath": "assets/images/Chili noodles.png",
+        "spicinessLevel": 4,
+        "servings": 3,
+        "difficulty": "Medium",
+        "cuisine": "Chinese",
+        "ingredients": [
+            "Noodles",
+            "Chili sauce",
+            "Garlic",
+            "Soy sauce",
+            "Ginger"
+        ],
+        "steps": [
+            "Cook noodles.",
+            "Stir-fry garlic and ginger.",
+            "Toss noodles with chili sauce and soy sauce."
+        ],
+        "calories": 320.0,
+        "proteins": 8.0,
+        "fats": 10.0,
+        "carbs": 50.0
+    },
+    {
+        "name": "Beef Pho",
+        "imagePath": "assets/images/Pho soup with beef.png",
+        "spicinessLevel": 3,
+        "servings": 4,
+        "difficulty": "Medium",
+        "cuisine": "Vietnamese",
+        "ingredients": [
+            "Beef",
+            "Rice noodles",
+            "Chili",
+            "Garlic",
+            "Fish sauce",
+            "Bean sprouts",
+            "Basil"
+        ],
+        "steps": [
+            "Boil beef with garlic and fish sauce.",
+            "Cook noodles.",
+            "Serve beef and noodles with chili and basil."
+        ],
+        "calories": 350.0,
+        "proteins": 20.0,
+        "fats": 10.0,
+        "carbs": 40.0
+    },
+    {
+        "name": "Chicken Curry",
+        "imagePath": "assets/images/Chicken in curry sauce.png",
+        "spicinessLevel": 4,
+        "servings": 4,
+        "difficulty": "Medium",
+        "cuisine": "Indian",
+        "ingredients": [
+            "Chicken",
+            "Chili powder",
+            "Curry leaves",
+            "Coconut milk",
+            "Garlic",
+            "Onions"
+        ],
+        "steps": [
+            "Stir-fry onions and garlic.",
+            "Add chicken with chili powder and curry leaves.",
+            "Simmer with coconut milk."
+        ],
+        "calories": 400.0,
+        "proteins": 25.0,
+        "fats": 20.0,
+        "carbs": 30.0
+    },
+    {
+        "name": "Rice with Curry",
+        "imagePath": "assets/images/Rice with curry.png",
+        "spicinessLevel": 4,
+        "servings": 3,
+        "difficulty": "Medium",
+        "cuisine": "Indian",
+        "ingredients": [
+            "Rice",
+            "Curry powder",
+            "Garlic",
+            "Onions",
+            "Chili peppers"
+        ],
+        "steps": [
+            "Cook rice.",
+            "Stir-fry onions and garlic with curry powder.",
+            "Mix rice with curry sauce."
+        ],
+        "calories": 300.0,
+        "proteins": 6.0,
+        "fats": 5.0,
+        "carbs": 55.0
+    },
+    {
+        "name": "Banh Mi with Chili",
+        "imagePath": "assets/images/Banh Mi with chili.png",
+        "spicinessLevel": 3,
+        "servings": 2,
+        "difficulty": "Easy",
+        "cuisine": "Vietnamese",
+        "ingredients": [
+            "Baguette",
+            "Pickled vegetables",
+            "Chili sauce",
+            "Cilantro",
+            "Pork"
+        ],
+        "steps": [
+            "Prepare pickled vegetables.",
+            "Spread chili sauce on baguette.",
+            "Fill with pork, vegetables, and cilantro."
+        ],
+        "calories": 400.0,
+        "proteins": 18.0,
+        "fats": 12.0,
+        "carbs": 55.0
+    },
+    {
+        "name": "Chinese Hotpot (Huoguo)",
+        "imagePath": "assets/images/Chinese hot pot.png",
+        "spicinessLevel": 5,
+        "servings": 4,
+        "difficulty": "Hard",
+        "cuisine": "Chinese",
+        "ingredients": [
+            "Beef",
+            "Vegetables",
+            "Chili oil",
+            "Sichuan pepper",
+            "Garlic"
+        ],
+        "steps": [
+            "Boil water with chili oil and Sichuan pepper.",
+            "Cook meat and vegetables in the broth."
+        ],
+        "calories": 500.0,
+        "proteins": 30.0,
+        "fats": 25.0,
+        "carbs": 40.0
+    },
+    {
+        "name": "Tom Sum Soup",
+        "imagePath": "assets/images/Soup Tom Sum.png",
+        "spicinessLevel": 4,
+        "servings": 4,
+        "difficulty": "Medium",
+        "cuisine": "Thai",
+        "ingredients": [
+            "Seafood",
+            "Chili",
+            "Lemongrass",
+            "Lime",
+            "Garlic",
+            "Fish sauce"
+        ],
+        "steps": [
+            "Boil water with lemongrass and lime.",
+            "Add seafood and chili.",
+            "Season with fish sauce."
+        ],
+        "calories": 180.0,
+        "proteins": 15.0,
+        "fats": 4.0,
+        "carbs": 20.0
+    },
+    {
+        "name": "Beef with Chili",
+        "imagePath": "assets/images/Beef with chili pepper.png",
+        "spicinessLevel": 5,
+        "servings": 3,
+        "difficulty": "Medium",
+        "cuisine": "Malaysian",
+        "ingredients": [
+            "Beef",
+            "Chili paste",
+            "Garlic",
+            "Onions",
+            "Soy sauce"
+        ],
+        "steps": [
+            "Stir-fry beef with garlic and onions.",
+            "Add chili paste and soy sauce.",
+            "Cook until beef is done."
+        ],
+        "calories": 350.0,
+        "proteins": 25.0,
+        "fats": 20.0,
+        "carbs": 10.0
+    },
+    {
+        "name": "Rajma",
+        "imagePath": "assets/images/Rajma.png",
+        "spicinessLevel": 4,
+        "servings": 4,
+        "difficulty": "Medium",
+        "cuisine": "Indian",
+        "ingredients": [
+            "Red kidney beans",
+            "Chili powder",
+            "Garlic",
+            "Onions",
+            "Tomatoes"
+        ],
+        "steps": [
+            "Cook kidney beans.",
+            "Stir-fry onions, garlic, and chili powder.",
+            "Mix with beans and tomatoes."
+        ],
+        "calories": 220.0,
+        "proteins": 12.0,
+        "fats": 4.0,
+        "carbs": 40.0
+    },
+    {
+        "name": "Panang Curry",
+        "imagePath": "assets/images/Rectangle.png",
+        "spicinessLevel": 4,
+        "servings": 3,
+        "difficulty": "Medium",
+        "cuisine": "Thai",
+        "ingredients": [
+            "Coconut milk",
+            "Chicken",
+            "Panang curry paste",
+            "Chili",
+            "Basil"
+        ],
+        "steps": [
+            "Boil coconut milk with curry paste.",
+            "Add chicken and chili.",
+            "Garnish with basil."
+        ],
+        "calories": 400.0,
+        "proteins": 20.0,
+        "fats": 30.0,
+        "carbs": 10.0
+    },
+    {
+        "name": "Tom Kha Gai",
+        "imagePath": "assets/images/Tom Kha Gai.png",
+        "spicinessLevel": 3,
+        "servings": 4,
+        "difficulty": "Medium",
+        "cuisine": "Thai",
+        "ingredients": [
+            "Chicken",
+            "Coconut milk",
+            "Chili",
+            "Galangal",
+            "Lemongrass",
+            "Lime"
+        ],
+        "steps": [
+            "Boil coconut milk with galangal and lemongrass.",
+            "Add chicken and chili.",
+            "Season with lime."
+        ],
+        "calories": 300.0,
+        "proteins": 18.0,
+        "fats": 20.0,
+        "carbs": 10.0
+    },
+    {
+        "name": "Sichuan Mustard",
+        "imagePath": "assets/images/Sichuan mustard.png",
+        "spicinessLevel": 5,
+        "servings": 3,
+        "difficulty": "Medium",
+        "cuisine": "Chinese",
+        "ingredients": [
+            "Mustard greens",
+            "Chili oil",
+            "Garlic",
+            "Sichuan pepper"
+        ],
+        "steps": [
+            "Boil mustard greens.",
+            "Toss with garlic, chili oil, and Sichuan pepper."
+        ],
+        "calories": 150.0,
+        "proteins": 4.0,
+        "fats": 8.0,
+        "carbs": 15.0
+    },
+    {
+        "name": "Dakbal",
+        "imagePath": "assets/images/Dakbal in Chili sauce.png",
+        "spicinessLevel": 5,
+        "servings": 2,
+        "difficulty": "Hard",
+        "cuisine": "Korean",
+        "ingredients": [
+            "Chicken feet",
+            "Chili paste",
+            "Garlic",
+            "Soy sauce",
+            "Sugar"
+        ],
+        "steps": [
+            "Boil chicken feet.",
+            "Stir-fry with chili paste, garlic, and soy sauce.",
+            "Simmer with sugar."
+        ],
+        "calories": 250.0,
+        "proteins": 20.0,
+        "fats": 10.0,
+        "carbs": 10.0
+    },
+    {
+        "name": "Tandoori Chicken",
+        "imagePath": "assets/images/Chicken Tandoori.png",
+        "spicinessLevel": 4,
+        "servings": 4,
+        "difficulty": "Medium",
+        "cuisine": "Indian",
+        "ingredients": [
+            "Chicken",
+            "Yogurt",
+            "Chili powder",
+            "Garlic",
+            "Ginger",
+            "Tandoori masala"
+        ],
+        "steps": [
+            "Marinate chicken in yogurt, chili powder, and spices.",
+            "Roast in oven until cooked through."
+        ],
+        "calories": 300.0,
+        "proteins": 25.0,
+        "fats": 10.0,
+        "carbs": 5.0
+    },
+    {
+        "name": "Spicy Fish Curry",
+        "imagePath": "assets/images/Spicy fish curry.png",
+        "spicinessLevel": 4,
+        "servings": 3,
+        "difficulty": "Medium",
+        "cuisine": "Indian",
+        "ingredients": [
+            "Fish",
+            "Curry powder",
+            "Chili",
+            "Garlic",
+            "Coconut milk"
+        ],
+        "steps": [
+            "Marinate fish in curry powder and chili.",
+            "Cook fish in coconut milk until tender."
+        ],
+        "calories": 280.0,
+        "proteins": 20.0,
+        "fats": 15.0,
+        "carbs": 10.0
+    }
+]
