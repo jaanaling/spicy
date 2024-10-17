@@ -1,4 +1,5 @@
 import 'package:application/src/core/dependency_injection.dart';
+import 'package:application/src/core/utils/log.dart';
 import 'package:application/src/feature/recipe/model/recipe.dart';
 import 'package:application/src/feature/recipe/repository/repository.dart';
 import 'package:bloc/bloc.dart';
@@ -24,8 +25,10 @@ class RecipeBloc extends Bloc<RecipeEvent, RecipeState> {
     emit(RecipeLoading());
     try {
       final recipes = await repository.loadRecipes();
+      logger.d(recipes);
       emit(RecipeLoaded(recipes));
     } catch (e) {
+      print(e);
       emit(RecipeError('Failed to load recipes'));
     }
   }
