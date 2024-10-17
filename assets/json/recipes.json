@@ -6,19 +6,45 @@
         "servings": 4,
         "difficulty": "Medium",
         "cuisine": "Thai",
+        "time": "30 minutes",
         "ingredients": [
-            "Shrimp",
-            "Lemongrass",
-            "Galangal",
-            "Kaffir lime leaves",
-            "Chili peppers",
-            "Fish sauce",
-            "Lime juice"
+            {
+                "name": "Shrimp",
+                "type": "Protein"
+            },
+            {
+                "name": "Lemongrass",
+                "type": "Herb"
+            },
+            {
+                "name": "Galangal",
+                "type": "Root"
+            },
+            {
+                "name": "Kaffir lime leaves",
+                "type": "Herb"
+            },
+            {
+                "name": "Chili peppers",
+                "type": "Vegetable"
+            },
+            {
+                "name": "Fish sauce",
+                "type": "Condiment"
+            },
+            {
+                "name": "Lime juice",
+                "type": "Liquid"
+            }
         ],
         "steps": [
-            "Boil water with lemongrass, galangal, and lime leaves.",
-            "Add shrimp and cook until done.",
-            "Season with fish sauce, lime juice, and chili peppers."
+            "In a pot, bring water to a boil.",
+            "Add lemongrass, galangal, and kaffir lime leaves to the pot.",
+            "Simmer for about 5 minutes to infuse the flavors.",
+            "Add the shrimp and cook until they turn pink.",
+            "Stir in fish sauce and lime juice to taste.",
+            "Add sliced chili peppers for heat.",
+            "Serve hot, garnished with fresh herbs."
         ],
         "calories": 150.0,
         "proteins": 12.0,
@@ -32,18 +58,41 @@
         "servings": 10,
         "difficulty": "Hard",
         "cuisine": "Korean",
+        "time": "1 day (fermentation)",
         "ingredients": [
-            "Napa cabbage",
-            "Chili powder",
-            "Garlic",
-            "Ginger",
-            "Fish sauce",
-            "Scallions"
+            {
+                "name": "Napa cabbage",
+                "type": "Vegetable"
+            },
+            {
+                "name": "Chili powder",
+                "type": "Spice"
+            },
+            {
+                "name": "Garlic",
+                "type": "Vegetable"
+            },
+            {
+                "name": "Ginger",
+                "type": "Root"
+            },
+            {
+                "name": "Fish sauce",
+                "type": "Condiment"
+            },
+            {
+                "name": "Scallions",
+                "type": "Vegetable"
+            }
         ],
         "steps": [
-            "Salt the cabbage and let it sit for a few hours.",
-            "Make the chili paste with garlic, ginger, and fish sauce.",
-            "Mix the cabbage with the chili paste and let it ferment."
+            "Cut Napa cabbage into quarters and remove the core.",
+            "Salt the cabbage and let it sit for 2 hours.",
+            "Rinse and drain the cabbage well.",
+            "In a bowl, mix chili powder, minced garlic, ginger, fish sauce, and scallions.",
+            "Coat the cabbage with the spice mixture evenly.",
+            "Pack the cabbage tightly into a jar and seal it.",
+            "Let it ferment at room temperature for 24 hours before refrigerating."
         ],
         "calories": 50.0,
         "proteins": 2.0,
@@ -57,18 +106,40 @@
         "servings": 2,
         "difficulty": "Easy",
         "cuisine": "Thai",
+        "time": "15 minutes",
         "ingredients": [
-            "Papaya",
-            "Chili peppers",
-            "Lime juice",
-            "Fish sauce",
-            "Garlic",
-            "Peanuts"
+            {
+                "name": "Papaya",
+                "type": "Fruit"
+            },
+            {
+                "name": "Chili peppers",
+                "type": "Vegetable"
+            },
+            {
+                "name": "Lime juice",
+                "type": "Liquid"
+            },
+            {
+                "name": "Fish sauce",
+                "type": "Condiment"
+            },
+            {
+                "name": "Garlic",
+                "type": "Vegetable"
+            },
+            {
+                "name": "Peanuts",
+                "type": "Nut"
+            }
         ],
         "steps": [
-            "Shred the papaya.",
-            "Mix chili, lime juice, and fish sauce.",
-            "Toss the papaya with the sauce and garnish with peanuts."
+            "Peel and shred the papaya into thin strips.",
+            "Chop chili peppers and garlic finely.",
+            "In a bowl, combine shredded papaya, chili peppers, and garlic.",
+            "Add lime juice and fish sauce, mixing well.",
+            "Top with crushed peanuts before serving.",
+            "Serve chilled as a refreshing salad."
         ],
         "calories": 120.0,
         "proteins": 2.0,
@@ -82,16 +153,32 @@
         "servings": 4,
         "difficulty": "Easy",
         "cuisine": "Vietnamese",
+        "time": "20 minutes",
         "ingredients": [
-            "Cabbage",
-            "Chili sauce",
-            "Garlic",
-            "Fish sauce"
+            {
+                "name": "Cabbage",
+                "type": "Vegetable"
+            },
+            {
+                "name": "Chili sauce",
+                "type": "Condiment"
+            },
+            {
+                "name": "Garlic",
+                "type": "Vegetable"
+            },
+            {
+                "name": "Fish sauce",
+                "type": "Condiment"
+            }
         ],
         "steps": [
-            "Shred the cabbage.",
-            "Stir-fry garlic and add chili sauce.",
-            "Mix cabbage with the sauce."
+            "Slice cabbage into thin strips.",
+            "Heat oil in a pan and add minced garlic.",
+            "Add cabbage to the pan and stir-fry for a few minutes.",
+            "Pour in chili sauce and fish sauce, mixing well.",
+            "Cook until the cabbage is tender but still crisp.",
+            "Serve hot as a side dish."
         ],
         "calories": 80.0,
         "proteins": 2.0,
@@ -105,17 +192,37 @@
         "servings": 3,
         "difficulty": "Medium",
         "cuisine": "Chinese",
+        "time": "25 minutes",
         "ingredients": [
-            "Tofu",
-            "Seaweed",
-            "Chili flakes",
-            "Soy sauce",
-            "Ginger"
+            {
+                "name": "Tofu",
+                "type": "Protein"
+            },
+            {
+                "name": "Seaweed",
+                "type": "Vegetable"
+            },
+            {
+                "name": "Chili flakes",
+                "type": "Spice"
+            },
+            {
+                "name": "Soy sauce",
+                "type": "Condiment"
+            },
+            {
+                "name": "Ginger",
+                "type": "Root"
+            }
         ],
         "steps": [
-            "Boil water with ginger and chili flakes.",
-            "Add tofu and seaweed.",
-            "Season with soy sauce."
+            "Bring water to a boil in a pot.",
+            "Add seaweed and let it cook for a few minutes.",
+            "Cut tofu into cubes and add to the pot.",
+            "Stir in chili flakes and soy sauce for flavor.",
+            "Add sliced ginger for extra aroma.",
+            "Simmer for another 5 minutes.",
+            "Serve hot as a comforting soup."
         ],
         "calories": 90.0,
         "proteins": 6.0,
@@ -129,19 +236,45 @@
         "servings": 4,
         "difficulty": "Medium",
         "cuisine": "Thai",
+        "time": "30 minutes",
         "ingredients": [
-            "Rice noodles",
-            "Tofu",
-            "Shrimp",
-            "Chili sauce",
-            "Peanuts",
-            "Fish sauce",
-            "Bean sprouts"
+            {
+                "name": "Rice noodles",
+                "type": "Grain"
+            },
+            {
+                "name": "Tofu",
+                "type": "Protein"
+            },
+            {
+                "name": "Shrimp",
+                "type": "Protein"
+            },
+            {
+                "name": "Chili sauce",
+                "type": "Condiment"
+            },
+            {
+                "name": "Peanuts",
+                "type": "Nut"
+            },
+            {
+                "name": "Fish sauce",
+                "type": "Condiment"
+            },
+            {
+                "name": "Bean sprouts",
+                "type": "Vegetable"
+            }
         ],
         "steps": [
-            "Cook noodles.",
-            "Stir-fry tofu and shrimp with chili sauce.",
-            "Mix noodles with the sauce and garnish with peanuts and sprouts."
+            "Soak rice noodles in warm water until soft.",
+            "In a pan, heat oil and add tofu, frying until golden.",
+            "Add shrimp to the pan and cook until pink.",
+            "Push ingredients to the side and crack an egg, scrambling it.",
+            "Add soaked noodles, chili sauce, and fish sauce, tossing to combine.",
+            "Top with crushed peanuts and bean sprouts.",
+            "Serve immediately with lime wedges."
         ],
         "calories": 350.0,
         "proteins": 15.0,
@@ -155,18 +288,40 @@
         "servings": 3,
         "difficulty": "Medium",
         "cuisine": "Indian",
+        "time": "40 minutes",
         "ingredients": [
-            "Chicken",
-            "Chili powder",
-            "Garlic",
-            "Ginger",
-            "Onions",
-            "Soy sauce"
+            {
+                "name": "Chicken",
+                "type": "Protein"
+            },
+            {
+                "name": "Chili powder",
+                "type": "Spice"
+            },
+            {
+                "name": "Garlic",
+                "type": "Vegetable"
+            },
+            {
+                "name": "Ginger",
+                "type": "Root"
+            },
+            {
+                "name": "Onions",
+                "type": "Vegetable"
+            },
+            {
+                "name": "Soy sauce",
+                "type": "Condiment"
+            }
         ],
         "steps": [
-            "Marinate chicken with chili and spices.",
-            "Stir-fry onions and garlic.",
-            "Add chicken and cook until done."
+            "Cut chicken into bite-sized pieces and marinate with soy sauce.",
+            "Heat oil in a pan and add chopped garlic and ginger.",
+            "Add chicken to the pan and cook until browned.",
+            "Stir in chili powder and chopped onions.",
+            "Cook until the onions are soft and the chicken is cooked through.",
+            "Serve hot with rice."
         ],
         "calories": 300.0,
         "proteins": 25.0,
@@ -180,16 +335,31 @@
         "servings": 2,
         "difficulty": "Easy",
         "cuisine": "Vietnamese",
+        "time": "10 minutes",
         "ingredients": [
-            "Cucumbers",
-            "Chili sauce",
-            "Garlic",
-            "Fish sauce"
+            {
+                "name": "Cucumbers",
+                "type": "Vegetable"
+            },
+            {
+                "name": "Chili sauce",
+                "type": "Condiment"
+            },
+            {
+                "name": "Garlic",
+                "type": "Vegetable"
+            },
+            {
+                "name": "Fish sauce",
+                "type": "Condiment"
+            }
         ],
         "steps": [
-            "Slice cucumbers.",
-            "Mix chili sauce with garlic and fish sauce.",
-            "Toss cucumbers with the sauce."
+            "Slice cucumbers thinly.",
+            "In a bowl, mix sliced cucumbers with chili sauce.",
+            "Add minced garlic and fish sauce, tossing to combine.",
+            "Chill in the refrigerator for a few minutes before serving.",
+            "Serve as a refreshing side dish."
         ],
         "calories": 60.0,
         "proteins": 1.0,
@@ -203,18 +373,41 @@
         "servings": 3,
         "difficulty": "Medium",
         "cuisine": "Chinese",
+        "time": "35 minutes",
         "ingredients": [
-            "Chicken",
-            "Chili",
-            "Vinegar",
-            "Garlic",
-            "Onions",
-            "Sugar"
+            {
+                "name": "Chicken",
+                "type": "Protein"
+            },
+            {
+                "name": "Chili",
+                "type": "Vegetable"
+            },
+            {
+                "name": "Vinegar",
+                "type": "Liquid"
+            },
+            {
+                "name": "Garlic",
+                "type": "Vegetable"
+            },
+            {
+                "name": "Onions",
+                "type": "Vegetable"
+            },
+            {
+                "name": "Sugar",
+                "type": "Sweetener"
+            }
         ],
         "steps": [
-            "Marinate chicken with vinegar and sugar.",
-            "Stir-fry onions, garlic, and chili.",
-            "Add chicken and cook until done."
+            "Cut chicken into strips and season with salt and pepper.",
+            "In a pan, heat oil and fry the chicken until golden.",
+            "Remove chicken and set aside.",
+            "In the same pan, add chopped garlic, onions, and chili.",
+            "Stir in vinegar, sugar, and return the chicken to the pan.",
+            "Cook until the sauce thickens and chicken is coated.",
+            "Serve with rice."
         ],
         "calories": 280.0,
         "proteins": 22.0,
@@ -228,18 +421,41 @@
         "servings": 4,
         "difficulty": "Hard",
         "cuisine": "Chinese",
+        "time": "40 minutes",
         "ingredients": [
-            "Tofu",
-            "Minced pork",
-            "Chili paste",
-            "Garlic",
-            "Soy sauce",
-            "Sichuan peppercorn"
+            {
+                "name": "Tofu",
+                "type": "Protein"
+            },
+            {
+                "name": "Minced pork",
+                "type": "Protein"
+            },
+            {
+                "name": "Chili paste",
+                "type": "Condiment"
+            },
+            {
+                "name": "Garlic",
+                "type": "Vegetable"
+            },
+            {
+                "name": "Soy sauce",
+                "type": "Condiment"
+            },
+            {
+                "name": "Sichuan peppercorn",
+                "type": "Spice"
+            }
         ],
         "steps": [
-            "Stir-fry garlic and minced pork.",
-            "Add tofu and chili paste.",
-            "Simmer with soy sauce and peppercorn."
+            "In a pan, heat oil and sauté minced garlic.",
+            "Add minced pork and cook until browned.",
+            "Stir in chili paste and soy sauce, cooking for a minute.",
+            "Add cubed tofu and gently mix to avoid breaking.",
+            "Sprinkle Sichuan peppercorn for a numbing flavor.",
+            "Simmer for 5-10 minutes, adding water if needed.",
+            "Serve hot with rice."
         ],
         "calories": 250.0,
         "proteins": 14.0,
@@ -253,17 +469,36 @@
         "servings": 3,
         "difficulty": "Medium",
         "cuisine": "Chinese",
+        "time": "25 minutes",
         "ingredients": [
-            "Noodles",
-            "Chili sauce",
-            "Garlic",
-            "Soy sauce",
-            "Ginger"
+            {
+                "name": "Noodles",
+                "type": "Grain"
+            },
+            {
+                "name": "Chili sauce",
+                "type": "Condiment"
+            },
+            {
+                "name": "Garlic",
+                "type": "Vegetable"
+            },
+            {
+                "name": "Soy sauce",
+                "type": "Condiment"
+            },
+            {
+                "name": "Ginger",
+                "type": "Root"
+            }
         ],
         "steps": [
-            "Cook noodles.",
-            "Stir-fry garlic and ginger.",
-            "Toss noodles with chili sauce and soy sauce."
+            "Cook noodles according to package instructions and drain.",
+            "In a pan, heat oil and sauté garlic and ginger.",
+            "Add cooked noodles to the pan and toss.",
+            "Stir in chili sauce and soy sauce, mixing thoroughly.",
+            "Cook for another 2-3 minutes, adding water if needed.",
+            "Serve hot, garnished with green onions."
         ],
         "calories": 320.0,
         "proteins": 8.0,
@@ -277,19 +512,45 @@
         "servings": 4,
         "difficulty": "Medium",
         "cuisine": "Vietnamese",
+        "time": "60 minutes",
         "ingredients": [
-            "Beef",
-            "Rice noodles",
-            "Chili",
-            "Garlic",
-            "Fish sauce",
-            "Bean sprouts",
-            "Basil"
+            {
+                "name": "Beef",
+                "type": "Protein"
+            },
+            {
+                "name": "Rice noodles",
+                "type": "Grain"
+            },
+            {
+                "name": "Chili",
+                "type": "Vegetable"
+            },
+            {
+                "name": "Garlic",
+                "type": "Vegetable"
+            },
+            {
+                "name": "Fish sauce",
+                "type": "Condiment"
+            },
+            {
+                "name": "Bean sprouts",
+                "type": "Vegetable"
+            },
+            {
+                "name": "Basil",
+                "type": "Herb"
+            }
         ],
         "steps": [
-            "Boil beef with garlic and fish sauce.",
-            "Cook noodles.",
-            "Serve beef and noodles with chili and basil."
+            "In a large pot, simmer beef bones in water for broth.",
+            "Add spices like star anise and cloves for flavor.",
+            "Strain the broth and return it to the pot.",
+            "Cook rice noodles in a separate pot and drain.",
+            "Slice cooked beef and add to the broth.",
+            "Serve in bowls with noodles, bean sprouts, and basil.",
+            "Garnish with lime and chili slices."
         ],
         "calories": 350.0,
         "proteins": 20.0,
@@ -303,18 +564,40 @@
         "servings": 4,
         "difficulty": "Medium",
         "cuisine": "Indian",
+        "time": "45 minutes",
         "ingredients": [
-            "Chicken",
-            "Chili powder",
-            "Curry leaves",
-            "Coconut milk",
-            "Garlic",
-            "Onions"
+            {
+                "name": "Chicken",
+                "type": "Protein"
+            },
+            {
+                "name": "Chili powder",
+                "type": "Spice"
+            },
+            {
+                "name": "Curry leaves",
+                "type": "Herb"
+            },
+            {
+                "name": "Coconut milk",
+                "type": "Liquid"
+            },
+            {
+                "name": "Garlic",
+                "type": "Vegetable"
+            },
+            {
+                "name": "Onions",
+                "type": "Vegetable"
+            }
         ],
         "steps": [
-            "Stir-fry onions and garlic.",
-            "Add chicken with chili powder and curry leaves.",
-            "Simmer with coconut milk."
+            "Cut chicken into pieces and season with salt.",
+            "In a pot, heat oil and sauté onions until golden.",
+            "Add garlic, ginger, and curry leaves, cooking until fragrant.",
+            "Stir in chili powder and add chicken, browning it.",
+            "Pour in coconut milk and let simmer until chicken is cooked.",
+            "Serve with rice or bread."
         ],
         "calories": 400.0,
         "proteins": 25.0,
@@ -328,17 +611,36 @@
         "servings": 3,
         "difficulty": "Medium",
         "cuisine": "Indian",
+        "time": "30 minutes",
         "ingredients": [
-            "Rice",
-            "Curry powder",
-            "Garlic",
-            "Onions",
-            "Chili peppers"
+            {
+                "name": "Rice",
+                "type": "Grain"
+            },
+            {
+                "name": "Curry powder",
+                "type": "Spice"
+            },
+            {
+                "name": "Garlic",
+                "type": "Vegetable"
+            },
+            {
+                "name": "Onions",
+                "type": "Vegetable"
+            },
+            {
+                "name": "Chili peppers",
+                "type": "Vegetable"
+            }
         ],
         "steps": [
-            "Cook rice.",
-            "Stir-fry onions and garlic with curry powder.",
-            "Mix rice with curry sauce."
+            "Cook rice according to package instructions.",
+            "In a pan, heat oil and sauté garlic and onions.",
+            "Add chili peppers and cook for a few minutes.",
+            "Stir in curry powder and add cooked rice, mixing well.",
+            "Cook for another 5 minutes, letting the flavors combine.",
+            "Serve hot as a side or main dish."
         ],
         "calories": 300.0,
         "proteins": 6.0,
@@ -352,17 +654,35 @@
         "servings": 2,
         "difficulty": "Easy",
         "cuisine": "Vietnamese",
+        "time": "20 minutes",
         "ingredients": [
-            "Baguette",
-            "Pickled vegetables",
-            "Chili sauce",
-            "Cilantro",
-            "Pork"
+            {
+                "name": "Baguette",
+                "type": "Grain"
+            },
+            {
+                "name": "Pickled vegetables",
+                "type": "Vegetable"
+            },
+            {
+                "name": "Chili sauce",
+                "type": "Condiment"
+            },
+            {
+                "name": "Cilantro",
+                "type": "Herb"
+            },
+            {
+                "name": "Pork",
+                "type": "Protein"
+            }
         ],
         "steps": [
-            "Prepare pickled vegetables.",
-            "Spread chili sauce on baguette.",
-            "Fill with pork, vegetables, and cilantro."
+            "Slice the baguette lengthwise but do not cut all the way through.",
+            "Fill the baguette with pickled vegetables and pork.",
+            "Spread chili sauce inside for heat.",
+            "Top with fresh cilantro before closing the sandwich.",
+            "Serve immediately as a quick meal."
         ],
         "calories": 400.0,
         "proteins": 18.0,
@@ -376,16 +696,36 @@
         "servings": 4,
         "difficulty": "Hard",
         "cuisine": "Chinese",
+        "time": "60 minutes",
         "ingredients": [
-            "Beef",
-            "Vegetables",
-            "Chili oil",
-            "Sichuan pepper",
-            "Garlic"
+            {
+                "name": "Beef",
+                "type": "Protein"
+            },
+            {
+                "name": "Vegetables",
+                "type": "Vegetable"
+            },
+            {
+                "name": "Chili oil",
+                "type": "Condiment"
+            },
+            {
+                "name": "Sichuan pepper",
+                "type": "Spice"
+            },
+            {
+                "name": "Garlic",
+                "type": "Vegetable"
+            }
         ],
         "steps": [
-            "Boil water with chili oil and Sichuan pepper.",
-            "Cook meat and vegetables in the broth."
+            "Prepare the broth by boiling water with spices.",
+            "Arrange beef slices and vegetables on a platter.",
+            "Set up a hotpot on the table with the broth simmering.",
+            "Guests can cook their ingredients in the hot broth.",
+            "Serve with chili oil and soy sauce for dipping.",
+            "Enjoy the communal cooking experience."
         ],
         "calories": 500.0,
         "proteins": 30.0,
@@ -399,18 +739,41 @@
         "servings": 4,
         "difficulty": "Medium",
         "cuisine": "Thai",
+        "time": "30 minutes",
         "ingredients": [
-            "Seafood",
-            "Chili",
-            "Lemongrass",
-            "Lime",
-            "Garlic",
-            "Fish sauce"
+            {
+                "name": "Seafood",
+                "type": "protein"
+            },
+            {
+                "name": "Chili",
+                "type": "spice"
+            },
+            {
+                "name": "Lemongrass",
+                "type": "herb"
+            },
+            {
+                "name": "Lime",
+                "type": "fruit"
+            },
+            {
+                "name": "Garlic",
+                "type": "vegetable"
+            },
+            {
+                "name": "Fish sauce",
+                "type": "condiment"
+            }
         ],
         "steps": [
-            "Boil water with lemongrass and lime.",
-            "Add seafood and chili.",
-            "Season with fish sauce."
+            "Bring a pot of water to a boil.",
+            "Add lemongrass and lime slices to the boiling water.",
+            "Allow the mixture to boil for about 5 minutes to infuse the flavors.",
+            "Add the seafood and chili to the pot.",
+            "Cook for another 5-7 minutes until the seafood is cooked through.",
+            "Taste the soup and adjust the seasoning with fish sauce as desired.",
+            "Serve hot, garnished with fresh lime wedges."
         ],
         "calories": 180.0,
         "proteins": 15.0,
@@ -424,17 +787,37 @@
         "servings": 3,
         "difficulty": "Medium",
         "cuisine": "Malaysian",
+        "time": "25 minutes",
         "ingredients": [
-            "Beef",
-            "Chili paste",
-            "Garlic",
-            "Onions",
-            "Soy sauce"
+            {
+                "name": "Beef",
+                "type": "protein"
+            },
+            {
+                "name": "Chili paste",
+                "type": "spice"
+            },
+            {
+                "name": "Garlic",
+                "type": "vegetable"
+            },
+            {
+                "name": "Onions",
+                "type": "vegetable"
+            },
+            {
+                "name": "Soy sauce",
+                "type": "condiment"
+            }
         ],
         "steps": [
-            "Stir-fry beef with garlic and onions.",
-            "Add chili paste and soy sauce.",
-            "Cook until beef is done."
+            "Heat a wok or large skillet over medium-high heat.",
+            "Add a tablespoon of oil to the hot pan.",
+            "Once the oil is hot, add the beef strips and stir-fry for about 3-4 minutes until browned.",
+            "Add minced garlic and sliced onions, cooking until the onions are translucent.",
+            "Stir in the chili paste and soy sauce, mixing well to coat the beef.",
+            "Cook for an additional 2-3 minutes until the beef is fully cooked and the flavors meld together.",
+            "Remove from heat and serve hot with rice or noodles."
         ],
         "calories": 350.0,
         "proteins": 25.0,
@@ -448,17 +831,37 @@
         "servings": 4,
         "difficulty": "Medium",
         "cuisine": "Indian",
+        "time": "45 minutes",
         "ingredients": [
-            "Red kidney beans",
-            "Chili powder",
-            "Garlic",
-            "Onions",
-            "Tomatoes"
+            {
+                "name": "Red kidney beans",
+                "type": "legume"
+            },
+            {
+                "name": "Chili powder",
+                "type": "spice"
+            },
+            {
+                "name": "Garlic",
+                "type": "vegetable"
+            },
+            {
+                "name": "Onions",
+                "type": "vegetable"
+            },
+            {
+                "name": "Tomatoes",
+                "type": "vegetable"
+            }
         ],
         "steps": [
-            "Cook kidney beans.",
-            "Stir-fry onions, garlic, and chili powder.",
-            "Mix with beans and tomatoes."
+            "Soak red kidney beans in water overnight or for at least 8 hours.",
+            "Drain and rinse the beans, then cook them in a pressure cooker with fresh water until soft.",
+            "In a separate pan, heat oil and add chopped onions, cooking until they turn golden brown.",
+            "Add minced garlic and chili powder, stirring for about a minute.",
+            "Mix in the cooked beans along with diced tomatoes, stirring to combine.",
+            "Simmer the mixture for 10-15 minutes, allowing the flavors to blend.",
+            "Serve hot with rice or bread."
         ],
         "calories": 220.0,
         "proteins": 12.0,
@@ -472,17 +875,36 @@
         "servings": 3,
         "difficulty": "Medium",
         "cuisine": "Thai",
+        "time": "35 minutes",
         "ingredients": [
-            "Coconut milk",
-            "Chicken",
-            "Panang curry paste",
-            "Chili",
-            "Basil"
+            {
+                "name": "Coconut milk",
+                "type": "dairy"
+            },
+            {
+                "name": "Chicken",
+                "type": "protein"
+            },
+            {
+                "name": "Panang curry paste",
+                "type": "spice"
+            },
+            {
+                "name": "Chili",
+                "type": "spice"
+            },
+            {
+                "name": "Basil",
+                "type": "herb"
+            }
         ],
         "steps": [
-            "Boil coconut milk with curry paste.",
-            "Add chicken and chili.",
-            "Garnish with basil."
+            "In a saucepan, heat coconut milk over medium heat until it begins to simmer.",
+            "Add Panang curry paste to the coconut milk, stirring to dissolve the paste.",
+            "Add chicken pieces and cook for about 10 minutes until they are cooked through.",
+            "Stir in sliced chili and fresh basil leaves.",
+            "Simmer for an additional 5 minutes to let the flavors meld.",
+            "Taste and adjust seasoning if needed, then serve hot with rice."
         ],
         "calories": 400.0,
         "proteins": 20.0,
@@ -496,18 +918,41 @@
         "servings": 4,
         "difficulty": "Medium",
         "cuisine": "Thai",
+        "time": "30 minutes",
         "ingredients": [
-            "Chicken",
-            "Coconut milk",
-            "Chili",
-            "Galangal",
-            "Lemongrass",
-            "Lime"
+            {
+                "name": "Chicken",
+                "type": "protein"
+            },
+            {
+                "name": "Coconut milk",
+                "type": "dairy"
+            },
+            {
+                "name": "Chili",
+                "type": "spice"
+            },
+            {
+                "name": "Galangal",
+                "type": "herb"
+            },
+            {
+                "name": "Lemongrass",
+                "type": "herb"
+            },
+            {
+                "name": "Lime",
+                "type": "fruit"
+            }
         ],
         "steps": [
-            "Boil coconut milk with galangal and lemongrass.",
-            "Add chicken and chili.",
-            "Season with lime."
+            "In a pot, bring coconut milk to a gentle boil over medium heat.",
+            "Add sliced galangal and lemongrass to the boiling coconut milk.",
+            "Let the mixture simmer for 5-10 minutes to infuse the flavors.",
+            "Add chicken pieces and cook until they are fully cooked through.",
+            "Stir in sliced chili and a splash of lime juice for flavor.",
+            "Simmer for another 5 minutes, then remove from heat.",
+            "Serve hot, garnished with fresh herbs if desired."
         ],
         "calories": 300.0,
         "proteins": 18.0,
@@ -521,15 +966,32 @@
         "servings": 3,
         "difficulty": "Medium",
         "cuisine": "Chinese",
+        "time": "20 minutes",
         "ingredients": [
-            "Mustard greens",
-            "Chili oil",
-            "Garlic",
-            "Sichuan pepper"
+            {
+                "name": "Mustard greens",
+                "type": "vegetable"
+            },
+            {
+                "name": "Chili oil",
+                "type": "condiment"
+            },
+            {
+                "name": "Garlic",
+                "type": "vegetable"
+            },
+            {
+                "name": "Sichuan pepper",
+                "type": "spice"
+            }
         ],
         "steps": [
-            "Boil mustard greens.",
-            "Toss with garlic, chili oil, and Sichuan pepper."
+            "Bring a pot of water to a boil.",
+            "Add mustard greens to the boiling water and blanch for 2-3 minutes.",
+            "Remove the greens and drain them in a colander.",
+            "In a bowl, mix garlic, chili oil, and Sichuan pepper.",
+            "Toss the blanched mustard greens in the mixture until well coated.",
+            "Serve immediately as a side dish or appetizer."
         ],
         "calories": 150.0,
         "proteins": 4.0,
@@ -543,17 +1005,37 @@
         "servings": 2,
         "difficulty": "Hard",
         "cuisine": "Korean",
+        "time": "40 minutes",
         "ingredients": [
-            "Chicken feet",
-            "Chili paste",
-            "Garlic",
-            "Soy sauce",
-            "Sugar"
+            {
+                "name": "Chicken feet",
+                "type": "protein"
+            },
+            {
+                "name": "Chili paste",
+                "type": "spice"
+            },
+            {
+                "name": "Garlic",
+                "type": "vegetable"
+            },
+            {
+                "name": "Soy sauce",
+                "type": "condiment"
+            },
+            {
+                "name": "Sugar",
+                "type": "sweetener"
+            }
         ],
         "steps": [
-            "Boil chicken feet.",
-            "Stir-fry with chili paste, garlic, and soy sauce.",
-            "Simmer with sugar."
+            "Start by boiling chicken feet in a pot of water for about 10-15 minutes.",
+            "Drain the chicken feet and let them cool slightly.",
+            "In a pan, heat oil and add minced garlic, sautéing until fragrant.",
+            "Add chili paste and soy sauce to the pan, mixing well.",
+            "Toss in the boiled chicken feet and stir-fry for about 5 minutes.",
+            "Sprinkle sugar over the mixture and continue to cook until everything is well combined and heated through.",
+            "Serve hot, garnished with green onions if desired."
         ],
         "calories": 250.0,
         "proteins": 20.0,
@@ -567,17 +1049,41 @@
         "servings": 4,
         "difficulty": "Medium",
         "cuisine": "Indian",
+        "time": "50 minutes",
         "ingredients": [
-            "Chicken",
-            "Yogurt",
-            "Chili powder",
-            "Garlic",
-            "Ginger",
-            "Tandoori masala"
+            {
+                "name": "Chicken",
+                "type": "protein"
+            },
+            {
+                "name": "Yogurt",
+                "type": "dairy"
+            },
+            {
+                "name": "Chili powder",
+                "type": "spice"
+            },
+            {
+                "name": "Garlic",
+                "type": "vegetable"
+            },
+            {
+                "name": "Ginger",
+                "type": "vegetable"
+            },
+            {
+                "name": "Tandoori masala",
+                "type": "spice"
+            }
         ],
         "steps": [
-            "Marinate chicken in yogurt, chili powder, and spices.",
-            "Roast in oven until cooked through."
+            "In a bowl, mix yogurt, chili powder, minced garlic, and tandoori masala to create a marinade.",
+            "Coat the chicken pieces thoroughly with the marinade and let them marinate for at least 2 hours or overnight in the fridge.",
+            "Preheat the oven to 400°F (200°C).",
+            "Place the marinated chicken on a baking tray lined with foil.",
+            "Roast the chicken in the oven for about 25-30 minutes, turning halfway through for even cooking.",
+            "Check the internal temperature to ensure the chicken is fully cooked.",
+            "Serve hot with naan or rice."
         ],
         "calories": 300.0,
         "proteins": 25.0,
@@ -592,15 +1098,35 @@
         "difficulty": "Medium",
         "cuisine": "Indian",
         "ingredients": [
-            "Fish",
-            "Curry powder",
-            "Chili",
-            "Garlic",
-            "Coconut milk"
+            {
+                "name": "Fish",
+                "type": "protein"
+            },
+            {
+                "name": "Curry powder",
+                "type": "spice"
+            },
+            {
+                "name": "Chili",
+                "type": "spice"
+            },
+            {
+                "name": "Garlic",
+                "type": "vegetable"
+            },
+            {
+                "name": "Coconut milk",
+                "type": "dairy"
+            }
         ],
         "steps": [
-            "Marinate fish in curry powder and chili.",
-            "Cook fish in coconut milk until tender."
+            "Marinate fish pieces in curry powder and chili for about 15-20 minutes.",
+            "In a pan, heat oil over medium heat and add minced garlic.",
+            "Once the garlic is fragrant, add the marinated fish to the pan.",
+            "Cook the fish for about 5 minutes, turning gently to avoid breaking apart.",
+            "Pour in coconut milk and bring the mixture to a simmer.",
+            "Cook until the fish is tender and the sauce thickens slightly, about 10 minutes.",
+            "Serve hot with rice or bread."
         ],
         "calories": 280.0,
         "proteins": 20.0,

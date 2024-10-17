@@ -71,4 +71,15 @@ class RecipeRepository {
         .map((json) => RecipeModel.fromMap(json as Map<String, dynamic>))
         .toList();
   }
+
+  List<Ingredient> getIngredientsByType(String type) {
+    List<Ingredient> ingredients = [];
+    for (var recipe in _recipes) {
+      ingredients.addAll(recipe.ingredients
+          .where((ingredient) =>
+              ingredient.type.toLowerCase() == type.toLowerCase())
+          .toList());
+    }
+    return ingredients;
+  }
 }
