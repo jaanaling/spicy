@@ -37,6 +37,7 @@ class Ingredient extends Equatable {
 
 class RecipeModel extends Equatable {
   final String name;
+  final String description;
   final String imagePath;
   final int spicinessLevel;
   final int servings;
@@ -54,6 +55,7 @@ class RecipeModel extends Equatable {
   RecipeModel({
     required this.name,
     required this.imagePath,
+    required this.description,
     required this.spicinessLevel,
     required this.servings,
     required this.difficulty,
@@ -72,6 +74,7 @@ class RecipeModel extends Equatable {
   List<Object?> get props => [
         name,
         imagePath,
+        description,
         spicinessLevel,
         servings,
         difficulty,
@@ -90,6 +93,7 @@ class RecipeModel extends Equatable {
     return <String, dynamic>{
       'name': name,
       'imagePath': imagePath,
+      'description': description,
       'spicinessLevel': spicinessLevel,
       'servings': servings,
       'difficulty': difficulty,
@@ -108,6 +112,7 @@ class RecipeModel extends Equatable {
   factory RecipeModel.fromMap(Map<String, dynamic> map) {
     return RecipeModel(
       name: map['name'] as String,
+      description: map['description'] as String,
       imagePath: map['imagePath'] as String,
       spicinessLevel: map['spicinessLevel'] as int,
       servings: map['servings'] as int,
