@@ -1,6 +1,7 @@
 import 'package:application/routes/root_navigation_screen.dart';
 import 'package:application/routes/route_value.dart';
 import 'package:application/src/feature/challenge/presentation/screens/challenge_screen.dart';
+import 'package:application/src/feature/recipe/model/recipe.dart';
 import 'package:application/src/feature/recipe/presentation/screens/main_screen.dart';
 import 'package:application/src/feature/recipe/presentation/screens/create_screen.dart';
 import 'package:application/src/feature/recipe/presentation/screens/recipe_screen.dart';
@@ -40,7 +41,13 @@ GoRouter buildGoRouter = GoRouter(
                 GoRoute(
                   parentNavigatorKey: _homeNavigatorKey,
                   path: RouteValue.recipe.path,
-                  builder: (context, state) => RecipeScreen(key: UniqueKey()),
+                  builder: (context, state) {
+                    final extra = state.extra! as RecipeModel;
+                    return RecipeScreen(
+                      key: UniqueKey(),
+                      recipe: extra,
+                    );
+                  },
                 ),
               ],
             ),

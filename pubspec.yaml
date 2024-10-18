@@ -25,7 +25,11 @@ dependencies:
   equatable: ^2.0.5
   loading_indicator: ^3.1.1
   share_plus: ^10.0.3
+<<<<<<< Updated upstream
   image_picker: ^1.1.2
+=======
+  cupertino_icons: ^1.0.8
+>>>>>>> Stashed changes
 
 
 dev_dependencies:

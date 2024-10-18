@@ -25,10 +25,8 @@ class RecipeBloc extends Bloc<RecipeEvent, RecipeState> {
     emit(RecipeLoading());
     try {
       final recipes = await repository.loadRecipes();
-      logger.d(recipes);
       emit(RecipeLoaded(recipes));
     } catch (e) {
-      print(e);
       emit(RecipeError('Failed to load recipes'));
     }
   }

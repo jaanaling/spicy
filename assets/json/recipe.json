@@ -1,8 +1,12 @@
 [
     {
         "name": "Tom Yum Kung",
+<<<<<<< Updated upstream
         "imagePath": "assets/images/tom yum.png",
         "description": "A classic Thai soup known for its bold and spicy flavors, made with succulent shrimp and infused with aromatic herbs like lemongrass and kaffir lime leaves. This soup offers a delightful balance of heat and sourness.",
+=======
+        "imagePath": "assets/images/tom yam.png",
+>>>>>>> Stashed changes
         "spicinessLevel": 4,
         "servings": 4,
         "difficulty": "Medium",
