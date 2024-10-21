@@ -8,6 +8,7 @@ import 'package:application/src/feature/recipe/presentation/screens/recipe_scree
 import 'package:application/src/feature/recipe/presentation/screens/recommendation_screen.dart';
 import 'package:application/src/feature/splash/presentation/screens/splash_screen.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -25,7 +26,7 @@ GoRouter buildGoRouter = GoRouter(
       pageBuilder: (context, state, navigationShell) {
         return NoTransitionPage(
           child: RootNavigationScreen(
-            navigationShell: navigationShell,
+            navigationShell: navigationShell, route: state.uri.path,
           ),
         );
       },
@@ -36,16 +37,20 @@ GoRouter buildGoRouter = GoRouter(
             GoRoute(
               parentNavigatorKey: _homeNavigatorKey,
               path: RouteValue.home.path,
-              builder: (context, state) => MainScreen(key: UniqueKey()),
+              builder: (context, state) => ColoredBox(
+                  color: Colors.white,child: MainScreen(key: UniqueKey())),
               routes: <RouteBase>[
                 GoRoute(
                   parentNavigatorKey: _homeNavigatorKey,
                   path: RouteValue.recipe.path,
                   builder: (context, state) {
                     final extra = state.extra! as RecipeModel;
-                    return RecipeScreen(
-                      key: UniqueKey(),
-                      recipe: extra,
+                    return ColoredBox(
+                      color: Colors.white,
+                      child: RecipeScreen(
+                        key: UniqueKey(),
+                        recipe: extra,
+                      ),
                     );
                   },
                 ),

@@ -20,7 +20,7 @@ class AppRoot extends StatelessWidget {
         ],
       theme: const CupertinoThemeData(
         brightness: Brightness.light,
-        primaryColor: const Color(0xFF9A0A10),
+        primaryColor: const Color(0xFFFFFFFF),
         textTheme: CupertinoTextThemeData(
           textStyle: TextStyle(
             fontFamily: 'poppins',

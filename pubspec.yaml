@@ -29,6 +29,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter_localizations:
     sdk: flutter
+  flutter_xlider: ^3.5.0
 
 
 dev_dependencies:

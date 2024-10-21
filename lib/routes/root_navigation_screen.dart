@@ -1,12 +1,15 @@
+import 'package:application/routes/route_value.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 
 class RootNavigationScreen extends StatefulWidget {
   final StatefulNavigationShell navigationShell;
+  final String route;
 
   const RootNavigationScreen({
     super.key,
     required this.navigationShell,
+    required this.route,
   });
 
   @override
@@ -21,7 +24,7 @@ class _RootNavigationScreenState extends State<RootNavigationScreen> {
     return CupertinoPageScaffold(
       child: Stack(
         children: [
-          SafeArea(child: widget.navigationShell),
+          SafeArea(top: widget.route != '${RouteValue.home.path}/${RouteValue.recipe.path}', child: widget.navigationShell),
         ],
       ),
     );

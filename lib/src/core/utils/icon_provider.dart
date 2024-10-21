@@ -23,6 +23,8 @@ enum IconProvider {
   dish_card(imageName: 'dish_card.svg'),
   logo(imageName: 'logo.png'),
   calories(imageName: 'calories.svg'),
+  search(imageName: 'search.svg'),
+  chevronDown(imageName: 'chevron_down.svg'),
 
   unknown(imageName: '');
 

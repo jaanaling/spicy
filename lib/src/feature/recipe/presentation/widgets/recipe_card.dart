@@ -12,24 +12,22 @@ class RecipeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    final height = MediaQuery.of(context).size.height;
-    return SizedBox(
-      width: width * 0.71,
-      height: height * 0.381,
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(13),
       child: Stack(
         alignment: Alignment.center,
-        fit: StackFit.expand,
         children: [
           AppIcon(
-            width: width * 0.71,
-            height: height * 0.381,
+            width: width*0.71,
+            fit: BoxFit.fitWidth,
             asset: IconProvider.dish_card.buildImageUrl(),
           ),
           Positioned(
             bottom: 0,
             child: AppIcon(
               asset: recipe.imagePath,
-              width: width * 0.605,
+              fit: BoxFit.fitWidth,
+              width: width*0.605,
             ),
           ),
           Positioned(
@@ -68,6 +66,7 @@ class RecipeCard extends StatelessWidget {
             top: 15,
             child: Column(
               mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   recipe.name,
