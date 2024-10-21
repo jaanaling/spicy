@@ -9,6 +9,9 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
+
     return BlocProvider(
       create: (context) => RecipeBloc()..add(LoadRecipes()),
       child: BlocBuilder<RecipeBloc, RecipeState>(
@@ -17,21 +20,22 @@ class MainScreen extends StatelessWidget {
             return SingleChildScrollView(
               child: Column(
                 children: [
-                  ListView.separated(
-                    itemCount: state.recipes.length,
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    separatorBuilder: (BuildContext context, int index) =>
-                        const Gap(16),
-                    itemBuilder: (BuildContext context, int index) {
-                      final recipe = state.recipes[index];
-                      return GestureDetector(
-                        onTap: () {},
-                        child: RecipeCard(
-                          recipe: recipe,
-                        ),
-                      );
-                    },
+                  SizedBox(
+                    width: width * 0.67,
+                    height: height * 0.4,
+                    child: PageView.builder(
+                      itemCount: state.recipes.length,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemBuilder: (BuildContext context, int index) {
+                        final recipe = state.recipes[index];
+                        return GestureDetector(
+                          onTap: () {},
+                          child: RecipeCard(
+                            recipe: recipe,
+                          ),
+                        );
+                      },
+                    ),
                   ),
                 ],
               ),

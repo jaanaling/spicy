@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 BoxDecoration customDecoration() {
   return BoxDecoration(
-    color: Color(0xFFF3F3F3),
+    color: const Color(0xFFF3F3F3),
     borderRadius: BorderRadius.circular(12), // Радиус границ
     border: Border.all(
       color: Color(0xFFDCDCDC), // Цвет границы

@@ -1,46 +1,22 @@
 [
     {
         "name": "Tom Yum Kung",
-<<<<<<< Updated upstream
-        "imagePath": "assets/images/tom yum.png",
-        "description": "A classic Thai soup known for its bold and spicy flavors, made with succulent shrimp and infused with aromatic herbs like lemongrass and kaffir lime leaves. This soup offers a delightful balance of heat and sourness.",
-=======
         "imagePath": "assets/images/tom yam.png",
->>>>>>> Stashed changes
+        "description": "A classic Thai soup known for its bold and spicy flavors, made with succulent shrimp and infused with aromatic herbs like lemongrass and kaffir lime leaves. This soup offers a delightful balance of heat and sourness.",
         "spicinessLevel": 4,
         "servings": 4,
         "difficulty": "Medium",
         "cuisine": "Thai",
         "time": "30 min",
         "ingredients": [
-            {
-                "name": "Shrimp",
-                "type": "Protein"
-            },
-            {
-                "name": "Lemongrass",
-                "type": "Herb"
-            },
-            {
-                "name": "Galangal",
-                "type": "Root"
-            },
-            {
-                "name": "Kaffir lime leaves",
-                "type": "Herb"
-            },
-            {
-                "name": "Chili peppers",
-                "type": "Vegetable"
-            },
-            {
-                "name": "Fish sauce",
-                "type": "Condiment"
-            },
-            {
-                "name": "Lime juice",
-                "type": "Liquid"
-            }
+            { "name": "Shrimp", "quantity": 200, "quantityType": "g", "type": "Meat" },
+            { "name": "Lemongrass", "quantity": 50, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Galangal", "quantity": 30, "quantityType": "g", "type": "Spices" },
+            { "name": "Kaffir lime leaves", "quantity": 5, "quantityType": "g", "type": "Other" },
+            { "name": "Chili peppers", "quantity": 20, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Fish sauce", "quantity": 30, "quantityType": "ml", "type": "Other" },
+            { "name": "Lime juice", "quantity": 30, "quantityType": "ml", "type": "Other" }
+    
         ],
         "steps": [
             "In a pot, bring water to a boil.",
@@ -66,30 +42,13 @@
         "cuisine": "Korean",
         "time": "1 day",
         "ingredients": [
-            {
-                "name": "Napa cabbage",
-                "type": "Vegetable"
-            },
-            {
-                "name": "Chili powder",
-                "type": "Spice"
-            },
-            {
-                "name": "Garlic",
-                "type": "Vegetable"
-            },
-            {
-                "name": "Ginger",
-                "type": "Root"
-            },
-            {
-                "name": "Fish sauce",
-                "type": "Condiment"
-            },
-            {
-                "name": "Scallions",
-                "type": "Vegetable"
-            }
+            { "name": "Napa cabbage", "quantity": 1000, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Chili powder", "quantity": 50, "quantityType": "g", "type": "Spices" },
+            { "name": "Garlic", "quantity": 30, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Ginger", "quantity": 20, "quantityType": "g", "type": "Spices" },
+            { "name": "Fish sauce", "quantity": 50, "quantityType": "ml", "type": "Other" },
+            { "name": "Scallions", "quantity": 50, "quantityType": "g", "type": "Vegetables" }
+       
         ],
         "steps": [
             "Cut Napa cabbage into quarters and remove the core.",
@@ -115,30 +74,13 @@
         "cuisine": "Thai",
         "time": "15 min",
         "ingredients": [
-            {
-                "name": "Papaya",
-                "type": "Fruit"
-            },
-            {
-                "name": "Chili peppers",
-                "type": "Vegetable"
-            },
-            {
-                "name": "Lime juice",
-                "type": "Liquid"
-            },
-            {
-                "name": "Fish sauce",
-                "type": "Condiment"
-            },
-            {
-                "name": "Garlic",
-                "type": "Vegetable"
-            },
-            {
-                "name": "Peanuts",
-                "type": "Nut"
-            }
+            { "name": "Papaya", "quantity": 200, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Chili peppers", "quantity": 20, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Lime juice", "quantity": 30, "quantityType": "ml", "type": "Other" },
+            { "name": "Fish sauce", "quantity": 30, "quantityType": "ml", "type": "Other" },
+            { "name": "Garlic", "quantity": 10, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Peanuts", "quantity": 50, "quantityType": "g", "type": "Other" }
+       
         ],
         "steps": [
             "Peel and shred the papaya into thin strips.",
@@ -163,22 +105,11 @@
         "cuisine": "Vietnamese",
         "time": "20 min",
         "ingredients": [
-            {
-                "name": "Cabbage",
-                "type": "Vegetable"
-            },
-            {
-                "name": "Chili sauce",
-                "type": "Condiment"
-            },
-            {
-                "name": "Garlic",
-                "type": "Vegetable"
-            },
-            {
-                "name": "Fish sauce",
-                "type": "Condiment"
-            }
+            { "name": "Cabbage", "quantity": 300, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Chili sauce", "quantity": 50, "quantityType": "ml", "type": "Other" },
+            { "name": "Garlic", "quantity": 10, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Fish sauce", "quantity": 30, "quantityType": "ml", "type": "Other" }
+       
         ],
         "steps": [
             "Slice cabbage into thin strips.",
@@ -203,26 +134,12 @@
         "cuisine": "Chinese",
         "time": "25 min",
         "ingredients": [
-            {
-                "name": "Tofu",
-                "type": "Protein"
-            },
-            {
-                "name": "Seaweed",
-                "type": "Vegetable"
-            },
-            {
-                "name": "Chili flakes",
-                "type": "Spice"
-            },
-            {
-                "name": "Soy sauce",
-                "type": "Condiment"
-            },
-            {
-                "name": "Ginger",
-                "type": "Root"
-            }
+            { "name": "Tofu", "quantity": 200, "quantityType": "g", "type": "Meat" },
+            { "name": "Seaweed", "quantity": 30, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Chili flakes", "quantity": 5, "quantityType": "g", "type": "Spices" },
+            { "name": "Soy sauce", "quantity": 30, "quantityType": "ml", "type": "Other" },
+            { "name": "Ginger", "quantity": 20, "quantityType": "g", "type": "Spices" }
+       
         ],
         "steps": [
             "Bring water to a boil in a pot.",
@@ -248,34 +165,14 @@
         "cuisine": "Thai",
         "time": "30 min",
         "ingredients": [
-            {
-                "name": "Rice noodles",
-                "type": "Grain"
-            },
-            {
-                "name": "Tofu",
-                "type": "Protein"
-            },
-            {
-                "name": "Shrimp",
-                "type": "Protein"
-            },
-            {
-                "name": "Chili sauce",
-                "type": "Condiment"
-            },
-            {
-                "name": "Peanuts",
-                "type": "Nut"
-            },
-            {
-                "name": "Fish sauce",
-                "type": "Condiment"
-            },
-            {
-                "name": "Bean sprouts",
-                "type": "Vegetable"
-            }
+            { "name": "Rice noodles", "quantity": 200, "quantityType": "g", "type": "Other" },
+            { "name": "Tofu", "quantity": 200, "quantityType": "g", "type": "Meat" },
+            { "name": "Shrimp", "quantity": 200, "quantityType": "g", "type": "Meat" },
+            { "name": "Chili sauce", "quantity": 30, "quantityType": "ml", "type": "Other" },
+            { "name": "Peanuts", "quantity": 50, "quantityType": "g", "type": "Other" },
+            { "name": "Fish sauce", "quantity": 30, "quantityType": "ml", "type": "Other" },
+            { "name": "Bean sprouts", "quantity": 100, "quantityType": "g", "type": "Vegetables" }
+      
         ],
         "steps": [
             "Soak rice noodles in warm water until soft.",
@@ -301,30 +198,13 @@
         "cuisine": "Indian",
         "time": "40 min",
         "ingredients": [
-            {
-                "name": "Chicken",
-                "type": "Protein"
-            },
-            {
-                "name": "Chili powder",
-                "type": "Spice"
-            },
-            {
-                "name": "Garlic",
-                "type": "Vegetable"
-            },
-            {
-                "name": "Ginger",
-                "type": "Root"
-            },
-            {
-                "name": "Onions",
-                "type": "Vegetable"
-            },
-            {
-                "name": "Soy sauce",
-                "type": "Condiment"
-            }
+            { "name": "Chicken", "quantity": 300, "quantityType": "g", "type": "Meat" },
+            { "name": "Chili powder", "quantity": 10, "quantityType": "g", "type": "Spices" },
+            { "name": "Garlic", "quantity": 20, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Ginger", "quantity": 20, "quantityType": "g", "type": "Spices" },
+            { "name": "Onions", "quantity": 100, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Soy sauce", "quantity": 30, "quantityType": "ml", "type": "Other" }
+       
         ],
         "steps": [
             "Cut chicken into bite-sized pieces and marinate with soy sauce.",
@@ -349,22 +229,11 @@
         "cuisine": "Vietnamese",
         "time": "10 min",
         "ingredients": [
-            {
-                "name": "Cucumbers",
-                "type": "Vegetable"
-            },
-            {
-                "name": "Chili sauce",
-                "type": "Condiment"
-            },
-            {
-                "name": "Garlic",
-                "type": "Vegetable"
-            },
-            {
-                "name": "Fish sauce",
-                "type": "Condiment"
-            }
+            { "name": "Cucumbers", "quantity": 200, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Chili sauce", "quantity": 30, "quantityType": "ml", "type": "Other" },
+            { "name": "Garlic", "quantity": 10, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Fish sauce", "quantity": 30, "quantityType": "ml", "type": "Other" }
+      
         ],
         "steps": [
             "Slice cucumbers thinly.",
@@ -388,30 +257,13 @@
         "cuisine": "Chinese",
         "time": "35 min",
         "ingredients": [
-            {
-                "name": "Chicken",
-                "type": "Protein"
-            },
-            {
-                "name": "Chili",
-                "type": "Vegetable"
-            },
-            {
-                "name": "Vinegar",
-                "type": "Liquid"
-            },
-            {
-                "name": "Garlic",
-                "type": "Vegetable"
-            },
-            {
-                "name": "Onions",
-                "type": "Vegetable"
-            },
-            {
-                "name": "Sugar",
-                "type": "Sweetener"
-            }
+            { "name": "Chicken", "quantity": 300, "quantityType": "g", "type": "Meat" },
+            { "name": "Chili", "quantity": 20, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Vinegar", "quantity": 30, "quantityType": "ml", "type": "Other" },
+            { "name": "Garlic", "quantity": 20, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Onions", "quantity": 100, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Sugar", "quantity": 50, "quantityType": "g", "type": "Other" }
+     
         ],
         "steps": [
             "Cut chicken into strips and season with salt and pepper.",
@@ -437,30 +289,12 @@
         "cuisine": "Chinese",
         "time": "40 min",
         "ingredients": [
-            {
-                "name": "Tofu",
-                "type": "Protein"
-            },
-            {
-                "name": "Minced pork",
-                "type": "Protein"
-            },
-            {
-                "name": "Chili paste",
-                "type": "Condiment"
-            },
-            {
-                "name": "Garlic",
-                "type": "Vegetable"
-            },
-            {
-                "name": "Soy sauce",
-                "type": "Condiment"
-            },
-            {
-                "name": "Sichuan peppercorn",
-                "type": "Spice"
-            }
+            { "name": "Tofu", "quantity": 200, "quantityType": "g", "type": "Meat" },
+            { "name": "Minced pork", "quantity": 200, "quantityType": "g", "type": "Meat" },
+            { "name": "Chili paste", "quantity": 30, "quantityType": "ml", "type": "Other" },
+            { "name": "Garlic", "quantity": 20, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Soy sauce", "quantity": 30, "quantityType": "ml", "type": "Other" },
+            { "name": "Sichuan peppercorn", "quantity": 5, "quantityType": "g", "type": "Spices" }
         ],
         "steps": [
             "In a pan, heat oil and sauté minced garlic.",
@@ -486,26 +320,11 @@
         "cuisine": "Chinese",
         "time": "25 min",
         "ingredients": [
-            {
-                "name": "Noodles",
-                "type": "Grain"
-            },
-            {
-                "name": "Chili sauce",
-                "type": "Condiment"
-            },
-            {
-                "name": "Garlic",
-                "type": "Vegetable"
-            },
-            {
-                "name": "Soy sauce",
-                "type": "Condiment"
-            },
-            {
-                "name": "Ginger",
-                "type": "Root"
-            }
+            { "name": "Noodles", "quantity": 200, "quantityType": "g", "type": "Other" },
+            { "name": "Chili sauce", "quantity": 50, "quantityType": "ml", "type": "Other" },
+            { "name": "Garlic", "quantity": 10, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Soy sauce", "quantity": 30, "quantityType": "ml", "type": "Other" },
+            { "name": "Ginger", "quantity": 20, "quantityType": "g", "type": "Other" }
         ],
         "steps": [
             "Cook noodles according to package instructions and drain.",
@@ -530,34 +349,13 @@
         "cuisine": "Vietnamese",
         "time": "60 min",
         "ingredients": [
-            {
-                "name": "Beef",
-                "type": "Protein"
-            },
-            {
-                "name": "Rice noodles",
-                "type": "Grain"
-            },
-            {
-                "name": "Chili",
-                "type": "Vegetable"
-            },
-            {
-                "name": "Garlic",
-                "type": "Vegetable"
-            },
-            {
-                "name": "Fish sauce",
-                "type": "Condiment"
-            },
-            {
-                "name": "Bean sprouts",
-                "type": "Vegetable"
-            },
-            {
-                "name": "Basil",
-                "type": "Herb"
-            }
+            { "name": "Beef", "quantity": 300, "quantityType": "g", "type": "Meat" },
+            { "name": "Rice noodles", "quantity": 200, "quantityType": "g", "type": "Other" },
+            { "name": "Chili", "quantity": 15, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Garlic", "quantity": 10, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Fish sauce", "quantity": 30, "quantityType": "ml", "type": "Other" },
+            { "name": "Bean sprouts", "quantity": 50, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Basil", "quantity": 10, "quantityType": "g", "type": "Vegetables" }
         ],
         "steps": [
             "In a large pot, simmer beef bones in water for broth.",
@@ -583,30 +381,12 @@
         "cuisine": "Indian",
         "time": "45 min",
         "ingredients": [
-            {
-                "name": "Chicken",
-                "type": "Protein"
-            },
-            {
-                "name": "Chili powder",
-                "type": "Spice"
-            },
-            {
-                "name": "Curry leaves",
-                "type": "Herb"
-            },
-            {
-                "name": "Coconut milk",
-                "type": "Liquid"
-            },
-            {
-                "name": "Garlic",
-                "type": "Vegetable"
-            },
-            {
-                "name": "Onions",
-                "type": "Vegetable"
-            }
+            { "name": "Chicken", "quantity": 400, "quantityType": "g", "type": "Meat" },
+            { "name": "Chili powder", "quantity": 5, "quantityType": "g", "type": "Spices" },
+            { "name": "Curry leaves", "quantity": 10, "quantityType": "g", "type": "Other" },
+            { "name": "Coconut milk", "quantity": 400, "quantityType": "ml", "type": "Other" },
+            { "name": "Garlic", "quantity": 15, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Onions", "quantity": 100, "quantityType": "g", "type": "Vegetables" }
         ],
         "steps": [
             "Cut chicken into pieces and season with salt.",
@@ -631,26 +411,12 @@
         "cuisine": "Indian",
         "time": "30 min",
         "ingredients": [
-            {
-                "name": "Rice",
-                "type": "Grain"
-            },
-            {
-                "name": "Curry powder",
-                "type": "Spice"
-            },
-            {
-                "name": "Garlic",
-                "type": "Vegetable"
-            },
-            {
-                "name": "Onions",
-                "type": "Vegetable"
-            },
-            {
-                "name": "Chili peppers",
-                "type": "Vegetable"
-            }
+            { "name": "Rice", "quantity": 300, "quantityType": "g", "type": "Other" },
+            { "name": "Curry powder", "quantity": 10, "quantityType": "g", "type": "Spices" },
+            { "name": "Garlic", "quantity": 10, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Onions", "quantity": 100, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Chili peppers", "quantity": 20, "quantityType": "g", "type": "Vegetables" }
+     
         ],
         "steps": [
             "Cook rice according to package instructions.",
@@ -675,27 +441,12 @@
         "cuisine": "Vietnamese",
         "time": "20 min",
         "ingredients": [
-            {
-                "name": "Baguette",
-                "type": "Grain"
-            },
-            {
-                "name": "Pickled vegetables",
-                "type": "Vegetable"
-            },
-            {
-                "name": "Chili sauce",
-                "type": "Condiment"
-            },
-            {
-                "name": "Cilantro",
-                "type": "Herb"
-            },
-            {
-                "name": "Pork",
-                "type": "Protein"
-            }
-        ],
+            { "name": "Baguette", "quantity": 1, "quantityType": "Other", "type": "Other" },
+            { "name": "Pickled vegetables", "quantity": 50, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Chili sauce", "quantity": 30, "quantityType": "ml", "type": "Other" },
+            { "name": "Cilantro", "quantity": 10, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Pork", "quantity": 100, "quantityType": "g", "type": "Meat" }
+         ],
         "steps": [
             "Slice the baguette lengthwise but do not cut all the way through.",
             "Fill the baguette with pickled vegetables and pork.",
@@ -718,27 +469,12 @@
         "cuisine": "Chinese",
         "time": "60 min",
         "ingredients": [
-            {
-                "name": "Beef",
-                "type": "Protein"
-            },
-            {
-                "name": "Vegetables",
-                "type": "Vegetable"
-            },
-            {
-                "name": "Chili oil",
-                "type": "Condiment"
-            },
-            {
-                "name": "Sichuan pepper",
-                "type": "Spice"
-            },
-            {
-                "name": "Garlic",
-                "type": "Vegetable"
-            }
-        ],
+            { "name": "Beef", "quantity": 300, "quantityType": "g", "type": "Meat" },
+            { "name": "Mixed vegetables", "quantity": 200, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Chili oil", "quantity": 20, "quantityType": "ml", "type": "Other" },
+            { "name": "Sichuan pepper", "quantity": 5, "quantityType": "g", "type": "Spices" },
+            { "name": "Garlic", "quantity": 15, "quantityType": "g", "type": "Vegetables" }
+       ],
         "steps": [
             "Prepare the broth by boiling water with spices.",
             "Arrange beef slices and vegetables on a platter.",
@@ -762,31 +498,13 @@
         "cuisine": "Thai",
         "time": "30 min",
         "ingredients": [
-            {
-                "name": "Seafood",
-                "type": "protein"
-            },
-            {
-                "name": "Chili",
-                "type": "spice"
-            },
-            {
-                "name": "Lemongrass",
-                "type": "herb"
-            },
-            {
-                "name": "Lime",
-                "type": "fruit"
-            },
-            {
-                "name": "Garlic",
-                "type": "vegetable"
-            },
-            {
-                "name": "Fish sauce",
-                "type": "condiment"
-            }
-        ],
+            { "name": "Seafood", "quantity": 300, "quantityType": "g", "type": "Meat" },
+            { "name": "Chili", "quantity": 15, "quantityType": "g", "type": "Spices" },
+            { "name": "Lemongrass", "quantity": 50, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Lime", "quantity": 100, "quantityType": "g", "type": "Other" },
+            { "name": "Garlic", "quantity": 10, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Fish sauce", "quantity": 30, "quantityType": "ml", "type": "Other" }
+           ],
         "steps": [
             "Bring a pot of water to a boil.",
             "Add lemongrass and lime slices to the boiling water.",
@@ -811,27 +529,12 @@
         "cuisine": "Malaysian",
         "time": "25 min",
         "ingredients": [
-            {
-                "name": "Beef",
-                "type": "protein"
-            },
-            {
-                "name": "Chili paste",
-                "type": "spice"
-            },
-            {
-                "name": "Garlic",
-                "type": "vegetable"
-            },
-            {
-                "name": "Onions",
-                "type": "vegetable"
-            },
-            {
-                "name": "Soy sauce",
-                "type": "condiment"
-            }
-        ],
+            { "name": "Beef", "quantity": 250, "quantityType": "g", "type": "Meat" },
+            { "name": "Chili paste", "quantity": 20, "quantityType": "g", "type": "Spices" },
+            { "name": "Garlic", "quantity": 5, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Onions", "quantity": 100, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Soy sauce", "quantity": 30, "quantityType": "ml", "type": "Other" }
+     ],
         "steps": [
             "Heat a wok or large skillet over medium-high heat.",
             "Add a tablespoon of oil to the hot pan.",
@@ -856,26 +559,13 @@
         "cuisine": "Indian",
         "time": "45 min",
         "ingredients": [
-            {
-                "name": "Red kidney beans",
-                "type": "legume"
-            },
-            {
-                "name": "Chili powder",
-                "type": "spice"
-            },
-            {
-                "name": "Garlic",
-                "type": "vegetable"
-            },
-            {
-                "name": "Onions",
-                "type": "vegetable"
-            },
-            {
-                "name": "Tomatoes",
-                "type": "vegetable"
-            }
+            { "name": "Red kidney beans", "quantity": 200, "quantityType": "g", "type": "Other" },
+            { "name": "Onion", "quantity": 100, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Garlic", "quantity": 20, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Chili powder", "quantity": 10, "quantityType": "g", "type": "Spices" },
+            { "name": "Tomato", "quantity": 150, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Oil", "quantity": 30, "quantityType": "ml", "type": "Other" }
+     
         ],
         "steps": [
             "Soak red kidney beans in water overnight or for at least 8 hours.",
@@ -901,26 +591,12 @@
         "cuisine": "Thai",
         "time": "35 min",
         "ingredients": [
-            {
-                "name": "Coconut milk",
-                "type": "dairy"
-            },
-            {
-                "name": "Chicken",
-                "type": "protein"
-            },
-            {
-                "name": "Panang curry paste",
-                "type": "spice"
-            },
-            {
-                "name": "Chili",
-                "type": "spice"
-            },
-            {
-                "name": "Basil",
-                "type": "herb"
-            }
+            { "name": "Coconut milk", "quantity": 400, "quantityType": "ml", "type": "Other" },
+            { "name": "Panang curry paste", "quantity": 50, "quantityType": "g", "type": "Other" },
+            { "name": "Chicken", "quantity": 300, "quantityType": "g", "type": "Meat" },
+            { "name": "Chili", "quantity": 20, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Basil", "quantity": 10, "quantityType": "g", "type": "Vegetables" }
+  
         ],
         "steps": [
             "In a saucepan, heat coconut milk over medium heat until it begins to simmer.",
@@ -945,30 +621,13 @@
         "cuisine": "Thai",
         "time": "30 min",
         "ingredients": [
-            {
-                "name": "Chicken",
-                "type": "protein"
-            },
-            {
-                "name": "Coconut milk",
-                "type": "dairy"
-            },
-            {
-                "name": "Chili",
-                "type": "spice"
-            },
-            {
-                "name": "Galangal",
-                "type": "herb"
-            },
-            {
-                "name": "Lemongrass",
-                "type": "herb"
-            },
-            {
-                "name": "Lime",
-                "type": "fruit"
-            }
+            { "name": "Coconut milk", "quantity": 400, "quantityType": "ml", "type": "Other" },
+            { "name": "Chicken", "quantity": 250, "quantityType": "g", "type": "Meat" },
+            { "name": "Galangal", "quantity": 20, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Lemongrass", "quantity": 30, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Chili", "quantity": 10, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Lime juice", "quantity": 20, "quantityType": "ml", "type": "Other" }
+
         ],
         "steps": [
             "In a pot, bring coconut milk to a gentle boil over medium heat.",
@@ -994,23 +653,11 @@
         "cuisine": "Chinese",
         "time": "20 min",
         "ingredients": [
-            {
-                "name": "Mustard greens",
-                "type": "vegetable"
-            },
-            {
-                "name": "Chili oil",
-                "type": "condiment"
-            },
-            {
-                "name": "Garlic",
-                "type": "vegetable"
-            },
-            {
-                "name": "Sichuan pepper",
-                "type": "spice"
-            }
-        ],
+            { "name": "Mustard greens", "quantity": 200, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Garlic", "quantity": 10, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Chili oil", "quantity": 30, "quantityType": "ml", "type": "Other" },
+            { "name": "Sichuan pepper", "quantity": 5, "quantityType": "g", "type": "Spices" }
+          ],
         "steps": [
             "Bring a pot of water to a boil.",
             "Add mustard greens to the boiling water and blanch for 2-3 minutes.",
@@ -1033,27 +680,13 @@
         "difficulty": "Hard",
         "cuisine": "Korean",
         "time": "40 min",
-        "ingredients": [
-            {
-                "name": "Chicken feet",
-                "type": "protein"
-            },
-            {
-                "name": "Chili paste",
-                "type": "spice"
-            },
-            {
-                "name": "Garlic",
-                "type": "vegetable"
-            },
-            {
-                "name": "Soy sauce",
-                "type": "condiment"
-            },
-            {
-                "name": "Sugar",
-                "type": "sweetener"
-            }
+    "ingredients": [
+            { "name": "Chicken feet", "quantity": 500, "quantityType": "g", "type": "Meat" },
+            { "name": "Garlic", "quantity": 30, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Chili paste", "quantity": 20, "quantityType": "g", "type": "Spices" },
+            { "name": "Soy sauce", "quantity": 30, "quantityType": "ml", "type": "Other" },
+            { "name": "Sugar", "quantity": 10, "quantityType": "g", "type": "Spices" }
+ 
         ],
         "steps": [
             "Start by boiling chicken feet in a pot of water for about 10-15 minutes.",
@@ -1079,31 +712,12 @@
         "cuisine": "Indian",
         "time": "50 min",
         "ingredients": [
-            {
-                "name": "Chicken",
-                "type": "protein"
-            },
-            {
-                "name": "Yogurt",
-                "type": "dairy"
-            },
-            {
-                "name": "Chili powder",
-                "type": "spice"
-            },
-            {
-                "name": "Garlic",
-                "type": "vegetable"
-            },
-            {
-                "name": "Ginger",
-                "type": "vegetable"
-            },
-            {
-                "name": "Tandoori masala",
-                "type": "spice"
-            }
-        ],
+            { "name": "Chicken", "quantity": 500, "quantityType": "g", "type": "Meat" },
+            { "name": "Yogurt", "quantity": 200, "quantityType": "ml", "type": "Other" },
+            { "name": "Chili powder", "quantity": 20, "quantityType": "g", "type": "Spices" },
+            { "name": "Garlic", "quantity": 10, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Tandoori masala", "quantity": 15, "quantityType": "g", "type": "Spices" }
+      ],
         "steps": [
             "In a bowl, mix yogurt, chili powder, minced garlic, and tandoori masala to create a marinade.",
             "Coat the chicken pieces thoroughly with the marinade and let them marinate for at least 2 hours or overnight in the fridge.",
@@ -1128,27 +742,12 @@
         "difficulty": "Medium",
         "cuisine": "Indian",
         "ingredients": [
-            {
-                "name": "Fish",
-                "type": "protein"
-            },
-            {
-                "name": "Curry powder",
-                "type": "spice"
-            },
-            {
-                "name": "Chili",
-                "type": "spice"
-            },
-            {
-                "name": "Garlic",
-                "type": "vegetable"
-            },
-            {
-                "name": "Coconut milk",
-                "type": "dairy"
-            }
-        ],
+            { "name": "Fish", "quantity": 300, "quantityType": "g", "type": "Meat" },
+            { "name": "Coconut milk", "quantity": 200, "quantityType": "ml", "type": "Other" },
+            { "name": "Onion", "quantity": 100, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Tomato", "quantity": 100, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Chili powder", "quantity": 15, "quantityType": "g", "type": "Spices" }
+      ],
         "steps": [
             "Marinate fish pieces in curry powder and chili for about 15-20 minutes.",
             "In a pan, heat oil over medium heat and add minced garlic.",

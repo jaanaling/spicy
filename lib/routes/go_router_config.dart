@@ -19,7 +19,7 @@ final _recommendationNavigatorKey = GlobalKey<NavigatorState>();
 
 GoRouter buildGoRouter = GoRouter(
   navigatorKey: _rootNavigatorKey,
-  initialLocation: RouteValue.splash.path,
+  initialLocation: RouteValue.create.path,
   routes: <RouteBase>[
     StatefulShellRoute.indexedStack(
       pageBuilder: (context, state, navigationShell) {

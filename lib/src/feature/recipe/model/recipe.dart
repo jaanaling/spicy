@@ -5,27 +5,35 @@ import 'package:equatable/equatable.dart';
 
 class Ingredient extends Equatable {
   final String name;
+  final int quantity;
+  final String quantityType;
   final String type;
 
   Ingredient({
+    required this.quantityType,
     required this.name,
+    required this.quantity,
     required this.type,
   });
 
   @override
-  List<Object?> get props => [name, type];
+  List<Object?> get props => [name, type, quantity, quantityType];
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'name': name,
+      'quantity': quantity,
+      'quantityType': quantityType,
       'type': type,
     };
   }
 
   factory Ingredient.fromMap(Map<String, dynamic> map) {
     return Ingredient(
+      quantityType: map['quantityType'] as String,
       name: map['name'] as String,
       type: map['type'] as String,
+      quantity: map['quantity'] as int,
     );
   }
 

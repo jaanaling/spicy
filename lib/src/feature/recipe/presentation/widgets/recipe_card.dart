@@ -14,21 +14,22 @@ class RecipeCard extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return SizedBox(
-      width: width*0.71,
+      width: width * 0.71,
       height: height * 0.381,
       child: Stack(
         alignment: Alignment.center,
         fit: StackFit.expand,
         children: [
           AppIcon(
-            width: width*0.71,
+            width: width * 0.71,
+            height: height * 0.381,
             asset: IconProvider.dish_card.buildImageUrl(),
           ),
           Positioned(
             bottom: 0,
             child: AppIcon(
               asset: recipe.imagePath,
-              width: width*0.605,
+              width: width * 0.605,
             ),
           ),
           Positioned(
@@ -44,8 +45,8 @@ class RecipeCard extends StatelessWidget {
                 ),
               ),
               child: Padding(
-                padding:
-                    const EdgeInsets.only(left: 33, top: 4, bottom: 4, right: 12),
+                padding: const EdgeInsets.only(
+                    left: 33, top: 4, bottom: 4, right: 12),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -95,7 +96,8 @@ class RecipeCard extends StatelessWidget {
                 color: const Color(0xFFFFAB57),
               ),
               child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 22),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 8, horizontal: 22),
                 child: Text(recipe.difficulty),
               ),
             ),

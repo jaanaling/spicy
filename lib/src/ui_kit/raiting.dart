@@ -24,13 +24,14 @@ class _StarRatingState extends State<Rating> {
       children: List.generate(5, (index) {
         return GestureDetector(
           onTap: () {
-            widget.onRatingChanged != null
-                ? widget.onRatingChanged!(index + 1)
-                : null;
+            setState(() {
+              widget.onRatingChanged != null
+                  ? widget.onRatingChanged!(index)
+                  : null;
+            });
           },
-          child: SvgPicture.asset(
-             IconProvider.pepper.buildImageUrl(),
-            colorFilter: index < widget.rating
+          child: ColorFiltered(
+            colorFilter: index > widget.rating
                 ? ColorFilter.matrix([
                     0.2126,
                     0.7152,
@@ -53,7 +54,31 @@ class _StarRatingState extends State<Rating> {
                     1,
                     0,
                   ])
-                : null,
+                : ColorFilter.matrix([
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                  ]),
+            child: Image.asset(
+              IconProvider.pepper.buildImageUrl(),
+            ),
           ),
         );
       }),
