@@ -5,22 +5,40 @@ import 'package:application/src/ui_kit/app_icon/widget/app_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import 'dart:math' as math;
-
 class BottomBar extends StatefulWidget {
   final int selectedIndex;
   final void Function(int) onTap;
-  const BottomBar(
-      {super.key, required this.selectedIndex, required this.onTap});
+
+  const BottomBar({super.key, required this.selectedIndex, required this.onTap});
 
   @override
   State<BottomBar> createState() => _BottomBarState();
 }
 
-class _BottomBarState extends State<BottomBar> {
+class _BottomBarState extends State<BottomBar> with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _animation;
+
   int _currentIndex = 0;
 
-  final List<double> _initialAngles = [0, -18, 0, 0, 0];
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 200),
+      vsync: this,
+    );
+    _animation = Tween<double>(begin: 1.0, end: 1.2).animate(CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeInOut,
+    ));
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +47,7 @@ class _BottomBarState extends State<BottomBar> {
       child: DecoratedBox(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(19),
-          color: Color(0xFF9A0A10),
+          color: const Color(0xFF9A0A10),
         ),
         child: Stack(
           children: [
@@ -44,9 +62,7 @@ class _BottomBarState extends State<BottomBar> {
                       index: 0,
                       iconUrl: IconProvider.home.buildImageUrl(),
                       iconUrlA: IconProvider.home_a.buildImageUrl(),
-                      initialAngle: _initialAngles[0],
                       onPressed: () {
-                        context.go(RouteValue.home.path);
                         _onItemTapped(0);
                       },
                     ),
@@ -54,9 +70,7 @@ class _BottomBarState extends State<BottomBar> {
                       index: 1,
                       iconUrl: IconProvider.chellenge.buildImageUrl(),
                       iconUrlA: IconProvider.chellenge_a.buildImageUrl(),
-                      initialAngle: _initialAngles[1],
                       onPressed: () {
-                        context.go(RouteValue.challenge.path);
                         _onItemTapped(1);
                       },
                     ),
@@ -64,9 +78,7 @@ class _BottomBarState extends State<BottomBar> {
                       index: 2,
                       iconUrl: IconProvider.rec.buildImageUrl(),
                       iconUrlA: IconProvider.rec_a.buildImageUrl(),
-                      initialAngle: _initialAngles[2],
                       onPressed: () {
-                        context.go(RouteValue.recommendation.path);
                         _onItemTapped(2);
                       },
                     ),
@@ -74,9 +86,7 @@ class _BottomBarState extends State<BottomBar> {
                       index: 3,
                       iconUrl: IconProvider.create.buildImageUrl(),
                       iconUrlA: IconProvider.create_a.buildImageUrl(),
-                      initialAngle: _initialAngles[3],
                       onPressed: () {
-                        context.go(RouteValue.create.path);
                         _onItemTapped(3);
                       },
                     ),
@@ -93,6 +103,7 @@ class _BottomBarState extends State<BottomBar> {
   void _onItemTapped(int index) {
     setState(() {
       _currentIndex = index;
+      _controller.forward().then((_) => _controller.reverse());
     });
     widget.onTap(index);
   }
@@ -101,47 +112,19 @@ class _BottomBarState extends State<BottomBar> {
     required int index,
     required String iconUrl,
     required String iconUrlA,
-    required double initialAngle,
     required VoidCallback onPressed,
   }) {
-    return IconButton(
-      onPressed: onPressed,
-      splashColor: Colors.transparent,
-      highlightColor: Colors.transparent,
-      splashRadius: 20,
-      icon: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          TweenAnimationBuilder<double>(
-            tween: Tween<double>(
-              begin: 0,
-              end: _currentIndex == index ? 15 : 0,
-            ),
-            duration: const Duration(milliseconds: 300),
-            builder: (context, angle, child) {
-              return Transform.rotate(
-                angle: (initialAngle + angle) * math.pi / 180,
-                child: child,
-              );
-            },
-            child: TweenAnimationBuilder<double>(
-              tween: Tween<double>(
-                begin: 0,
-                end: _currentIndex == index ? -10 : 0,
-              ),
-              duration: const Duration(milliseconds: 300),
-              builder: (context, offset, child) {
-                return Transform.translate(
-                  offset: Offset(0, offset),
-                  child: AppIcon(
-                    asset: _currentIndex == index ? iconUrlA : iconUrl,
-                    height: 30,
-                  ),
-                );
-              },
-            ),
-          ),
-        ],
+    return ScaleTransition(
+      scale: _currentIndex == index ? _animation : const AlwaysStoppedAnimation(1.0),
+      child: IconButton(
+        onPressed: onPressed,
+        splashColor: Colors.transparent,
+        highlightColor: Colors.transparent,
+        splashRadius: 20,
+        icon: AppIcon(
+          asset: _currentIndex == index ? iconUrlA : iconUrl,
+          height: 30,
+        ),
       ),
     );
   }

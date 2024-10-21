@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'dart:ui';
 
 import 'package:application/src/core/utils/icon_provider.dart';
 import 'package:application/src/feature/recipe/bloc/recipe_bloc.dart';
@@ -10,12 +9,12 @@ import 'package:application/src/ui_kit/raiting.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
-import 'package:share_plus/share_plus.dart';
 import 'package:image_picker/image_picker.dart';
+
+import '../../../../ui_kit/app_icon/widget/app_icon.dart';
 
 class CreateScreen extends StatefulWidget {
   const CreateScreen({super.key});
@@ -77,14 +76,89 @@ class _CreateScreenState extends State<CreateScreen> {
   bool isStep = false;
   bool isIngredient = false;
 
-  void _showCountrySnackBar(BuildContext context) {
+  void _showDifficultySnackBar(BuildContext context) {
     showCupertinoModalPopup(
       context: context,
       builder: (BuildContext context) {
         return Container(
-          height: 350,
           color: CupertinoColors.systemBackground,
           child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                padding: const EdgeInsets.all(16),
+                child: const Text(
+                  'Select Difficulty',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 100,
+                child: CupertinoPicker(
+                  scrollController: FixedExtentScrollController(
+                    initialItem: selectedDifficultyIndex,
+                  ),
+                  itemExtent: 32.0,
+                  onSelectedItemChanged: (int index) {
+                    setState(() {
+                      selectedDifficultyIndex = index;
+                      difficulty = difficulties[selectedDifficultyIndex];
+                    });
+                  },
+                  children: difficulties.map((String difficulty) {
+                    return Center(
+                      child: Text(difficulty),
+                    );
+                  }).toList(),
+                ),
+              ),
+              CupertinoButton(
+                child: const Text(
+                  'Done',
+                  style: TextStyle(color: CupertinoColors.activeBlue),
+                ),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  AppIcon getCountryIcon(String country) {
+    switch (country.toLowerCase()) {
+      case 'china':
+        return AppIcon(asset: IconProvider.china.buildImageUrl());
+      case 'india':
+        return AppIcon(asset: IconProvider.india.buildImageUrl());
+      case 'south korea':
+        return AppIcon(asset: IconProvider.south_korea.buildImageUrl());
+      case 'vietnam':
+        return AppIcon(asset: IconProvider.vietnam.buildImageUrl());
+      case 'thailand':
+        return AppIcon(asset: IconProvider.thailand.buildImageUrl());
+      case 'malaysia':
+        return AppIcon(asset: IconProvider.malaysia.buildImageUrl());
+      default:
+        throw Exception('Country icon not found $country');
+    }
+  }
+
+  void _showCountrySnackBar(BuildContext context) {
+    showCupertinoModalPopup(
+      context: context,
+      builder: (BuildContext context) {
+        return ColoredBox(
+          color: CupertinoColors.systemBackground,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Container(
                 padding: const EdgeInsets.all(16),
@@ -111,69 +185,26 @@ class _CreateScreenState extends State<CreateScreen> {
                     });
                   },
                   children: countries.map((String country) {
-                    return Center(
-                      child: Text(country),
+                    return Padding(
+                      padding: EdgeInsets.only(
+                        left: MediaQuery.of(context).size.width * 0.28,
+                      ),
+                      child: Row(
+                        children: [
+                          getCountryIcon(country),
+                          const Gap(16),
+                          Text(country),
+                        ],
+                      ),
                     );
                   }).toList(),
                 ),
               ),
-              const Spacer(),
               CupertinoButton(
-                child: const Text('Done'),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
-            ],
-          ),
-        );
-      },
-    );
-  }
-
-  void _showDifficultySnackBar(BuildContext context) {
-    showCupertinoModalPopup(
-      context: context,
-      builder: (BuildContext context) {
-        return Container(
-          height: 350,
-          color: CupertinoColors.systemBackground,
-          child: Column(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(16),
                 child: const Text(
-                  'Select Difficulty',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
+                  'Done',
+                  style: TextStyle(color: CupertinoColors.activeBlue),
                 ),
-              ),
-              SizedBox(
-                height: 150,
-                child: CupertinoPicker(
-                  scrollController: FixedExtentScrollController(
-                    initialItem: selectedDifficultyIndex,
-                  ),
-                  itemExtent: 32.0,
-                  onSelectedItemChanged: (int index) {
-                    setState(() {
-                      selectedDifficultyIndex = index;
-                      difficulty = difficulties[selectedDifficultyIndex];
-                    });
-                  },
-                  children: difficulties.map((String difficulty) {
-                    return Center(
-                      child: Text(difficulty),
-                    );
-                  }).toList(),
-                ),
-              ),
-              const Spacer(),
-              CupertinoButton(
-                child: const Text('Done'),
                 onPressed: () {
                   Navigator.pop(context);
                 },
@@ -201,9 +232,9 @@ class _CreateScreenState extends State<CreateScreen> {
       context: context,
       builder: (BuildContext context) {
         return Container(
-          height: 350,
           color: CupertinoColors.systemBackground,
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Container(
                 padding: const EdgeInsets.all(16),
@@ -261,9 +292,11 @@ class _CreateScreenState extends State<CreateScreen> {
                   ],
                 ),
               ),
-              const Spacer(),
               CupertinoButton(
-                child: const Text('Done'),
+                child: const Text(
+                  'Done',
+                  style: TextStyle(color: CupertinoColors.activeBlue),
+                ),
                 onPressed: () {
                   Navigator.pop(context);
                 },
@@ -279,488 +312,459 @@ class _CreateScreenState extends State<CreateScreen> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       padding: const EdgeInsets.fromLTRB(20, 40, 20, 120),
-      child: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            CustomTextField(
-              controller: titleController,
-              placeholder: 'Enter title...',
-              isSuffix: true,
-            ),
-            const Gap(13),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    _pickImageFromGallery();
-                  },
-                  child: SizedBox(
-                    width: 145,
-                    height: 145,
-                    child: Stack(
-                      children: [
-                        if (_image != null)
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(12),
-                            child: Image.file(
-                              _image!,
-                              width: 142,
-                              height: 142,
-                              fit: BoxFit.cover,
-                            ),
-                          )
-                        else
-                          SvgPicture.asset(
-                            IconProvider.no_photo.buildImageUrl(),
-                          ),
-                        const Padding(
-                          padding: EdgeInsets.only(top: 3, left: 3),
-                          child: Align(
-                            alignment: Alignment.bottomRight,
-                            child: PlusButton(),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        _showCountrySnackBar(context);
-                      },
-                      child: DecoratedBox(
-                        decoration: customDecoration(),
-                        child: SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.5,
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 20,
-                              vertical: 8,
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  cuisine ?? 'Country',
-                                  style: const TextStyle(
-                                    fontSize: 21,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                                Icon(
-                                  CupertinoIcons.chevron_down,
-                                  color: const Color.fromARGB(255, 0, 0, 0)
-                                      .withOpacity(0.51),
-                                  size: 16,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const Gap(8),
-                    GestureDetector(
-                      onTap: () {
-                        _showTimePicker(context);
-                      },
-                      child: DecoratedBox(
-                        decoration: customDecoration(),
-                        child: SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.5,
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 20,
-                              vertical: 8,
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  selectedHour + selectedMinute != 0
-                                      ? '$selectedHour:$selectedMinute'
-                                      : 'Time',
-                                  style: const TextStyle(
-                                    fontSize: 21,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                                Icon(
-                                  CupertinoIcons.chevron_down,
-                                  color: const Color.fromARGB(255, 0, 0, 0)
-                                      .withOpacity(0.51),
-                                  size: 16,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const Gap(11),
-                    Rating(rating: _rating, onRatingChanged: _onRatingChanged),
-                  ],
-                ),
-              ],
-            ),
-            const Gap(14),
-            CustomTextField(
-              controller: descriptionController,
-              placeholder: 'Enter description...',
-              maxLength: 10,
-            ),
-            const Gap(19),
-            GestureDetector(
-              onTap: () {
-                _showDifficultySnackBar(context);
-              },
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: const Color(0xFF9A0A10),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 8,
-                    vertical: 10,
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CustomTextField(
+            controller: titleController,
+            placeholder: 'Enter title...',
+            isSuffix: true,
+          ),
+          const Gap(13),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  _pickImageFromGallery();
+                },
+                child: SizedBox(
+                  width: 145,
+                  height: 145,
+                  child: Stack(
                     children: [
-                      Text(
-                        difficulty ?? 'difficulty',
-                        style: const TextStyle(
-                          fontSize: 16,
-                          color: Colors.white,
+                      if (_image != null)
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(12),
+                          child: Image.file(
+                            _image!,
+                            width: 142,
+                            height: 142,
+                            fit: BoxFit.cover,
+                          ),
+                        )
+                      else
+                        SvgPicture.asset(
+                          IconProvider.no_photo.buildImageUrl(),
                         ),
-                      ),
-                      const Gap(6),
-                      Icon(
-                        CupertinoIcons.chevron_down,
-                        color: const Color.fromARGB(255, 255, 255, 255)
-                            .withOpacity(0.51),
-                        size: 12,
+                      const Padding(
+                        padding: EdgeInsets.only(top: 3, left: 3),
+                        child: Align(
+                          alignment: Alignment.bottomRight,
+                          child: PlusButton(),
+                        ),
                       ),
                     ],
                   ),
                 ),
               ),
-            ),
-            const Gap(18),
-            const Divider(
-              color: Color(0xFF9A0A10),
-              thickness: 3,
-              height: 3,
-            ),
-            const Gap(15),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  'Ingredients',
-                  style: TextStyle(
-                    fontSize: 29,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.black,
-                  ),
-                ),
-                PlusButton(
-                  onPressed: () {
-                    setState(() {
-                      isIngredient = true;
-                    });
-                  },
-                ),
-              ],
-            ),
-            const Gap(15),
-            Column(
-              children: List.generate(
-                ingredients.length,
-                (int index) => Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Row(
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      _showCountrySnackBar(context);
+                    },
+                    child: DecoratedBox(
+                      decoration: customDecoration(),
+                      child: SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.5,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 20,
+                            vertical: 8,
+                          ),
+                          child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                '${ingredients[index].name}',
+                                cuisine ?? 'Country',
                                 style: const TextStyle(
-                                  fontSize: 17,
+                                  fontSize: 21,
                                   color: Colors.black,
+                                  fontFamily: 'poppins',
                                 ),
                               ),
-                              Text(
-                                '${ingredients[index].quantity} ${ingredients[index].quantityType}',
-                                style: const TextStyle(
-                                  fontSize: 17,
-                                  color: Colors.black,
-                                ),
+                              AppIcon(
+                                asset:
+                                    IconProvider.chevronDown.buildImageUrl(),
+                                color: const Color.fromARGB(255, 0, 0, 0)
+                                    .withOpacity(0.51),
+                                width: 16,
                               ),
                             ],
                           ),
-                          const Gap(10),
-                          Text(
-                            'Type: ${ingredients[index].type}',
-                            style: const TextStyle(
-                              fontSize: 17,
-                              color: Colors.black,
-                            ),
-                          ),
-                        ],
+                        ),
                       ),
                     ),
-                    const Gap(10),
-                    PlusButton(
-                      isPlus: false,
-                      onPressed: () {
-                        setState(() {
-                          ingredients.removeAt(index);
-                        });
-                      },
+                  ),
+                  const Gap(8),
+                  GestureDetector(
+                    onTap: () {
+                      _showTimePicker(context);
+                    },
+                    child: DecoratedBox(
+                      decoration: customDecoration(),
+                      child: SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.5,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 20,
+                            vertical: 8,
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                selectedHour + selectedMinute != 0
+                                    ? '$selectedHour:$selectedMinute'
+                                    : 'Time',
+                                style: const TextStyle(
+                                  fontSize: 21,
+                                  color: Colors.black,
+                                  fontFamily: 'poppins',
+                                ),
+                              ),
+                              AppIcon(
+                                asset:
+                                    IconProvider.chevronDown.buildImageUrl(),
+                                color: const Color.fromARGB(255, 0, 0, 0)
+                                    .withOpacity(0.51),
+                                width: 16,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const Gap(11),
+                  Rating(rating: _rating, onRatingChanged: _onRatingChanged),
+                ],
+              ),
+            ],
+          ),
+          const Gap(14),
+          CustomTextField(
+            controller: descriptionController,
+            placeholder: 'Enter description...',
+            maxLength: 10,
+          ),
+          const Gap(19),
+          GestureDetector(
+            onTap: () {
+              _showDifficultySnackBar(context);
+            },
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                color: const Color(0xFF9A0A10),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 8,
+                  vertical: 10,
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      difficulty ?? 'difficulty',
+                      style: const TextStyle(
+                        fontSize: 16,
+                        color: Colors.white,
+                        fontFamily: 'poppins',
+                      ),
+                    ),
+                    const Gap(6),
+                    Icon(
+                      CupertinoIcons.chevron_down,
+                      color: const Color.fromARGB(255, 255, 255, 255)
+                          .withOpacity(0.51),
+                      size: 12,
                     ),
                   ],
                 ),
               ),
             ),
-            if (isIngredient)
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.end,
+          ),
+          const Gap(18),
+          const Divider(
+            color: Color(0xFF9A0A10),
+            thickness: 3,
+            height: 3,
+          ),
+          const Gap(15),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text(
+                'Ingredients',
+                style: TextStyle(
+                  fontSize: 29,
+                  fontWeight: FontWeight.w700,
+                  color: Colors.black,
+                  fontFamily: 'poppins',
+                ),
+              ),
+              PlusButton(
+                onPressed: () {
+                  setState(() {
+                    isIngredient = true;
+                  });
+                },
+              ),
+            ],
+          ),
+          const Gap(15),
+          Column(
+            children: List.generate(
+              ingredients.length,
+              (int index) => Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.75,
+                  Expanded(
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
                       children: [
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Expanded(
-                              child: CustomTextField(
-                                controller: ingredientController,
-                                placeholder: 'ingredient...',
-                                fontSize: 14,
+                            Text(
+                              ingredients[index].name,
+                              style: const TextStyle(
+                                fontSize: 17,
+                                color: Colors.black,
+                                fontFamily: 'poppins',
                               ),
                             ),
-                            const Gap(10),
-                            Material(
-                              color: Colors.transparent,
-                              child: DecoratedBox(
-                                decoration: customDecoration(),
-                                child: DropdownButton<String>(
-                                  style: const TextStyle(
-                                    fontSize: 14,
-                                    color: CupertinoColors.black,
-                                  ),
-                                  icon: Padding(
-                                    padding: const EdgeInsets.only(left: 8),
-                                    child: Icon(
-                                      CupertinoIcons.chevron_down,
-                                      color: const Color.fromARGB(255, 0, 0, 0)
-                                          .withOpacity(0.51),
-                                    ),
-                                  ),
-                                  iconSize: 16,
-                                  underline: const SizedBox(),
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 22,
-                                    vertical: 2,
-                                  ),
-                                  value: selectedType,
-                                  onChanged: (String? newValue) {
-                                    setState(() {
-                                      selectedType = newValue!;
-                                    });
-                                  },
-                                  items: types.map<DropdownMenuItem<String>>(
-                                      (String value) {
-                                    return DropdownMenuItem<String>(
-                                      value: value,
-                                      child: Text(value),
-                                    );
-                                  }).toList(),
-                                ),
+                            Text(
+                              '${ingredients[index].quantity} ${ingredients[index].quantityType}',
+                              style: const TextStyle(
+                                fontSize: 17,
+                                color: Colors.black,
+                                fontFamily: 'poppins',
                               ),
                             ),
                           ],
                         ),
-                        const Gap(15),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: CustomTextField(
-                                controller: quantityController,
-                                placeholder: 'quantity...',
-                                fontSize: 14,
-                                keyboardType: TextInputType.number,
-                                inputFormatters: [
-                                  FilteringTextInputFormatter.digitsOnly,
-                                ],
-                              ),
-                            ),
-                            const Gap(10),
-                            Material(
-                              color: Colors.transparent,
-                              child: DecoratedBox(
-                                decoration: customDecoration(),
-                                child: DropdownButton<String>(
-                                  style: const TextStyle(
-                                    fontSize: 14,
-                                    color: CupertinoColors.black,
-                                  ),
-                                  icon: Padding(
-                                    padding: const EdgeInsets.only(left: 8),
-                                    child: Icon(
-                                      CupertinoIcons.chevron_down,
-                                      color: const Color.fromARGB(255, 0, 0, 0)
-                                          .withOpacity(0.51),
-                                    ),
-                                  ),
-                                  iconSize: 16,
-                                  underline: const SizedBox(),
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 22,
-                                    vertical: 2,
-                                  ),
-                                  value: selectedUnit,
-                                  onChanged: (String? newValue) {
-                                    setState(() {
-                                      selectedUnit = newValue!;
-                                    });
-                                  },
-                                  items: units.map<DropdownMenuItem<String>>(
-                                      (String value) {
-                                    return DropdownMenuItem<String>(
-                                      value: value,
-                                      child: Text(value),
-                                    );
-                                  }).toList(),
-                                ),
-                              ),
-                            ),
-                          ],
+                        const Gap(10),
+                        Text(
+                          'Type: ${ingredients[index].type}',
+                          style: const TextStyle(
+                            fontSize: 17,
+                            color: Colors.black,
+                          ),
                         ),
-                        const Gap(25),
-                  
                       ],
                     ),
                   ),
                   const Gap(10),
-                  GestureDetector(
-                    onTap: () {
+                  PlusButton(
+                    isPlus: false,
+                    onPressed: () {
                       setState(() {
-                        isIngredient = false;
-                        ingredients.add(
-                          Ingredient(
-                            name: ingredientController.text,
-                            quantity: int.parse(quantityController.text),
-                            quantityType: selectedUnit,
-                            type: selectedType,
-                          ),
-                        );
-                        ingredientController.text = '';
-                        quantityController.text = '';
-                        selectedUnit = 'g';
-                        selectedType = 'Meat';
+                        ingredients.removeAt(index);
                       });
                     },
-                    child: const DecoratedBox(
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Color(0xFF9A0A10),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.all(14),
-                        child: Icon(
-                          CupertinoIcons.check_mark,
-                          size: 15.5,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
                   ),
                 ],
               ),
-            const Gap(15),
-            const Divider(
-              color: Color(0xFF9A0A10),
-              thickness: 3,
-              height: 3,
             ),
-            const Gap(15),
+          ),
+          if (isIngredient)
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                const Text(
-                  'Step by step recipe',
-                  style: TextStyle(
-                    fontSize: 29,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.black,
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.75,
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Expanded(
+                            child: CustomTextField(
+                              controller: ingredientController,
+                              placeholder: 'ingredient...',
+                              fontSize: 14,
+                            ),
+                          ),
+                          const Gap(10),
+                          Material(
+                            color: Colors.transparent,
+                            child: DecoratedBox(
+                              decoration: customDecoration(),
+                              child: DropdownButton<String>(
+                                style: const TextStyle(
+                                  fontSize: 14,
+                                  color: CupertinoColors.black,
+                                  fontFamily: 'poppins',
+                                ),
+                                icon: Padding(
+                                  padding: const EdgeInsets.only(left: 8),
+                                  child: Icon(
+                                    CupertinoIcons.chevron_down,
+                                    color: const Color.fromARGB(255, 0, 0, 0)
+                                        .withOpacity(0.51),
+                                  ),
+                                ),
+                                iconSize: 16,
+                                underline: const SizedBox(),
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 22,
+                                  vertical: 2,
+                                ),
+                                value: selectedType,
+                                onChanged: (String? newValue) {
+                                  setState(() {
+                                    selectedType = newValue!;
+                                  });
+                                },
+                                items: types.map<DropdownMenuItem<String>>(
+                                    (String value) {
+                                  return DropdownMenuItem<String>(
+                                    value: value,
+                                    child: Text(
+                                      value,
+                                      style: const TextStyle(
+                                        fontFamily: 'poppins',
+                                      ),
+                                    ),
+                                  );
+                                }).toList(),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const Gap(15),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: CustomTextField(
+                              controller: quantityController,
+                              placeholder: 'quantity...',
+                              fontSize: 14,
+                              keyboardType: TextInputType.number,
+                              inputFormatters: [
+                                FilteringTextInputFormatter.digitsOnly,
+                              ],
+                            ),
+                          ),
+                          const Gap(10),
+                          Material(
+                            color: Colors.transparent,
+                            child: DecoratedBox(
+                              decoration: customDecoration(),
+                              child: DropdownButton<String>(
+                                style: const TextStyle(
+                                  fontSize: 14,
+                                  color: CupertinoColors.black,
+                                  fontFamily: 'poppins',
+                                ),
+                                icon: Padding(
+                                  padding: const EdgeInsets.only(left: 8),
+                                  child: Icon(
+                                    CupertinoIcons.chevron_down,
+                                    color: const Color.fromARGB(255, 0, 0, 0)
+                                        .withOpacity(0.51),
+                                  ),
+                                ),
+                                iconSize: 16,
+                                underline: const SizedBox(),
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 22,
+                                  vertical: 2,
+                                ),
+                                value: selectedUnit,
+                                onChanged: (String? newValue) {
+                                  setState(() {
+                                    selectedUnit = newValue!;
+                                  });
+                                },
+                                items: units.map<DropdownMenuItem<String>>(
+                                    (String value) {
+                                  return DropdownMenuItem<String>(
+                                    value: value,
+                                    child: Text(value),
+                                  );
+                                }).toList(),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const Gap(25),
+                    ],
                   ),
                 ),
-                PlusButton(
-                  onPressed: () => setState(() => isStep = true),
+                const Gap(10),
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      isIngredient = false;
+                      ingredients.add(
+                        Ingredient(
+                          name: ingredientController.text,
+                          quantity: int.parse(quantityController.text),
+                          quantityType: selectedUnit,
+                          type: selectedType,
+                        ),
+                      );
+                      ingredientController.text = '';
+                      quantityController.text = '';
+                      selectedUnit = 'g';
+                      selectedType = 'Meat';
+                    });
+                  },
+                  child: const DecoratedBox(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Color(0xFF9A0A10),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.all(14),
+                      child: Icon(
+                        CupertinoIcons.check_mark,
+                        size: 15.5,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),
-            const Gap(15),
-            Column(
-              children: List.generate(
-                steps.length,
-                (int index) => Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    DecoratedBox(
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color:
-                            const Color.fromARGB(255, 0, 0, 0).withOpacity(0.6),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(14),
-                        child: Text(
-                          (index + 1).toString(),
-                          style: const TextStyle(
-                            fontSize: 21,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                      ),
-                    ),
-                    const Gap(10),
-                    Expanded(
-                      child: Text(
-                        steps[index],
-                        style:
-                            const TextStyle(fontSize: 17, color: Colors.black),
-                      ),
-                    ),
-                    const Gap(10),
-                    PlusButton(
-                      isPlus: false,
-                      onPressed: () {
-                        setState(() {
-                          ingredients.removeAt(index);
-                        });
-                      },
-                    ),
-                  ],
+          const Gap(15),
+          const Divider(
+            color: Color(0xFF9A0A10),
+            thickness: 3,
+            height: 3,
+          ),
+          const Gap(15),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text(
+                'Step by step recipe',
+                style: TextStyle(
+                  fontSize: 29,
+                  fontWeight: FontWeight.w700,
+                  color: Colors.black,
+                  fontFamily: 'poppins',
                 ),
               ),
-            ),
-            if (isStep)
-              Row(
+              PlusButton(
+                onPressed: () => setState(() => isStep = true),
+              ),
+            ],
+          ),
+          const Gap(15),
+          Column(
+            children: List.generate(
+              steps.length,
+              (int index) => Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   DecoratedBox(
@@ -772,143 +776,198 @@ class _CreateScreenState extends State<CreateScreen> {
                     child: Padding(
                       padding: const EdgeInsets.all(14),
                       child: Text(
-                        (steps.length + 1).toString(),
+                        (index + 1).toString(),
                         style: const TextStyle(
                           fontSize: 21,
                           color: Colors.white,
                           fontWeight: FontWeight.w700,
+                          fontFamily: 'poppins',
                         ),
                       ),
                     ),
                   ),
                   const Gap(10),
                   Expanded(
-                    child: CustomTextField(
-                      controller: stepController,
-                      placeholder: 'step...',
-                      maxLength: 5,
-                      fontSize: 17,
+                    child: Text(
+                      steps[index],
+                      style: const TextStyle(
+                        fontSize: 17,
+                        color: Colors.black,
+                        fontFamily: 'poppins',
+                      ),
                     ),
                   ),
                   const Gap(10),
-                  GestureDetector(
-                    onTap: () {
+                  PlusButton(
+                    isPlus: false,
+                    onPressed: () {
                       setState(() {
-                        isStep = false;
-                        steps.add(stepController.text);
-                        stepController.text = '';
+                        ingredients.removeAt(index);
                       });
                     },
-                    child: const DecoratedBox(
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Color(0xFF9A0A10),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.all(14),
-                        child: Icon(
-                          CupertinoIcons.check_mark,
-                          size: 15.5,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
                   ),
                 ],
               ),
-            const Gap(15),
-            const Divider(
-              color: Color(0xFF9A0A10),
-              thickness: 3,
-              height: 3,
             ),
-            const Gap(15),
-            Column(
-              mainAxisSize: MainAxisSize.min,
+          ),
+          if (isStep)
+            Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                NutrientInput(
-                  label: 'Calories',
-                  controller: caloriesController,
-                  icon: SvgPicture.asset(IconProvider.calories.buildImageUrl()),
+                DecoratedBox(
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color:
+                        const Color.fromARGB(255, 0, 0, 0).withOpacity(0.6),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(14),
+                    child: Text(
+                      (steps.length + 1).toString(),
+                      style: const TextStyle(
+                        fontSize: 21,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w700,
+                        fontFamily: 'poppins',
+                      ),
+                    ),
+                  ),
                 ),
-                const Gap(5),
-                NutrientInput(
-                  label: 'proteins',
-                  controller: proteinsController,
+                const Gap(10),
+                Expanded(
+                  child: CustomTextField(
+                    controller: stepController,
+                    placeholder: 'step...',
+                    maxLength: 5,
+                    fontSize: 17,
+                  ),
                 ),
-                const Gap(5),
-                NutrientInput(
-                  label: 'fats',
-                  controller: fatsController,
-                ),
-                const Gap(5),
-                NutrientInput(
-                  label: 'carbohydrates',
-                  controller: carbsController,
+                const Gap(10),
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      isStep = false;
+                      steps.add(stepController.text);
+                      stepController.text = '';
+                    });
+                  },
+                  child: const DecoratedBox(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Color(0xFF9A0A10),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.all(14),
+                      child: Icon(
+                        CupertinoIcons.check_mark,
+                        size: 15.5,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),
-            const Gap(36),
-            Center(
-              child: GestureDetector(
-                onTap: () {
-                  if (titleController.text.isEmpty ||
-                      descriptionController.text.isEmpty ||
-                      caloriesController.text.isEmpty ||
-                      proteinsController.text.isEmpty ||
-                      fatsController.text.isEmpty ||
-                      carbsController.text.isEmpty ||
-                      _image == null ||
-                      ingredients.isEmpty ||
-                      steps.isEmpty ||
-                      difficulty == null ||
-                      cuisine == null ||
-                      selectedHour + selectedMinute == 0) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('Please fill in all fields'),
+          const Gap(15),
+          const Divider(
+            color: Color(0xFF9A0A10),
+            thickness: 3,
+            height: 3,
+          ),
+          const Gap(15),
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              NutrientInput(
+                label: 'Calories',
+                controller: caloriesController,
+                icon: SvgPicture.asset(IconProvider.calories.buildImageUrl()),
+              ),
+              const Gap(5),
+              NutrientInput(
+                label: 'proteins',
+                controller: proteinsController,
+              ),
+              const Gap(5),
+              NutrientInput(
+                label: 'fats',
+                controller: fatsController,
+              ),
+              const Gap(5),
+              NutrientInput(
+                label: 'carbohydrates',
+                controller: carbsController,
+              ),
+            ],
+          ),
+          const Gap(36),
+          Center(
+            child: GestureDetector(
+              onTap: () {
+                if (titleController.text.isEmpty ||
+                    descriptionController.text.isEmpty ||
+                    caloriesController.text.isEmpty ||
+                    proteinsController.text.isEmpty ||
+                    fatsController.text.isEmpty ||
+                    carbsController.text.isEmpty ||
+                    _image == null ||
+                    ingredients.isEmpty ||
+                    steps.isEmpty ||
+                    difficulty == null ||
+                    cuisine == null ||
+                    selectedHour + selectedMinute == 0) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text(
+                        'Please fill in all fields',
+                        style: TextStyle(
+                          fontFamily: 'poppins',
+                        ),
                       ),
-                    );
-                  } else {
-                    context.read<RecipeBloc>().add(
-                          AddRecipe(
-                            RecipeModel(
-                              name: titleController.text,
-                              description: descriptionController.text,
-                              imagePath: _image != null ? _image!.path : '',
-                              spicinessLevel: spicinessLevel,
-                              servings: 1,
-                              difficulty: difficulty ?? 'Easy',
-                              cuisine: cuisine ?? 'China',
-                              time: '$selectedHour:$selectedMinute',
-                              ingredients: ingredients,
-                              steps: steps,
-                              calories:
-                                  double.tryParse(caloriesController.text) ?? 0,
-                              proteins:
-                                  double.tryParse(proteinsController.text) ?? 0,
-                              fats: double.tryParse(fatsController.text) ?? 0,
-                              carbs: double.tryParse(carbsController.text) ?? 0,
-                            ),
+                    ),
+                  );
+                } else {
+                  context.read<RecipeBloc>().add(
+                        AddRecipe(
+                          RecipeModel(
+                            name: titleController.text,
+                            description: descriptionController.text,
+                            imagePath: _image != null ? _image!.path : '',
+                            spicinessLevel: spicinessLevel,
+                            servings: 1,
+                            difficulty: difficulty ?? 'Easy',
+                            cuisine: cuisine ?? 'China',
+                            time: '$selectedHour:$selectedMinute',
+                            ingredients: ingredients,
+                            steps: steps,
+                            calories:
+                                double.tryParse(caloriesController.text) ?? 0,
+                            proteins:
+                                double.tryParse(proteinsController.text) ?? 0,
+                            fats: double.tryParse(fatsController.text) ?? 0,
+                            carbs: double.tryParse(carbsController.text) ?? 0,
                           ),
-                        );
-                  }
-                },
-                child: const DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: Color(0xFF9A0A10),
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 46, vertical: 21),
-                    child: Text('save recipe'),
-                  ),
+                        ),
+                      );
+                }
+              },
+              child: const DecoratedBox(
+                decoration: BoxDecoration(
+                  color: Color(0xFF9A0A10),
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 46, vertical: 21),
+                  child: Text('save recipe',
+                      style: TextStyle(
+                        fontFamily: 'poppins',
+                      )),
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -951,6 +1010,7 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoTextField(
+      cursorColor: const Color(0xFF9A0A10),
       controller: controller,
       onTapOutside: (event) {
         FocusManager.instance.primaryFocus?.unfocus();
@@ -972,6 +1032,7 @@ class CustomTextField extends StatelessWidget {
         fontSize: fontSize,
         fontStyle: FontStyle.italic,
         color: const Color(0xFF8F8F8F),
+        fontFamily: 'poppins',
       ),
       suffix: isSuffix
           ? const Padding(
@@ -981,10 +1042,15 @@ class CustomTextField extends StatelessWidget {
           : null,
       maxLines: maxLength,
       minLines: maxLength,
+      textAlignVertical: TextAlignVertical.top,
       textAlign: isCenterText ? TextAlign.center : TextAlign.start,
       keyboardType: keyboardType,
       inputFormatters: inputFormatters,
-      style: TextStyle(fontSize: fontSize, color: CupertinoColors.black),
+      style: TextStyle(
+        fontSize: fontSize,
+        color: CupertinoColors.black,
+        fontFamily: 'poppins',
+      ),
       decoration: customDecoration(),
     );
   }
@@ -996,11 +1062,11 @@ class NutrientInput extends StatelessWidget {
   final Widget? icon;
 
   const NutrientInput({
-    Key? key,
+    super.key,
     required this.label,
     required this.controller,
     this.icon,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -1018,6 +1084,7 @@ class NutrientInput extends StatelessWidget {
                   fontSize: icon == null ? 17 : 21,
                   fontWeight: icon == null ? FontWeight.w400 : FontWeight.w500,
                   color: Colors.black,
+                  fontFamily: 'poppins',
                 ),
               ),
             ),

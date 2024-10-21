@@ -1,4 +1,5 @@
 import 'package:application/routes/route_value.dart';
+import 'package:application/src/ui_kit/bottom_bar/bottom_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 
@@ -22,9 +23,11 @@ class _RootNavigationScreenState extends State<RootNavigationScreen> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
+      resizeToAvoidBottomInset: false,
       child: Stack(
         children: [
           SafeArea(top: widget.route != '${RouteValue.home.path}/${RouteValue.recipe.path}', child: widget.navigationShell),
+          Positioned(bottom: 0, left: 0, right: 0, child: BottomBar(selectedIndex: currentIndex, onTap: _onTap)),
         ],
       ),
     );

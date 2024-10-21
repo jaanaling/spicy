@@ -25,6 +25,8 @@ enum IconProvider {
   calories(imageName: 'calories.svg'),
   search(imageName: 'search.svg'),
   chevronDown(imageName: 'chevron_down.svg'),
+  arrowNext(imageName: 'back.svg'),
+  pepperInactive(imageName: 'pepper_inactive.png'),
 
   unknown(imageName: '');
 

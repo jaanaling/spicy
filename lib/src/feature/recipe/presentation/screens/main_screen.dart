@@ -1,23 +1,19 @@
-import 'dart:ui';
-import 'dart:ui';
+import 'dart:math';
 
 import 'package:application/routes/route_value.dart';
 import 'package:application/src/core/utils/icon_provider.dart';
+import 'package:application/src/feature/recipe/model/recipe.dart';
 import 'package:application/src/ui_kit/app_icon/widget/app_icon.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_xlider/flutter_xlider.dart';
 import 'package:gap/gap.dart';
 import 'package:application/src/feature/recipe/bloc/recipe_bloc.dart';
 import 'package:application/src/feature/recipe/presentation/widgets/recipe_card.dart';
 import 'package:go_router/go_router.dart';
-
-import '../../../../ui_kit/custom_decoration.dart';
+import 'package:application/src/ui_kit/custom_decoration.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -28,12 +24,15 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   TextEditingController searchController = TextEditingController();
-  double sliderValue = 1;
+  double sliderValue = 3;
   List<String> difficulty = ['Easy', 'Medium', 'Hard'];
   String? cuisine;
   int selectedIndexCountry = 0;
   int selectedIndexTime = 0;
   String? selectedTime;
+  late CarouselSliderController _pageController;
+  int _currentPage = 0;
+  List<RecipeModel> recipes = [];
 
   List<String> countries = [
     'China',
@@ -42,19 +41,70 @@ class _MainScreenState extends State<MainScreen> {
     'Vietnam',
     'Thailand',
     'Malaysia',
+    'All Countries',
   ];
+
+  String getShortCountryName(String country) {
+    switch (country.toLowerCase()) {
+      case 'china':
+        return 'CN';
+      case 'india':
+        return 'IN';
+      case 'south korea':
+        return 'KR';
+      case 'vietnam':
+        return 'VN';
+      case 'thailand':
+        return 'TH';
+      case 'malaysia':
+        return 'MY';
+      default:
+        throw Exception('Short country name not found $country');
+    }
+  }
 
   List<String> timeRanges = [
     'From 0 to 30 minutes',
     'From 30 minutes to an hour',
     'More than an hour',
+    'None',
   ];
+
+  int _convertTimeToMinutes(String time) {
+    if (time.contains('min')) {
+      return int.parse(time.split(' ')[0]); // возвращает число минут
+    } else if (time.contains('h')) {
+      return int.parse(time.split(' ')[0]) * 60; // переводит часы в минуты
+    } else if (time.contains('day')) {
+      return int.parse(time.split(' ')[0]) * 1440; // переводит дни в минуты
+    }
+    return 0; // если время не соответствует, возвращает 0
+  }
+
+  AppIcon getCountryIcon(String country) {
+    switch (country.toLowerCase()) {
+      case 'china':
+        return AppIcon(asset: IconProvider.china.buildImageUrl());
+      case 'india':
+        return AppIcon(asset: IconProvider.india.buildImageUrl());
+      case 'south korea':
+        return AppIcon(asset: IconProvider.south_korea.buildImageUrl());
+      case 'vietnam':
+        return AppIcon(asset: IconProvider.vietnam.buildImageUrl());
+      case 'thailand':
+        return AppIcon(asset: IconProvider.thailand.buildImageUrl());
+      case 'malaysia':
+        return AppIcon(asset: IconProvider.malaysia.buildImageUrl());
+      default:
+        throw Exception('Country icon not found $country');
+    }
+  }
 
   void _showCountrySnackBar(BuildContext context) {
     showCupertinoModalPopup(
       context: context,
       builder: (BuildContext context) {
-        return Container(
+        return ColoredBox(
           color: CupertinoColors.systemBackground,
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -70,28 +120,42 @@ class _MainScreenState extends State<MainScreen> {
                   ),
                 ),
               ),
-              SizedBox(
-                height: 150,
-                child: CupertinoPicker(
-                  scrollController: FixedExtentScrollController(
-                    initialItem: selectedIndexCountry,
-                  ),
-                  itemExtent: 32.0,
-                  onSelectedItemChanged: (int index) {
-                    setState(() {
-                      selectedIndexCountry = index;
-                      cuisine = countries[selectedIndexCountry];
-                    });
-                  },
-                  children: countries.map((String country) {
-                    return Center(
-                      child: Text(country),
-                    );
-                  }).toList(),
+              CupertinoPicker(
+                scrollController: FixedExtentScrollController(
+                  initialItem: selectedIndexCountry,
                 ),
+                itemExtent: 32.0,
+                onSelectedItemChanged: (int index) {
+                  setState(() {
+                    selectedIndexCountry = index;
+
+                    if (selectedIndexCountry == 6) {
+                      cuisine = null;
+                    } else {
+                      cuisine = countries[selectedIndexCountry];
+                    }
+                  });
+                },
+                children: countries.map((String country) {
+                  return Padding(
+                    padding: EdgeInsets.only(
+                      left: MediaQuery.of(context).size.width * 0.28,
+                    ),
+                    child: Row(
+                      children: [
+                        if (country != countries[6]) getCountryIcon(country),
+                        const Gap(16),
+                        Text(country),
+                      ],
+                    ),
+                  );
+                }).toList(),
               ),
               CupertinoButton(
-                child: const Text('Done',   style: TextStyle(color: CupertinoColors.activeBlue),),
+                child: const Text(
+                  'Done',
+                  style: TextStyle(color: CupertinoColors.activeBlue),
+                ),
                 onPressed: () {
                   Navigator.pop(context);
                 },
@@ -107,7 +171,7 @@ class _MainScreenState extends State<MainScreen> {
     showCupertinoModalPopup(
       context: context,
       builder: (BuildContext context) {
-        return Container(
+        return ColoredBox(
           color: CupertinoColors.systemBackground,
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -123,36 +187,36 @@ class _MainScreenState extends State<MainScreen> {
                   ),
                 ),
               ),
-              SizedBox(
-                height: 150,
-                child: CupertinoPicker(
-                  scrollController: FixedExtentScrollController(
-                    initialItem: selectedIndexTime,
-                  ),
-                  itemExtent: 32.0,
-                  onSelectedItemChanged: (int index) {
-                    setState(() {
-                      selectedIndexTime = index;
-                      if(selectedIndexTime == 0){
-                        selectedTime = '<30 min';
-                      }
-                      else if (selectedIndexTime == 1){
-                        selectedTime = '30-60 min';
-                      }
-                      else if (selectedIndexTime == 2){
-                        selectedTime = '> 1 hr';
-                      }
-                    });
-                  },
-                  children: timeRanges.map((String country) {
-                    return Center(
-                      child: Text(country),
-                    );
-                  }).toList(),
+              CupertinoPicker(
+                scrollController: FixedExtentScrollController(
+                  initialItem: selectedIndexTime,
                 ),
+                itemExtent: 32.0,
+                onSelectedItemChanged: (int index) {
+                  setState(() {
+                    selectedIndexTime = index;
+                    if (selectedIndexTime == 0) {
+                      selectedTime = '<30 min';
+                    } else if (selectedIndexTime == 1) {
+                      selectedTime = '30-60 min';
+                    } else if (selectedIndexTime == 2) {
+                      selectedTime = '> 1 hr';
+                    } else {
+                      selectedTime = null;
+                    }
+                  });
+                },
+                children: timeRanges.map((String country) {
+                  return Center(
+                    child: Text(country),
+                  );
+                }).toList(),
               ),
               CupertinoButton(
-                child: const Text('Done',   style: TextStyle(color: CupertinoColors.activeBlue),),
+                child: const Text(
+                  'Done',
+                  style: TextStyle(color: CupertinoColors.activeBlue),
+                ),
                 onPressed: () {
                   Navigator.pop(context);
                 },
@@ -165,6 +229,12 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    _pageController = CarouselSliderController();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
@@ -173,15 +243,59 @@ class _MainScreenState extends State<MainScreen> {
       child: BlocBuilder<RecipeBloc, RecipeState>(
         builder: (context, state) {
           if (state is RecipeLoaded) {
+            recipes = state.recipes.where((recipe) {
+              if (cuisine != null) {
+                return recipe.cuisine == cuisine;
+              }
+              return true;
+            }).where((recipe) {
+              return recipe.spicinessLevel == sliderValue;
+            }).where((recipe) {
+              if (difficulty.isNotEmpty) {
+                return difficulty.contains(recipe.difficulty);
+              }
+              return true;
+            }).where((recipe) {
+              if (selectedTime != null) {
+                int cookingTimeInMinutes = _convertTimeToMinutes(recipe.time);
+                switch (selectedTime) {
+                  case '<30 min':
+                    return cookingTimeInMinutes <= 30;
+                  case '30-60 min':
+                    return cookingTimeInMinutes > 30 &&
+                        cookingTimeInMinutes <= 60;
+                  case '> 1hr':
+                    return cookingTimeInMinutes > 60;
+                  default:
+                    return true;
+                }
+              }
+              return true;
+            }).where((recipe) {
+              if (searchController.text.isNotEmpty) {
+                return recipe.name
+                    .toLowerCase()
+                    .contains(searchController.text.toLowerCase());
+              }
+              return true;
+            }).toList();
             return SingleChildScrollView(
+              padding: const EdgeInsets.only(bottom: 110),
               child: Padding(
-                padding: const EdgeInsets.only(left: 21, right: 21, top: 31),
+                padding: const EdgeInsets.only(left: 21, right: 21, top: 15),
                 child: Column(
                   children: [
                     CupertinoTextField(
                       controller: searchController,
-                      onTapOutside: (event) =>
-                          FocusManager.instance.primaryFocus?.unfocus(),
+                      onTapOutside: (event) {
+                        setState(() {});
+                        FocusManager.instance.primaryFocus?.unfocus();
+                      },
+                      textInputAction: TextInputAction.search,
+                      onSubmitted: (value) {
+                        setState(() {});
+                        FocusManager.instance.primaryFocus?.unfocus();
+                      },
                       padding: const EdgeInsets.all(17),
                       placeholder: 'Enter text...',
                       suffix: Padding(
@@ -199,6 +313,9 @@ class _MainScreenState extends State<MainScreen> {
                         fontSize: 27,
                         color: CupertinoColors.black,
                       ),
+                      onChanged: (value) {
+                        setState(() {});
+                      },
                       decoration: BoxDecoration(
                         color: const Color(0xFFF3F3F3),
                         borderRadius: BorderRadius.circular(12),
@@ -212,9 +329,6 @@ class _MainScreenState extends State<MainScreen> {
                           ),
                         ],
                       ),
-                      onChanged: (value) {
-                        setState(() {});
-                      },
                     ),
                     Stack(
                       children: [
@@ -302,20 +416,38 @@ class _MainScreenState extends State<MainScreen> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    SizedBox(
-                                      width: width * 0.233,
-                                      height: 27,
-                                      child: FittedBox(
-                                        fit: BoxFit.scaleDown,
-                                        child: Text(
-                                          cuisine ?? 'Country',
-                                          style: const TextStyle(
-                                            fontSize: 21,
-                                            color: Colors.black,
+                                    if (cuisine != null)
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          SizedBox(
+                                            height: 25,
+                                            child: FittedBox(
+                                              fit: BoxFit.scaleDown,
+                                              child: getCountryIcon(
+                                                cuisine ?? '',
+                                              ),
+                                            ),
                                           ),
+                                          const Gap(8),
+                                          Text(
+                                            getShortCountryName(cuisine ?? ''),
+                                            style: const TextStyle(
+                                              fontSize: 21,
+                                              color: Colors.black,
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    else
+                                      const Text(
+                                        'Country',
+                                        style: TextStyle(
+                                          fontSize: 21,
+                                          color: Colors.black,
                                         ),
                                       ),
-                                    ),
                                     AppIcon(
                                       asset: IconProvider.chevronDown
                                           .buildImageUrl(),
@@ -347,7 +479,7 @@ class _MainScreenState extends State<MainScreen> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      selectedTime!=null
+                                      selectedTime != null
                                           ? selectedTime ?? ''
                                           : 'Time',
                                       style: const TextStyle(
@@ -376,28 +508,90 @@ class _MainScreenState extends State<MainScreen> {
                       color: Color(0xFF9A0A10),
                     ),
                     const Gap(24),
-                    SizedBox(
-                      width: width * 0.71,
-                      height: height * 0.381,
-                      child: PageView.builder(
-                        itemCount: state.recipes.length,
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemBuilder: (BuildContext context, int index) {
-                          final recipe = state.recipes[index];
-                          return GestureDetector(
-                            onTap: () {
-                              context.push(
-                                '${RouteValue.home.path}/${RouteValue.recipe.path}',
-                                extra: recipe,
+                    if (recipes.isEmpty)
+                      const Center(
+                        child: Text(
+                          'No items found.',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black54,
+                          ),
+                        ),
+                      )
+                    else
+                      Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          CarouselSlider.builder(
+                            carouselController: _pageController,
+                            itemCount: recipes.length,
+                            itemBuilder: (BuildContext context, int index,
+                                int pageViewIndex,) {
+                              final recipe = recipes[index];
+                              return Padding(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: width * 0.007),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    context.push(
+                                      '${RouteValue.home.path}/${RouteValue.recipe.path}',
+                                      extra: recipe,
+                                    );
+                                  },
+                                  child: RecipeCard(
+                                    recipe: recipe,
+                                  ),
+                                ),
                               );
                             },
-                            child: RecipeCard(
-                              recipe: recipe,
+                            options: CarouselOptions(
+                                height: height * 0.381,
+                                initialPage: _currentPage,
+                                enableInfiniteScroll: false,
+                                enlargeCenterPage: true,
+                                onPageChanged: (int index,
+                                    CarouselPageChangedReason reason) {
+                                  setState(() {
+                                    _currentPage = index;
+                                  });
+                                }),
+                          ),
+                          if (_currentPage > 0)
+                            Positioned(
+                              left: 16.0,
+                              child: IconButton(
+                                icon: Transform(
+                                  alignment: Alignment.center,
+                                  transform: Matrix4.rotationY(pi),
+                                  child: AppIcon(
+                                      asset: IconProvider.arrowNext
+                                          .buildImageUrl()),
+                                ),
+                                onPressed: () {
+                                  _pageController.previousPage(
+                                    duration: const Duration(milliseconds: 300),
+                                    curve: Curves.easeInOut,
+                                  );
+                                },
+                              ),
                             ),
-                          );
-                        },
+                          if (_currentPage < recipes.length - 1)
+                            Positioned(
+                              right: 16.0,
+                              child: IconButton(
+                                icon: AppIcon(
+                                    asset:
+                                        IconProvider.arrowNext.buildImageUrl()),
+                                onPressed: () {
+                                  _pageController.nextPage(
+                                    duration: const Duration(milliseconds: 300),
+                                    curve: Curves.easeInOut,
+                                  );
+                                },
+                              ),
+                            ),
+                        ],
                       ),
-                    ),
                   ],
                 ),
               ),
@@ -419,9 +613,13 @@ class _MainScreenState extends State<MainScreen> {
       onPressed: () {
         setState(() {
           setState(() {
-            difficulty.contains(difficultyName)
-                ? difficulty.remove(difficultyName)
-                : difficulty.add(difficultyName);
+            if (difficulty.contains(difficultyName)) {
+              if (difficulty.length > 1) {
+                difficulty.remove(difficultyName);
+              }
+            } else {
+              difficulty.add(difficultyName);
+            }
           });
         });
       },
@@ -444,12 +642,12 @@ class _MainScreenState extends State<MainScreen> {
 }
 
 String getSpiceLevel(String levelStr) {
-  double? levelDouble = double.tryParse(levelStr);
+  final double? levelDouble = double.tryParse(levelStr);
   if (levelDouble == null) {
     return 'Unknown level';
   }
 
-  int level = levelDouble.toInt();
+  final int level = levelDouble.toInt();
 
   switch (level) {
     case 1:

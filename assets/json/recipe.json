@@ -1,17 +1,12 @@
 [
     {
         "name": "Tom Yum Kung",
-<<<<<<< Updated upstream
         "imagePath": "assets/images/tom yam.png",
         "description": "A classic Thai soup known for its bold and spicy flavors, made with succulent shrimp and infused with aromatic herbs like lemongrass and kaffir lime leaves. This soup offers a delightful balance of heat and sourness.",
-=======
-        "description": "A classic Thai soup known for its bold and spicy flavors, made with succulent shrimp and infused with aromatic herbs like lemongrass and kaffir lime leaves. This soup offers a delightful balance of heat and sourness.",
-        "imagePath": "assets/images/tom yam.png",
->>>>>>> Stashed changes
         "spicinessLevel": 4,
         "servings": 4,
         "difficulty": "Medium",
-        "cuisine": "Thai",
+        "cuisine": "Thailand",
         "time": "30 min",
         "ingredients": [
             { "name": "Shrimp", "quantity": 200, "quantityType": "g", "type": "Meat" },
@@ -44,7 +39,7 @@
         "spicinessLevel": 5,
         "servings": 10,
         "difficulty": "Hard",
-        "cuisine": "Korean",
+        "cuisine": "South Korea",
         "time": "1 day",
         "ingredients": [
             { "name": "Napa cabbage", "quantity": 1000, "quantityType": "g", "type": "Vegetables" },
@@ -76,7 +71,7 @@
         "spicinessLevel": 3,
         "servings": 2,
         "difficulty": "Easy",
-        "cuisine": "Thai",
+        "cuisine": "Thailand",
         "time": "15 min",
         "ingredients": [
             { "name": "Papaya", "quantity": 200, "quantityType": "g", "type": "Vegetables" },
@@ -107,7 +102,7 @@
         "spicinessLevel": 2,
         "servings": 4,
         "difficulty": "Easy",
-        "cuisine": "Vietnamese",
+        "cuisine": "Vietnam",
         "time": "20 min",
         "ingredients": [
             { "name": "Cabbage", "quantity": 300, "quantityType": "g", "type": "Vegetables" },
@@ -136,7 +131,7 @@
         "spicinessLevel": 1,
         "servings": 3,
         "difficulty": "Medium",
-        "cuisine": "Chinese",
+        "cuisine": "China",
         "time": "25 min",
         "ingredients": [
             { "name": "Tofu", "quantity": 200, "quantityType": "g", "type": "Meat" },
@@ -167,7 +162,7 @@
         "spicinessLevel": 3,
         "servings": 4,
         "difficulty": "Medium",
-        "cuisine": "Thai",
+        "cuisine": "Thailand",
         "time": "30 min",
         "ingredients": [
             { "name": "Rice noodles", "quantity": 200, "quantityType": "g", "type": "Other" },
@@ -200,7 +195,7 @@
         "spicinessLevel": 5,
         "servings": 3,
         "difficulty": "Medium",
-        "cuisine": "Indian",
+        "cuisine": "India",
         "time": "40 min",
         "ingredients": [
             { "name": "Chicken", "quantity": 300, "quantityType": "g", "type": "Meat" },
@@ -231,7 +226,7 @@
         "spicinessLevel": 2,
         "servings": 2,
         "difficulty": "Easy",
-        "cuisine": "Vietnamese",
+        "cuisine": "Vietnam",
         "time": "10 min",
         "ingredients": [
             { "name": "Cucumbers", "quantity": 200, "quantityType": "g", "type": "Vegetables" },
@@ -259,7 +254,7 @@
         "spicinessLevel": 3,
         "servings": 3,
         "difficulty": "Medium",
-        "cuisine": "Chinese",
+        "cuisine": "China",
         "time": "35 min",
         "ingredients": [
             { "name": "Chicken", "quantity": 300, "quantityType": "g", "type": "Meat" },
@@ -291,7 +286,7 @@
         "spicinessLevel": 5,
         "servings": 4,
         "difficulty": "Hard",
-        "cuisine": "Chinese",
+        "cuisine": "China",
         "time": "40 min",
         "ingredients": [
             { "name": "Tofu", "quantity": 200, "quantityType": "g", "type": "Meat" },
@@ -322,7 +317,7 @@
         "spicinessLevel": 4,
         "servings": 3,
         "difficulty": "Medium",
-        "cuisine": "Chinese",
+        "cuisine": "China",
         "time": "25 min",
         "ingredients": [
             { "name": "Noodles", "quantity": 200, "quantityType": "g", "type": "Other" },
@@ -351,7 +346,7 @@
         "spicinessLevel": 3,
         "servings": 4,
         "difficulty": "Medium",
-        "cuisine": "Vietnamese",
+        "cuisine": "Vietnam",
         "time": "60 min",
         "ingredients": [
             { "name": "Beef", "quantity": 300, "quantityType": "g", "type": "Meat" },
@@ -383,7 +378,7 @@
         "spicinessLevel": 4,
         "servings": 4,
         "difficulty": "Medium",
-        "cuisine": "Indian",
+        "cuisine": "India",
         "time": "45 min",
         "ingredients": [
             { "name": "Chicken", "quantity": 400, "quantityType": "g", "type": "Meat" },
@@ -413,7 +408,7 @@
         "spicinessLevel": 4,
         "servings": 3,
         "difficulty": "Medium",
-        "cuisine": "Indian",
+        "cuisine": "India",
         "time": "30 min",
         "ingredients": [
             { "name": "Rice", "quantity": 300, "quantityType": "g", "type": "Other" },
@@ -443,7 +438,7 @@
         "spicinessLevel": 3,
         "servings": 2,
         "difficulty": "Easy",
-        "cuisine": "Vietnamese",
+        "cuisine": "Vietnam",
         "time": "20 min",
         "ingredients": [
             { "name": "Baguette", "quantity": 1, "quantityType": "Other", "type": "Other" },
@@ -471,7 +466,7 @@
         "spicinessLevel": 5,
         "servings": 4,
         "difficulty": "Hard",
-        "cuisine": "Chinese",
+        "cuisine": "China",
         "time": "60 min",
         "ingredients": [
             { "name": "Beef", "quantity": 300, "quantityType": "g", "type": "Meat" },
@@ -500,7 +495,7 @@
         "spicinessLevel": 4,
         "servings": 4,
         "difficulty": "Medium",
-        "cuisine": "Thai",
+        "cuisine": "Thailand",
         "time": "30 min",
         "ingredients": [
             { "name": "Seafood", "quantity": 300, "quantityType": "g", "type": "Meat" },
@@ -531,7 +526,7 @@
         "spicinessLevel": 5,
         "servings": 3,
         "difficulty": "Medium",
-        "cuisine": "Malaysian",
+        "cuisine": "Malaysia",
         "time": "25 min",
         "ingredients": [
             { "name": "Beef", "quantity": 250, "quantityType": "g", "type": "Meat" },
@@ -561,7 +556,7 @@
         "spicinessLevel": 4,
         "servings": 4,
         "difficulty": "Medium",
-        "cuisine": "Indian",
+        "cuisine": "India",
         "time": "45 min",
         "ingredients": [
             { "name": "Red kidney beans", "quantity": 200, "quantityType": "g", "type": "Other" },
@@ -593,7 +588,7 @@
         "spicinessLevel": 4,
         "servings": 3,
         "difficulty": "Medium",
-        "cuisine": "Thai",
+        "cuisine": "Thailand",
         "time": "35 min",
         "ingredients": [
             { "name": "Coconut milk", "quantity": 400, "quantityType": "ml", "type": "Other" },
@@ -623,7 +618,7 @@
         "spicinessLevel": 3,
         "servings": 4,
         "difficulty": "Medium",
-        "cuisine": "Thai",
+        "cuisine": "Thailand",
         "time": "30 min",
         "ingredients": [
             { "name": "Coconut milk", "quantity": 400, "quantityType": "ml", "type": "Other" },
@@ -655,7 +650,7 @@
         "spicinessLevel": 5,
         "servings": 3,
         "difficulty": "Medium",
-        "cuisine": "Chinese",
+        "cuisine": "China",
         "time": "20 min",
         "ingredients": [
             { "name": "Mustard greens", "quantity": 200, "quantityType": "g", "type": "Vegetables" },
@@ -683,7 +678,7 @@
         "spicinessLevel": 5,
         "servings": 2,
         "difficulty": "Hard",
-        "cuisine": "Korean",
+        "cuisine": "South Korea",
         "time": "40 min",
     "ingredients": [
             { "name": "Chicken feet", "quantity": 500, "quantityType": "g", "type": "Meat" },
@@ -714,7 +709,7 @@
         "spicinessLevel": 4,
         "servings": 4,
         "difficulty": "Medium",
-        "cuisine": "Indian",
+        "cuisine": "India",
         "time": "50 min",
         "ingredients": [
             { "name": "Chicken", "quantity": 500, "quantityType": "g", "type": "Meat" },
@@ -745,7 +740,7 @@
         "time": "50 min",
         "servings": 3,
         "difficulty": "Medium",
-        "cuisine": "Indian",
+        "cuisine": "India",
         "ingredients": [
             { "name": "Fish", "quantity": 300, "quantityType": "g", "type": "Meat" },
             { "name": "Coconut milk", "quantity": 200, "quantityType": "ml", "type": "Other" },

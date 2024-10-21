@@ -1,6 +1,5 @@
+import 'package:flutter/material.dart';
 import 'package:application/src/core/utils/icon_provider.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter_svg/svg.dart';
 
 class Rating extends StatefulWidget {
   final int rating;
@@ -25,59 +24,23 @@ class _StarRatingState extends State<Rating> {
         return GestureDetector(
           onTap: () {
             setState(() {
-              widget.onRatingChanged != null
-                  ? widget.onRatingChanged!(index)
-                  : null;
+              if (widget.onRatingChanged != null) {
+                widget.onRatingChanged!(index);
+              }
             });
           },
-          child: ColorFiltered(
-            colorFilter: index > widget.rating
-                ? ColorFilter.matrix([
-                    0.2126,
-                    0.7152,
-                    0.0722,
-                    0,
-                    0,
-                    0.2126,
-                    0.7152,
-                    0.0722,
-                    0,
-                    0,
-                    0.2126,
-                    0.7152,
-                    0.0722,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    1,
-                    0,
-                  ])
-                : ColorFilter.matrix([
-                    1,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    1,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    1,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    1,
-                    0,
-                  ]),
+          child: AnimatedSwitcher(
+            duration: const Duration(milliseconds: 300),
+            transitionBuilder: (Widget child, Animation<double> animation) {
+              return FadeTransition(opacity: animation, child: child);
+            },
             child: Image.asset(
-              IconProvider.pepper.buildImageUrl(),
+              key: ValueKey(index <= widget.rating),
+              width: 25,
+              height: 41,
+              index > widget.rating
+                  ? IconProvider.pepperInactive.buildImageUrl()
+                  : IconProvider.pepper.buildImageUrl(),
             ),
           ),
         );

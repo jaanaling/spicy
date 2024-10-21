@@ -18,7 +18,7 @@ class RecipeCard extends StatelessWidget {
         alignment: Alignment.center,
         children: [
           AppIcon(
-            width: width*0.71,
+            width: width * 0.71,
             fit: BoxFit.fitWidth,
             asset: IconProvider.dish_card.buildImageUrl(),
           ),
@@ -27,7 +27,7 @@ class RecipeCard extends StatelessWidget {
             child: AppIcon(
               asset: recipe.imagePath,
               fit: BoxFit.fitWidth,
-              width: width*0.605,
+              width: width * 0.605,
             ),
           ),
           Positioned(
@@ -68,11 +68,17 @@ class RecipeCard extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  recipe.name,
-                  style: const TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.w700,
+                SizedBox(
+                  width: width * 0.71,
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 42),
+                    child: Text(
+                      recipe.name,
+                      style: const TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
                   ),
                 ),
                 const Gap(5),

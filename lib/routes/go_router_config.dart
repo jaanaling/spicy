@@ -20,13 +20,14 @@ final _recommendationNavigatorKey = GlobalKey<NavigatorState>();
 
 GoRouter buildGoRouter = GoRouter(
   navigatorKey: _rootNavigatorKey,
-  initialLocation: RouteValue.create.path,
+  initialLocation: RouteValue.splash.path,
   routes: <RouteBase>[
     StatefulShellRoute.indexedStack(
       pageBuilder: (context, state, navigationShell) {
         return NoTransitionPage(
           child: RootNavigationScreen(
-            navigationShell: navigationShell, route: state.uri.path,
+            navigationShell: navigationShell,
+            route: state.uri.path,
           ),
         );
       },
@@ -38,7 +39,9 @@ GoRouter buildGoRouter = GoRouter(
               parentNavigatorKey: _homeNavigatorKey,
               path: RouteValue.home.path,
               builder: (context, state) => ColoredBox(
-                  color: Colors.white,child: MainScreen(key: UniqueKey())),
+                color: Colors.white,
+                child: MainScreen(key: UniqueKey()),
+              ),
               routes: <RouteBase>[
                 GoRoute(
                   parentNavigatorKey: _homeNavigatorKey,
@@ -64,7 +67,10 @@ GoRouter buildGoRouter = GoRouter(
             GoRoute(
               parentNavigatorKey: _challengeNavigatorKey,
               path: RouteValue.challenge.path,
-              builder: (context, state) => ChallengeScreen(key: UniqueKey()),
+              builder: (context, state) => ColoredBox(
+                color: Colors.white,
+                child: ChallengeScreen(key: UniqueKey()),
+              ),
             ),
           ],
         ),
@@ -74,8 +80,10 @@ GoRouter buildGoRouter = GoRouter(
             GoRoute(
               parentNavigatorKey: _recommendationNavigatorKey,
               path: RouteValue.recommendation.path,
-              builder: (context, state) =>
-                  RecommendationScreen(key: UniqueKey()),
+              builder: (context, state) => ColoredBox(
+                color: Colors.white,
+                child: RecommendationScreen(key: UniqueKey()),
+              ),
             ),
           ],
         ),
@@ -85,7 +93,10 @@ GoRouter buildGoRouter = GoRouter(
             GoRoute(
               parentNavigatorKey: _createNavigatorKey,
               path: RouteValue.create.path,
-              builder: (context, state) => CreateScreen(key: UniqueKey()),
+              builder: (context, state) => ColoredBox(
+                color: Colors.white,
+                child: CreateScreen(key: UniqueKey()),
+              ),
             ),
           ],
         ),
