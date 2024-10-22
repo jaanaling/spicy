@@ -58,6 +58,9 @@ class ChallengeRepository {
   }
 
   Future<void> shareChallenge(String name) async {
-      await Share.share(name, subject: 'Check out this challenge!');
+      await Share.share('''
+I just had the craziest spicy dish called $name and it was on fire! 🔥 I dare you to try it! Can you handle the heat?\n\n
+Let’s see who can finish it without reaching for water. Are you up for the challenge? 💪\n\n
+Tag me when you take your first bite! 😆''', subject: 'Check out this challenge!');
   }
 }

@@ -63,8 +63,9 @@ class _CreateScreenState extends State<CreateScreen> {
   TextEditingController stepController = TextEditingController();
 
   File? _image;
-  String? difficulty;
-  String? cuisine;
+  String difficulty = 'Easy';
+  String cuisine = 'China';
+
   int spicinessLevel = 1;
   int selectedHour = 0;
   int selectedMinute = 0;

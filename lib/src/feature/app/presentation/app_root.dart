@@ -10,16 +10,23 @@ class AppRoot extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => RecipeBloc()..add(LoadRecipes()),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => RecipeBloc()..add(LoadRecipes()),
+        ),
+        BlocProvider(
+          create: (context) => ChallengeBloc()..add(LoadChallengesEvent()),
+        ),
+      ],
       child: CupertinoApp.router(
         routerConfig: buildGoRouter,
         debugShowCheckedModeBanner: false,
-         localizationsDelegates: const [
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
+        localizationsDelegates: const [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
         theme: const CupertinoThemeData(
           brightness: Brightness.light,
           primaryColor: const Color(0xFFFFFFFF),

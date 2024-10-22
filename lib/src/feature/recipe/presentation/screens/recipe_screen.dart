@@ -1,8 +1,10 @@
+import 'package:application/src/feature/recipe/bloc/recipe_bloc.dart';
 import 'package:application/src/feature/recipe/model/recipe.dart';
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
@@ -65,8 +67,21 @@ class _RecipeScreenState extends State<RecipeScreen> {
                     top: 40,
                     right: 23,
                     child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(CupertinoIcons.heart),
+                      onPressed: () {
+                        setState(() {
+                          widget.recipe.isFavorite =
+                              !widget.recipe.isFavorite!;
+                        });
+                        context
+                            .read<RecipeBloc>()
+                            .add(ToggleFavorite(widget.recipe.name));
+                      },
+                      icon: Icon(
+                        widget.recipe.isFavorite ?? false
+                            ?  CupertinoIcons.heart_fill
+                            :CupertinoIcons.heart,
+                        color: Colors.white,
+                      ),
                       iconSize: 34,
                     ),
                   ),
@@ -605,7 +620,8 @@ class _StepCardState extends State<StepCard> {
                     child: DecoratedBox(
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.6),
+                        color:
+                            const Color.fromARGB(255, 0, 0, 0).withOpacity(0.6),
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(14),

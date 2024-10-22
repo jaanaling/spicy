@@ -71,6 +71,22 @@ GoRouter buildGoRouter = GoRouter(
                 color: Colors.white,
                 child: ChallengeScreen(key: UniqueKey()),
               ),
+              routes: <RouteBase>[
+                GoRoute(
+                  parentNavigatorKey: _challengeNavigatorKey,
+                  path: RouteValue.recipe.path,
+                  builder: (context, state) {
+                    final extra = state.extra! as RecipeModel;
+                    return ColoredBox(
+                      color: Colors.white,
+                      child: RecipeScreen(
+                        key: UniqueKey(),
+                        recipe: extra,
+                      ),
+                    );
+                  },
+                ),
+              ],
             ),
           ],
         ),

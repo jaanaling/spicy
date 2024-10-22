@@ -761,5 +761,131 @@
         "proteins": 20.0,
         "fats": 15.0,
         "carbs": 10.0
+    },
+    {
+        "name": "Laksa with Chili",
+        "imagePath": "assets/images/Laksa with chili.png",
+        "description": "A spicy noodle soup originating from the Peranakan culture, Laksa features rice noodles served in a spicy coconut milk or sour asam broth. It's often garnished with shrimp, tofu, and bean sprouts, making it a delightful meal.",
+        "spicinessLevel": 4,
+        "servings": 2,
+        "difficulty": "Medium",
+        "cuisine": "Malaysia",
+        "time": "45 min",
+        "ingredients": [
+            { "name": "Rice noodles", "quantity": 200, "quantityType": "g", "type": "Grains" },
+            { "name": "Coconut milk", "quantity": 400, "quantityType": "ml", "type": "Dairy" },
+            { "name": "Shrimp", "quantity": 150, "quantityType": "g", "type": "Meat" },
+            { "name": "Bean sprouts", "quantity": 50, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Chili paste", "quantity": 30, "quantityType": "g", "type": "Spices" },
+            { "name": "Lime juice", "quantity": 20, "quantityType": "ml", "type": "Other" }
+        ],
+        "steps": [
+            "Prepare rice noodles according to package instructions and set aside.",
+            "In a pot, heat coconut milk and add chili paste.",
+            "Simmer for 10 minutes, allowing the flavors to meld.",
+            "Add shrimp and cook until pink.",
+            "In serving bowls, add the rice noodles and pour the broth over them.",
+            "Garnish with bean sprouts and a squeeze of lime juice.",
+            "Serve hot."
+        ],
+        "calories": 350.0,
+        "proteins": 20.0,
+        "fats": 15.0,
+        "carbs": 40.0
+    },
+    {
+        "name": "Szechuan Crispy Chicken",
+        "imagePath": "assets/images/Szechuan crispy chicken.png",
+        "description": "A flavorful and spicy dish featuring crispy fried chicken tossed in a tangy Szechuan sauce, garnished with peanuts and green onions for a delightful crunch.",
+        "spicinessLevel": 5,
+        "servings": 4,
+        "difficulty": "Medium",
+        "cuisine": "China",
+        "time": "30 min",
+        "ingredients": [
+            { "name": "Chicken breast", "quantity": 400, "quantityType": "g", "type": "Meat" },
+            { "name": "Cornstarch", "quantity": 100, "quantityType": "g", "type": "Grains" },
+            { "name": "Szechuan peppercorns", "quantity": 10, "quantityType": "g", "type": "Spices" },
+            { "name": "Soy sauce", "quantity": 50, "quantityType": "ml", "type": "Other" },
+            { "name": "Garlic", "quantity": 3, "quantityType": "cloves", "type": "Vegetables" },
+            { "name": "Peanuts", "quantity": 50, "quantityType": "g", "type": "Nuts" },
+            { "name": "Green onions", "quantity": 2, "quantityType": "stalks", "type": "Vegetables" }
+        ],
+        "steps": [
+            "Cut chicken breast into bite-sized pieces and coat in cornstarch.",
+            "Heat oil in a pan and fry the chicken until crispy and golden brown.",
+            "In another pan, heat a small amount of oil and add minced garlic and Szechuan peppercorns.",
+            "Add the crispy chicken and toss with soy sauce.",
+            "Garnish with chopped peanuts and sliced green onions.",
+            "Serve hot with steamed rice."
+        ],
+        "calories": 400.0,
+        "proteins": 30.0,
+        "fats": 20.0,
+        "carbs": 25.0
+    },{
+        "name": "Poka Chilli",
+        "imagePath": "assets/images/Poka Chilli.png",
+        "description": "A delicious dish featuring stir-fried vegetables and tofu in a spicy chili sauce, making it a perfect vegan option that bursts with flavor.",
+        "spicinessLevel": 3,
+        "servings": 3,
+        "difficulty": "Easy",
+        "cuisine": "Asian",
+        "time": "25 min",
+        "ingredients": [
+            { "name": "Tofu", "quantity": 200, "quantityType": "g", "type": "Meat" },
+            { "name": "Bell peppers", "quantity": 100, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Onion", "quantity": 1, "quantityType": "piece", "type": "Vegetables" },
+            { "name": "Chili sauce", "quantity": 50, "quantityType": "ml", "type": "Other" },
+            { "name": "Soy sauce", "quantity": 30, "quantityType": "ml", "type": "Other" },
+            { "name": "Garlic", "quantity": 2, "quantityType": "cloves", "type": "Vegetables" },
+            { "name": "Ginger", "quantity": 10, "quantityType": "g", "type": "Spices" }
+        ],
+        "steps": [
+            "Cut tofu into cubes and sauté in a pan until golden brown.",
+            "Add chopped onions, bell peppers, minced garlic, and ginger to the pan.",
+            "Stir-fry until vegetables are tender.",
+            "Add chili sauce and soy sauce, mixing well.",
+            "Cook for another 2 minutes until heated through.",
+            "Serve hot with rice or noodles."
+        ],
+        "calories": 250.0,
+        "proteins": 15.0,
+        "fats": 10.0,
+        "carbs": 30.0
+    },{
+        "name": "Chicken in Spicy Sauce",
+        "imagePath": "assets/images/Chicken in spicy sauce.png",
+        "description": "Tender chicken pieces coated in a fiery spicy sauce made with chili, garlic, and soy sauce, perfect for those who love bold flavors.",
+        "spicinessLevel": 5,
+        "servings": 4,
+        "difficulty": "Medium",
+        "cuisine": "Chinese",
+        "time": "35 min",
+        "ingredients": [
+            { "name": "Chicken thighs", "quantity": 500, "quantityType": "g", "type": "Meat" },
+            { "name": "Chili sauce", "quantity": 70, "quantityType": "ml", "type": "Other" },
+            { "name": "Soy sauce", "quantity": 50, "quantityType": "ml", "type": "Other" },
+            { "name": "Garlic", "quantity": 4, "quantityType": "cloves", "type": "Vegetables" },
+            { "name": "Ginger", "quantity": 15, "quantityType": "g", "type": "Spices" },
+            { "name": "Sesame oil", "quantity": 20, "quantityType": "ml", "type": "Other" },
+            { "name": "Spring onions", "quantity": 2, "quantityType": "stalks", "type": "Vegetables" }
+        ],
+        "steps": [
+            "Cut chicken thighs into strips and marinate in soy sauce for 15 minutes.",
+            "In a hot pan, add sesame oil and stir-fry minced garlic and ginger.",
+            "Add marinated chicken and cook until browned.",
+            "Stir in chili sauce and cook until the chicken is fully cooked.",
+            "Garnish with chopped spring onions.",
+            "Serve with steamed rice."
+        ],
+        "calories": 400.0,
+        "proteins": 35.0,
+        "fats": 18.0,
+        "carbs": 10.0
     }
+    
+    
+    
+    
 ]

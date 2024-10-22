@@ -1,8 +1,10 @@
 import 'package:application/src/core/utils/icon_provider.dart';
+import 'package:application/src/feature/recipe/bloc/recipe_bloc.dart';
 import 'package:application/src/ui_kit/app_icon/widget/app_icon.dart';
 import 'package:application/src/feature/recipe/model/recipe.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 
 class RecipeCard extends StatelessWidget {
@@ -111,8 +113,19 @@ class RecipeCard extends StatelessWidget {
             top: 8,
             right: 8,
             child: IconButton(
-              onPressed: () {},
-              icon: const Icon(CupertinoIcons.heart),
+              onPressed: () {
+             
+                  context
+                      .read<RecipeBloc>()
+                      .add(ToggleFavorite(recipe.name));
+               
+              },
+              icon: Icon(
+                recipe.isFavorite ?? false
+                    ?  CupertinoIcons.heart_fill
+                            :CupertinoIcons.heart,
+                color: Colors.white,
+              ),
               iconSize: 34,
             ),
           ),

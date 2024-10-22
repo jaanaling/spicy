@@ -33,6 +33,8 @@ class _MainScreenState extends State<MainScreen> {
   final CarouselSliderController _pageController = CarouselSliderController();
   int _currentPage = 0;
   List<RecipeModel> recipes = [];
+  bool isFavorite = false;
+
 
   List<String> countries = [
     'China',
@@ -249,6 +251,8 @@ class _MainScreenState extends State<MainScreen> {
           }).where((recipe) {
             return recipe.spicinessLevel == sliderValue;
           }).where((recipe) {
+            return isFavorite ? recipe.isFavorite == true : true;
+          }) .where((recipe) {
             if (difficulty.isNotEmpty) {
               return difficulty.contains(recipe.difficulty);
             }
@@ -285,50 +289,71 @@ class _MainScreenState extends State<MainScreen> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 21),
-                    child: CupertinoTextField(
-                      controller: searchController,
-                      onTapOutside: (event) {
-                        setState(() {});
-                        FocusManager.instance.primaryFocus?.unfocus();
-                      },
-                      textInputAction: TextInputAction.search,
-                      onSubmitted: (value) {
-                        setState(() {});
-                        FocusManager.instance.primaryFocus?.unfocus();
-                      },
-                      padding: const EdgeInsets.all(17),
-                      placeholder: 'Enter text...',
-                      suffix: Padding(
-                        padding: const EdgeInsets.only(right: 17),
-                        child: AppIcon(
-                          asset: IconProvider.search.buildImageUrl(),
-                        ),
-                      ),
-                      placeholderStyle: const TextStyle(
-                        fontSize: 25,
-                        fontStyle: FontStyle.italic,
-                        color: Color(0xFFA5A5A5),
-                      ),
-                      style: const TextStyle(
-                        fontSize: 27,
-                        color: CupertinoColors.black,
-                      ),
-                      onChanged: (value) {
-                        setState(() {});
-                      },
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFF3F3F3),
-                        borderRadius: BorderRadius.circular(12),
-                        border: Border.all(color: const Color(0xFFD0D0D0)),
-                        boxShadow: [
-                          BoxShadow(
-                            color: const Color(0xFF000000).withOpacity(0.1),
-                            offset: const Offset(0, 2),
-                            blurRadius: 4,
-                            spreadRadius: 1,
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: CupertinoTextField(
+                            controller: searchController,
+                            onTapOutside: (event) {
+                              setState(() {});
+                              FocusManager.instance.primaryFocus?.unfocus();
+                            },
+                            textInputAction: TextInputAction.search,
+                            onSubmitted: (value) {
+                              setState(() {});
+                              FocusManager.instance.primaryFocus?.unfocus();
+                            },
+                            padding: const EdgeInsets.all(17),
+                            placeholder: 'Enter text...',
+                            suffix: Padding(
+                              padding: const EdgeInsets.only(right: 17),
+                              child: AppIcon(
+                                asset: IconProvider.search.buildImageUrl(),
+                              ),
+                            ),
+                            placeholderStyle: const TextStyle(
+                              fontSize: 25,
+                              fontStyle: FontStyle.italic,
+                              color: Color(0xFFA5A5A5),
+                            ),
+                            style: const TextStyle(
+                              fontSize: 27,
+                              color: CupertinoColors.black,
+                            ),
+                            onChanged: (value) {
+                              setState(() {});
+                            },
+                            decoration: BoxDecoration(
+                              color: const Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(12),
+                              border: Border.all(color: const Color(0xFFD0D0D0)),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: const Color(0xFF000000).withOpacity(0.1),
+                                  offset: const Offset(0, 2),
+                                  blurRadius: 4,
+                                  spreadRadius: 1,
+                                ),
+                              ],
+                            ),
                           ),
-                        ],
-                      ),
+                        ),
+                         const Gap(15),
+                        IconButton(
+                          onPressed: () {
+                           setState(() {
+                              isFavorite = !isFavorite;
+                           });
+                          },
+                          icon: Icon(
+                            isFavorite 
+                                ? CupertinoIcons.heart_fill
+                                : CupertinoIcons.heart,
+                            color: Color.fromARGB(255, 189, 188, 188),
+                          ),
+                          iconSize: 50,
+                        ),
+                      ],
                     ),
                   ),
                   Padding(

@@ -1,6 +1,5 @@
 enum IconProvider {
   chellenge(imageName: 'chellenge.svg'),
-  ch_title(imageName: 'ch_title.svg'),
   chellenge_a(imageName: 'chellenge_a.svg'),
   create(imageName: 'create.svg'),
   create_a(imageName: 'create_a.svg'),
@@ -28,6 +27,7 @@ enum IconProvider {
   arrowNext(imageName: 'back.svg'),
   pepperInactive(imageName: 'pepper_inactive.png'),
   button(imageName: 'button.png'),
+   bigb(imageName: 'bigb.svg'),
 
   unknown(imageName: '');
 
