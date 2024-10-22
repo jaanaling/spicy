@@ -37,6 +37,7 @@ class _RecipeScreenState extends State<RecipeScreen> {
     final height = MediaQuery.of(context).size.height;
 
     return SingleChildScrollView(
+      padding: const EdgeInsets.only(bottom: 110),
       child: Column(
         children: [
           Column(
@@ -315,9 +316,9 @@ class _RecipeScreenState extends State<RecipeScreen> {
                         carouselController: _pageController,
                         itemCount: widget.recipe.steps.length,
                         options: CarouselOptions(
-                          height: height * 0.381,
+                          viewportFraction: 1,
+                          height: height * 0.381 + 110,
                           enableInfiniteScroll: false,
-                          enlargeCenterPage: true,
                           scrollPhysics: const NeverScrollableScrollPhysics(),
                         ),
                         itemBuilder: (
@@ -332,38 +333,42 @@ class _RecipeScreenState extends State<RecipeScreen> {
                                 step: step,
                                 index: index,
                                 isCheckBoxVisible:
-                                    index + 1 == widget.recipe.steps.length,
+                                    index + 1 != widget.recipe.steps.length,
                                 onChanged: (value) {
                                   setState(() {
                                     isNextStepVisible = value ?? false;
                                   });
                                 },
                               ),
-                              GestureDetector(
-                                onTap: () {
-                                  _pageController.nextPage(
-                                    duration: const Duration(milliseconds: 300),
-                                    curve: Curves.easeInOut,
-                                  );
-                                  setState(() {
-                                    isNextStepVisible = false;
-                                  });
-                                },
-                                child: Stack(
-                                  alignment: Alignment.center,
-                                  children: [
-                                    AppIcon(
-                                      asset:
-                                          IconProvider.button.buildImageUrl(),
-                                    ),
-                                    const Text(
-                                      'next step',
-                                      style: TextStyle(
-                                        fontSize: 21,
-                                        fontWeight: FontWeight.w500,
+                              Visibility(
+                                visible: isNextStepVisible,
+                                child: GestureDetector(
+                                  onTap: () {
+                                    _pageController.nextPage(
+                                      duration:
+                                          const Duration(milliseconds: 300),
+                                      curve: Curves.easeInOut,
+                                    );
+                                    setState(() {
+                                      isNextStepVisible = false;
+                                    });
+                                  },
+                                  child: Stack(
+                                    alignment: Alignment.center,
+                                    children: [
+                                      AppIcon(
+                                        asset:
+                                            IconProvider.button.buildImageUrl(),
                                       ),
-                                    ),
-                                  ],
+                                      const Text(
+                                        'next step',
+                                        style: TextStyle(
+                                          fontSize: 21,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ],
@@ -406,9 +411,12 @@ class InfoRow extends StatelessWidget {
           name,
           style: const TextStyle(fontSize: 17, color: Colors.black),
         ),
-        Text(
-          count.toString(),
-          style: const TextStyle(fontSize: 17, color: Colors.black),
+        Gap(6),
+        Expanded(
+          child: Text(
+            count.toString(),
+            style: const TextStyle(fontSize: 17, color: Colors.black),
+          ),
         ),
       ],
     );
@@ -449,13 +457,16 @@ class NutrientInput extends StatelessWidget {
             ),
           ],
         ),
-        Text(
-          formatCount(count),
-          style: TextStyle(
-            fontSize: icon == null ? 17 : 21,
-            fontWeight: icon == null ? FontWeight.w400 : FontWeight.w500,
-            color: Colors.black,
-            fontFamily: 'poppins',
+        Gap(6),
+        Expanded(
+          child: Text(
+            formatCount(count),
+            style: TextStyle(
+              fontSize: icon == null ? 17 : 21,
+              fontWeight: icon == null ? FontWeight.w400 : FontWeight.w500,
+              color: Colors.black,
+              fontFamily: 'poppins',
+            ),
           ),
         ),
       ],
@@ -480,22 +491,27 @@ class IngredientInput extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Row(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 19),
-              child: Text(
-                label,
-                style: const TextStyle(
-                  fontSize: 17,
-                  fontWeight: FontWeight.w400,
-                  color: Colors.black,
-                  fontFamily: 'poppins',
+        Expanded(
+          child: Row(
+            children: [
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 19),
+                  child: Text(
+                    label,
+                    style: const TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.black,
+                      fontFamily: 'poppins',
+                    ),
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
+        Gap(6),
         Text(
           '${formatCount(count)} $countType',
           style: const TextStyle(
@@ -540,6 +556,7 @@ class StepInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         DecoratedBox(
           decoration: BoxDecoration(
@@ -589,105 +606,106 @@ class StepCard extends StatefulWidget {
   State<StepCard> createState() => _StepCardState();
 }
 
-bool isChecked = false;
-
 class _StepCardState extends State<StepCard> {
+  bool isChecked = false;
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
 
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(13),
-      child: SizedBox(
-        height: double.maxFinite,
-        child: Column(
-          children: [
-            Container(
-              width: double.maxFinite,
-              constraints: BoxConstraints(maxHeight: 200),
-              child: Stack(
-                clipBehavior: Clip.none,
-                alignment: Alignment.center,
+    return Padding(
+      padding: const EdgeInsets.only(top: 24),
+      child: Stack(
+        clipBehavior: Clip.none,
+        alignment: Alignment.center,
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(13),
+            child: AppIcon(
+              width: width * 0.71,
+              fit: BoxFit.fitWidth,
+              asset: IconProvider.dish_card.buildImageUrl(),
+            ),
+          ),
+          Positioned(
+            top: -24,
+            left: -24,
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.6),
+              ),
+              child: SizedBox(
+                width: 69,
+                height: 69,
+                child: Center(
+                  child: Text(
+                    (widget.index + 1).toString(),
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      fontSize: 21,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w700,
+                      fontFamily: 'poppins',
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Visibility(
+            visible: widget.isCheckBoxVisible,
+            child: Positioned(
+              right: 5,
+              bottom: 5,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisSize: MainAxisSize.min,
                 children: [
-                  AppIcon(
-                    width: width * 0.71,
-                    fit: BoxFit.fitWidth,
-                    asset: IconProvider.dish_card.buildImageUrl(),
-                  ),
-                  Positioned(
-                    top: -24,
-                    left: -24,
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color:
-                            const Color.fromARGB(255, 0, 0, 0).withOpacity(0.6),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(14),
-                        child: Text(
-                          (widget.index + 1).toString(),
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            fontSize: 21,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w700,
-                            fontFamily: 'poppins',
-                          ),
-                        ),
+                  const Text(
+                    'mark as done',
+                    style: TextStyle(
+                      color: Color(
+                        0x54000000,
                       ),
                     ),
                   ),
-                  Visibility(
-                    visible: widget.isCheckBoxVisible,
-                    child: Positioned(
-                      left: 5,
-                      bottom: 5,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          const Text(
-                            'mark as done',
-                            style: TextStyle(
-                              color: Color(
-                                0x54000000,
-                              ),
-                            ),
-                          ),
-                          const Gap(7),
-                          CupertinoCheckbox(
-                            value: isChecked,
-                            onChanged: (bool? value) {
-                              setState(() {
-                                isChecked = value ?? false;
-                              });
-                              widget.onChanged(value ?? false);
-                            },
-                          ),
-                        ],
+                  const Gap(7),
+                  SizedBox(
+                    width: 47,
+                    height: 47,
+                    child: FittedBox(
+                      fit: BoxFit.fill,
+                      child: CupertinoCheckbox(
+                        value: isChecked,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            isChecked = value ?? false;
+                          });
+                          widget.onChanged(value ?? false);
+                        },
                       ),
-                    ),
-                  ),
-                  Positioned(
-                    left: 0,
-                    bottom: 0,
-                    right: 0,
-                    top: 0,
-                    child: Padding(
-                      padding: EdgeInsets.only(
-                        top: 15,
-                        right: 15,
-                        left: 15,
-                        bottom: widget.isCheckBoxVisible ? 60 : 15,
-                      ),
-                      child: SingleChildScrollView(child: Text(widget.step)),
                     ),
                   ),
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+          Positioned(
+            left: 0,
+            bottom: 0,
+            right: 0,
+            top: 0,
+            child: Padding(
+              padding: EdgeInsets.only(
+                top: 15,
+                right: 15,
+                left: 15,
+                bottom: widget.isCheckBoxVisible ? 60 : 15,
+              ),
+              child: SingleChildScrollView(child: Text(widget.step)),
+            ),
+          ),
+        ],
       ),
     );
   }

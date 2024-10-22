@@ -525,17 +525,18 @@ class _CreateScreenState extends State<CreateScreen> {
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              ingredients[index].name,
-                              style: const TextStyle(
-                                fontSize: 17,
-                                color: Colors.black,
-                                fontFamily: 'poppins',
+                            Expanded(
+                              child: Text(
+                                ingredients[index].name,
+                                style: const TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.black,
+                                  fontFamily: 'poppins',
+                                ),
                               ),
                             ),
                             Text(
@@ -702,21 +703,23 @@ class _CreateScreenState extends State<CreateScreen> {
                 const Gap(10),
                 GestureDetector(
                   onTap: () {
-                    setState(() {
-                      isIngredient = false;
-                      ingredients.add(
-                        Ingredient(
-                          name: ingredientController.text,
-                          quantity: int.parse(quantityController.text),
-                          quantityType: selectedUnit,
-                          type: selectedType,
-                        ),
-                      );
-                      ingredientController.text = '';
-                      quantityController.text = '';
-                      selectedUnit = 'g';
-                      selectedType = 'Meat';
-                    });
+                    if(quantityController.text.isNotEmpty){
+                      setState(() {
+                        isIngredient = false;
+                        ingredients.add(
+                          Ingredient(
+                            name: ingredientController.text,
+                            quantity: int.parse(quantityController.text),
+                            quantityType: selectedUnit,
+                            type: selectedType,
+                          ),
+                        );
+                        ingredientController.text = '';
+                        quantityController.text = '';
+                        selectedUnit = 'g';
+                        selectedType = 'Meat';
+                      });
+                    }
                   },
                   child: const DecoratedBox(
                     decoration: BoxDecoration(
@@ -812,7 +815,7 @@ class _CreateScreenState extends State<CreateScreen> {
                     isPlus: false,
                     onPressed: () {
                       setState(() {
-                        ingredients.removeAt(index);
+                        steps.removeAt(index);
                       });
                     },
                   ),
