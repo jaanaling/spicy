@@ -1,7 +1,7 @@
 [
     {
         "name": "Tom Yum Kung",
-        "imagePath": "assets/images/tom yam.png",
+        "imagePath": "assets/images/tom yam.webp",
         "description": "A classic Thai soup known for its bold and spicy flavors, made with succulent shrimp and infused with aromatic herbs like lemongrass and kaffir lime leaves. This soup offers a delightful balance of heat and sourness.",
         "spicinessLevel": 4,
         "servings": 4,
@@ -34,7 +34,7 @@
     },
     {
         "name": "Kimchi",
-        "imagePath": "assets/images/kimchi.png",
+        "imagePath": "assets/images/kimchi.webp",
         "description": "A traditional Korean side dish made from fermented Napa cabbage, seasoned with chili powder, garlic, and ginger. Packed with probiotics, it is a tangy and spicy dish that varies in flavor, making it a versatile addition to any meal.",
         "spicinessLevel": 5,
         "servings": 10,
@@ -67,7 +67,7 @@
     {
         "name": "Papaya Salad",
         "description": "Known as Som Tum in Thailand, this vibrant dish combines shredded green papaya with spicy chili, fresh lime juice, and a dash of fish sauce, topped with crunchy peanuts for a refreshing and zesty flavor.",
-        "imagePath": "assets/images/Papaya salad.png",
+        "imagePath": "assets/images/Papaya salad.webp",
         "spicinessLevel": 3,
         "servings": 2,
         "difficulty": "Easy",
@@ -98,7 +98,7 @@
     {
         "name": "Cabbage with Chili",
         "description": "A simple yet flavorful dish that combines tender cabbage with spicy chili sauce and garlic. Quick to prepare, it serves as a great side dish or light main course.",
-        "imagePath": "assets/images/Cabbage with pepper.png",
+        "imagePath": "assets/images/Cabbage with pepper.webp",
         "spicinessLevel": 2,
         "servings": 4,
         "difficulty": "Easy",
@@ -127,7 +127,7 @@
     {
         "name": "Tofu and Seaweed Soup",
         "description": "A comforting soup featuring soft tofu and nutrient-rich seaweed, combined with a hint of chili flakes for spice. Perfect as a light meal or starter.",
-        "imagePath": "assets/images/Soup with tofu and seaweed.png",
+        "imagePath": "assets/images/Soup with tofu and seaweed.webp",
         "spicinessLevel": 1,
         "servings": 3,
         "difficulty": "Medium",
@@ -158,7 +158,7 @@
     {
         "name": "Pad Thai",
         "description": "A popular Thai stir-fried noodle dish made with rice noodles, tofu or shrimp, and a mix of peanuts, bean sprouts, and flavorful sauces. It's a delicious and satisfying meal that brings together various textures and tastes.",
-        "imagePath": "assets/images/Pad Thai.png",
+        "imagePath": "assets/images/Pad Thai.webp",
         "spicinessLevel": 3,
         "servings": 4,
         "difficulty": "Medium",
@@ -191,7 +191,7 @@
     {
         "name": "Chili Chicken",
         "description": "This spicy chicken dish is stir-fried with chili powder, garlic, and ginger, creating a savory and aromatic flavor. It's often paired with rice or noodles for a hearty meal.",
-        "imagePath": "assets/images/Chili-chicken.png",
+        "imagePath": "assets/images/Chili-chicken.webp",
         "spicinessLevel": 5,
         "servings": 3,
         "difficulty": "Medium",
@@ -222,7 +222,7 @@
     {
         "name": "Cucumber Salad with Chili",
         "description": "A refreshing salad made with crisp cucumbers, chili sauce, and garlic, providing a cool and spicy contrast. It's a perfect side dish for rich or spicy meals.",
-        "imagePath": "assets/images/Cucumber and pepper salad.png",
+        "imagePath": "assets/images/Cucumber and pepper salad.webp",
         "spicinessLevel": 2,
         "servings": 2,
         "difficulty": "Easy",
@@ -250,7 +250,7 @@
     {
         "name": "Chicken in Sweet-Sour Sauce",
         "description": "Tender chicken cooked in a sweet and tangy sauce made with vinegar, garlic, and onions. This dish is both flavorful and satisfying, often served with rice.",
-        "imagePath": "assets/images/Chicken in hot and sour sauce.png",
+        "imagePath": "assets/images/Chicken in hot and sour sauce.webp",
         "spicinessLevel": 3,
         "servings": 3,
         "difficulty": "Medium",
@@ -281,7 +281,7 @@
     },
     {
         "name": "Mapo Tofu",
-        "imagePath": "assets/images/Mapo Tofu.png",
+        "imagePath": "assets/images/Mapo Tofu.webp",
         "description": "A famous Chinese dish featuring silken tofu and minced pork in a spicy chili paste, flavored with garlic and Sichuan peppercorns. It's a spicy and fragrant dish that pairs well with rice.",
         "spicinessLevel": 5,
         "servings": 4,
@@ -312,7 +312,7 @@
     },
     {
         "name": "Noodles with Chili",
-        "imagePath": "assets/images/Chili noodles.png",
+        "imagePath": "assets/images/Chili noodles.webp",
         "description": "A quick and flavorful dish of noodles tossed with chili sauce, garlic, and soy sauce. This dish is both satisfying and easy to prepare.",
         "spicinessLevel": 4,
         "servings": 3,
@@ -341,7 +341,7 @@
     },
     {
         "name": "Beef Pho",
-        "imagePath": "assets/images/Pho soup with beef.png",
+        "imagePath": "assets/images/Pho soup with beef.webp",
         "description": "A Vietnamese noodle soup made with beef, rice noodles, and aromatic spices. Served with fresh herbs and bean sprouts, this dish is hearty and full of flavor.",
         "spicinessLevel": 3,
         "servings": 4,
@@ -373,7 +373,7 @@
     },
     {
         "name": "Chicken Curry",
-        "imagePath": "assets/images/Chicken in curry sauce.png",
+        "imagePath": "assets/images/Chicken in curry sauce.webp",
         "description": "A flavorful curry made with chicken, chili powder, and coconut milk, cooked with garlic and onions for a rich and comforting meal. Best served with rice.",
         "spicinessLevel": 4,
         "servings": 4,
@@ -403,7 +403,7 @@
     },
     {
         "name": "Rice with Curry",
-        "imagePath": "assets/images/Rice with curry.png",
+        "imagePath": "assets/images/Rice with curry.webp",
         "description": "Simple yet delicious, this dish features rice cooked with curry powder and aromatic vegetables. It's a perfect side dish or base for your favorite curry.",
         "spicinessLevel": 4,
         "servings": 3,
@@ -433,7 +433,7 @@
     },
     {
         "name": "Banh Mi with Chili",
-        "imagePath": "assets/images/Banh Mi with chili.png",
+        "imagePath": "assets/images/Banh Mi with chili.webp",
         "description": "A Vietnamese sandwich featuring a crispy baguette filled with pickled vegetables, chili sauce, and pork. It's a flavorful and satisfying meal on the go.",
         "spicinessLevel": 3,
         "servings": 2,
@@ -461,7 +461,7 @@
     },
     {
         "name": "Chinese Hotpot (Huoguo)",
-        "imagePath": "assets/images/Chinese hot pot.png",
+        "imagePath": "assets/images/Chinese hot pot.webp",
         "description": "A communal dining experience featuring a simmering pot of broth in which various ingredients like beef and vegetables are cooked at the table, flavored with chili oil and Sichuan pepper for a spicy kick.",
         "spicinessLevel": 5,
         "servings": 4,
@@ -490,7 +490,7 @@
     },
     {
         "name": "Tom Sum Soup",
-        "imagePath": "assets/images/Soup Tom Sum.png",
+        "imagePath": "assets/images/Soup Tom Sum.webp",
         "description": "A flavorful Thai soup that combines fresh seafood with fragrant herbs, delivering a perfect balance of spice and sourness.",
         "spicinessLevel": 4,
         "servings": 4,
@@ -521,7 +521,7 @@
     },
     {
         "name": "Beef with Chili",
-        "imagePath": "assets/images/Beef with chili pepper.png",
+        "imagePath": "assets/images/Beef with chili pepper.webp",
         "description": "A spicy stir-fried dish featuring tender beef strips, cooked with aromatic garlic, onions, and chili paste for a flavorful meal.",
         "spicinessLevel": 5,
         "servings": 3,
@@ -551,7 +551,7 @@
     },
     {
         "name": "Rajma",
-        "imagePath": "assets/images/Rajma.png",
+        "imagePath": "assets/images/Rajma.webp",
         "description": "A comforting North Indian dish made with red kidney beans in a spiced tomato gravy, best served with rice or bread.",
         "spicinessLevel": 4,
         "servings": 4,
@@ -583,7 +583,7 @@
     },
     {
         "name": "Panang Curry",
-        "imagePath": "assets/images/Rectangle.png",
+        "imagePath": "assets/images/Rectangle.webp",
         "description": "A rich and creamy Thai curry made with coconut milk, Panang curry paste, and tender chicken, flavored with fresh basil and chili.",
         "spicinessLevel": 4,
         "servings": 3,
@@ -613,7 +613,7 @@
     },
     {
         "name": "Tom Kha Gai",
-        "imagePath": "assets/images/Tom Kha Gai.png",
+        "imagePath": "assets/images/Tom Kha Gai.webp",
         "description": "A fragrant Thai coconut soup featuring chicken, galangal, and lemongrass, with a hint of chili and lime for a refreshing flavor.",
         "spicinessLevel": 3,
         "servings": 4,
@@ -645,7 +645,7 @@
     },
     {
         "name": "Sichuan Mustard",
-        "imagePath": "assets/images/Sichuan mustard.png",
+        "imagePath": "assets/images/Sichuan mustard.webp",
         "description": "A simple and spicy side dish made with blanched mustard greens tossed in a fragrant garlic and chili oil dressing.",
         "spicinessLevel": 5,
         "servings": 3,
@@ -673,7 +673,7 @@
     },
     {
         "name": "Dakbal",
-        "imagePath": "assets/images/Dakbal in Chili sauce.png",
+        "imagePath": "assets/images/Dakbal in Chili sauce.webp",
         "description": "A spicy Korean dish made with chicken feet stir-fried in a savory chili sauce, perfect as a unique appetizer.",
         "spicinessLevel": 5,
         "servings": 2,
@@ -704,7 +704,7 @@
     },
     {
         "name": "Tandoori Chicken",
-        "imagePath": "assets/images/Chicken Tandoori.png",
+        "imagePath": "assets/images/Chicken Tandoori.webp",
         "description": "Marinated chicken roasted in a tandoor or oven, featuring a blend of yogurt and spices for a smoky and flavorful dish.",
         "spicinessLevel": 4,
         "servings": 4,
@@ -734,7 +734,7 @@
     },
     {
         "name": "Spicy Fish Curry",
-        "imagePath": "assets/images/Spicy fish curry.png",
+        "imagePath": "assets/images/Spicy fish curry.webp",
         "description": "A delicious fish curry made with fresh fish simmered in a spicy coconut milk sauce, perfect served with rice.",
         "spicinessLevel": 4,
         "time": "50 min",
@@ -764,7 +764,7 @@
     },
     {
         "name": "Laksa with Chili",
-        "imagePath": "assets/images/Laksa with chili.png",
+        "imagePath": "assets/images/Laksa with chili.webp",
         "description": "A spicy noodle soup originating from the Peranakan culture, Laksa features rice noodles served in a spicy coconut milk or sour asam broth. It's often garnished with shrimp, tofu, and bean sprouts, making it a delightful meal.",
         "spicinessLevel": 4,
         "servings": 2,
@@ -795,7 +795,7 @@
     },
     {
         "name": "Szechuan Crispy Chicken",
-        "imagePath": "assets/images/Szechuan crispy chicken.png",
+        "imagePath": "assets/images/Szechuan crispy chicken.webp",
         "description": "A flavorful and spicy dish featuring crispy fried chicken tossed in a tangy Szechuan sauce, garnished with peanuts and green onions for a delightful crunch.",
         "spicinessLevel": 5,
         "servings": 4,
@@ -825,7 +825,7 @@
         "carbs": 25.0
     },{
         "name": "Poka Chilli",
-        "imagePath": "assets/images/Poka Chilli.png",
+        "imagePath": "assets/images/Poka Chilli.webp",
         "description": "A delicious dish featuring stir-fried vegetables and tofu in a spicy chili sauce, making it a perfect vegan option that bursts with flavor.",
         "spicinessLevel": 3,
         "servings": 3,
@@ -855,7 +855,7 @@
         "carbs": 30.0
     },{
         "name": "Chicken in Spicy Sauce",
-        "imagePath": "assets/images/Chicken in spicy sauce.png",
+        "imagePath": "assets/images/Chicken in spicy sauce.webp",
         "description": "Tender chicken pieces coated in a fiery spicy sauce made with chili, garlic, and soy sauce, perfect for those who love bold flavors.",
         "spicinessLevel": 5,
         "servings": 4,

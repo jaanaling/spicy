@@ -3,35 +3,35 @@
     "name": "Poka Chilli",
     "spiciness": 5,
     "cuisine": "Indian",
-    "imageUrl": "assets/images/Group 23.png",
+    "imageUrl": "assets/images/Group 23.webp",
     "isFavorite": false
   },
   {
     "name": "Laksa with Chili",
     "spiciness": 4,
     "cuisine": "Malaysian",
-    "imageUrl": "assets/images/Group 22.png",
+    "imageUrl": "assets/images/Group 22.webp",
     "isFavorite": false
   },
   {
     "name": "Szechuan Crispy Chicken",
     "spiciness": 5,
     "cuisine": "Chinese",
-    "imageUrl": "assets/images/Group 24.png",
+    "imageUrl": "assets/images/Group 24.webp",
     "isFavorite": false
   },
   {
     "name": "Dakbal",
     "spiciness": 5,
     "cuisine": "Korean",
-    "imageUrl": "assets/images/Group 25.png",
+    "imageUrl": "assets/images/Group 25.webp",
     "isFavorite": false
   },
   {
     "name": "Chicken in Spicy Sauce",
     "spiciness": 5,
     "cuisine": "Indian",
-    "imageUrl": "assets/images/Group 26.png",
+    "imageUrl": "assets/images/Group 26.webp",
     "isFavorite": false
   }
 ]
