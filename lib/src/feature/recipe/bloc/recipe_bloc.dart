@@ -34,6 +34,7 @@ class RecipeBloc extends Bloc<RecipeEvent, RecipeState> {
   Future<void> _onAddRecipe(AddRecipe event, Emitter<RecipeState> emit) async {
     await repository.addRecipe(event.recipe);
     add(LoadRecipes());
+    event.navigate();
   }
 
   Future<void> _onRemoveRecipe(

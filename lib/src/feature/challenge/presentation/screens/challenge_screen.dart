@@ -64,100 +64,105 @@ class ChallengeScreen extends StatelessWidget {
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
                       separatorBuilder: (context, index) => const Gap(9),
-                      itemBuilder: (context, index) => ClipRRect(
-                        borderRadius: BorderRadius.circular(12),
-                        child: SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.25,
-                          child: DecoratedBox(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(12),
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  state.challenges[index].imageUrl,
+                      itemBuilder: (context, index) {
+                        final GlobalKey shareKey = GlobalKey();
+
+                      return  ClipRRect(
+                          borderRadius: BorderRadius.circular(12),
+                          child: SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.25,
+                            child: DecoratedBox(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                image: DecorationImage(
+                                  image: AssetImage(
+                                    state.challenges[index].imageUrl,
+                                  ),
+                                  fit: BoxFit.cover,
                                 ),
-                                fit: BoxFit.cover,
                               ),
-                            ),
-                            child: Stack(
-                              children: [
-                                
-                                Positioned.fill(
-                                  child: ColoredBox(
-                                    color: Colors.black.withOpacity(0.5),
-                                  ),
-                                ),
-                                Align(
-                                    alignment: Alignment.topLeft,
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(13),
-                                      child: Text(
-                                        state.challenges[index].name,
-                                        style: const TextStyle(
-                                          fontSize: 25,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w700,
-                                          fontFamily: 'poppins',
-                                        ),
-                                      ),
-                                    )),
-                                Align(
-                                  alignment: Alignment.topRight,
-                                  child: Padding(
-                                    padding: EdgeInsets.symmetric(
-                                      horizontal: 13,
-                                      vertical: 8,
-                                    ),
-                                    child: GestureDetector(
-                                      onTap: () {
-                                        context.read<ChallengeBloc>().add(
-                                            ShareChallengeEvent(
-                                                state.challenges[index].name));
-                                      },
-                                      child: Icon(
-                                        Icons.share,
-                                        color: Colors.white,
-                                        size: 38,
-                                      ),
+                              child: Stack(
+                                children: [
+
+                                  Positioned.fill(
+                                    child: ColoredBox(
+                                      color: Colors.black.withOpacity(0.5),
                                     ),
                                   ),
-                                ),
-                                Align(
-                                  alignment: Alignment.bottomRight,
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      context.push(
-                                        '${RouteValue.challenge.path}/${RouteValue.recipe.path}',
-                                        extra: (context.read<RecipeBloc>().state
-                                                as RecipeLoaded)
-                                            .recipes
-                                            .firstWhere((element) =>
-                                                element.name ==
-                                                state.challenges[index].name),
-                                      );
-                                    },
-                                    child: Stack(
-                                      alignment: Alignment.center,
-                                      children: [
-                                        AppIcon(
-                                         
-                                            asset: IconProvider.bigb
-                                                .buildImageUrl()),
-                                        Text(
-                                          'take on the challenge',
+                                  Align(
+                                      alignment: Alignment.topLeft,
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(13),
+                                        child: Text(
+                                          state.challenges[index].name,
                                           style: const TextStyle(
-                                            fontSize: 17,
-                                            fontWeight: FontWeight.w400,
+                                            fontSize: 25,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w700,
+                                            fontFamily: 'poppins',
                                           ),
                                         ),
-                                      ],
+                                      )),
+                                  Align(
+                                    alignment: Alignment.topRight,
+                                    child: Padding(
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: 13,
+                                        vertical: 8,
+                                      ),
+                                      child: GestureDetector(
+                                        key: shareKey,
+                                        onTap: () {
+                                          context.read<ChallengeBloc>().add(
+                                              ShareChallengeEvent(
+                                                  state.challenges[index].name, shareKey));
+                                        },
+                                        child: Icon(
+                                          Icons.share,
+                                          color: Colors.white,
+                                          size: 38,
+                                        ),
+                                      ),
                                     ),
                                   ),
-                                )
-                              ],
+                                  Align(
+                                    alignment: Alignment.bottomRight,
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        context.push(
+                                          '${RouteValue.challenge.path}/${RouteValue.recipe.path}',
+                                          extra: (context.read<RecipeBloc>().state
+                                          as RecipeLoaded)
+                                              .recipes
+                                              .firstWhere((element) =>
+                                          element.name ==
+                                              state.challenges[index].name),
+                                        );
+                                      },
+                                      child: Stack(
+                                        alignment: Alignment.center,
+                                        children: [
+                                          AppIcon(
+
+                                              asset: IconProvider.bigb
+                                                  .buildImageUrl()),
+                                          Text(
+                                            'take on the challenge',
+                                            style: const TextStyle(
+                                              fontSize: 17,
+                                              fontWeight: FontWeight.w400,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                      ),
+                        );
+                      }
                     )
                   : const CircularProgressIndicator();
             },

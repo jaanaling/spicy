@@ -12,8 +12,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../../../../routes/route_value.dart';
 import '../../../../ui_kit/app_icon/widget/app_icon.dart';
 
 class CreateScreen extends StatefulWidget {
@@ -91,10 +93,10 @@ class _CreateScreenState extends State<CreateScreen> {
                 child: const Text(
                   'Select Difficulty',
                   style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                      fontFamily: 'poppins'),
                 ),
               ),
               SizedBox(
@@ -112,7 +114,10 @@ class _CreateScreenState extends State<CreateScreen> {
                   },
                   children: difficulties.map((String difficulty) {
                     return Center(
-                      child: Text(difficulty),
+                      child: Text(
+                        difficulty,
+                        style: TextStyle(fontFamily: 'poppins'),
+                      ),
                     );
                   }).toList(),
                 ),
@@ -194,7 +199,10 @@ class _CreateScreenState extends State<CreateScreen> {
                         children: [
                           getCountryIcon(country),
                           const Gap(16),
-                          Text(country),
+                          Text(
+                            country,
+                            style: TextStyle(fontFamily: 'poppins'),
+                          ),
                         ],
                       ),
                     );
@@ -266,12 +274,18 @@ class _CreateScreenState extends State<CreateScreen> {
                         },
                         children: hours.map((int hour) {
                           return Center(
-                            child: Text(hour.toString().padLeft(2, '0')),
+                            child: Text(
+                              hour.toString().padLeft(2, '0'),
+                              style: TextStyle(fontFamily: 'poppins'),
+                            ),
                           );
                         }).toList(),
                       ),
                     ),
-                    const Text(':', style: TextStyle(fontSize: 32)),
+                    const Text(
+                      ':',
+                      style: TextStyle(fontSize: 32, fontFamily: 'poppins'),
+                    ),
                     Expanded(
                       child: CupertinoPicker(
                         scrollController: FixedExtentScrollController(
@@ -285,7 +299,10 @@ class _CreateScreenState extends State<CreateScreen> {
                         },
                         children: minutes.map((int minute) {
                           return Center(
-                            child: Text(minute.toString().padLeft(2, '0')),
+                            child: Text(
+                              minute.toString().padLeft(2, '0'),
+                              style: TextStyle(fontFamily: 'poppins'),
+                            ),
                           );
                         }).toList(),
                       ),
@@ -703,7 +720,7 @@ class _CreateScreenState extends State<CreateScreen> {
                 const Gap(10),
                 GestureDetector(
                   onTap: () {
-                    if(quantityController.text.isNotEmpty){
+                    if (quantityController.text.isNotEmpty) {
                       setState(() {
                         isIngredient = false;
                         ingredients.add(
@@ -757,15 +774,20 @@ class _CreateScreenState extends State<CreateScreen> {
                   fontFamily: 'poppins',
                 ),
               ),
-             Row(
-               children: [
-                 PlusButton(
-                   onPressed: () => setState(() => isStep = true),
-                 ),
-                 const Text('Add step', style: TextStyle(   color: CupertinoColors.black,
-                   fontFamily: 'poppins',),)
-               ],
-             )
+              Row(
+                children: [
+                  PlusButton(
+                    onPressed: () => setState(() => isStep = true),
+                  ),
+                  const Text(
+                    'Add step',
+                    style: TextStyle(
+                      color: CupertinoColors.black,
+                      fontFamily: 'poppins',
+                    ),
+                  )
+                ],
+              )
             ],
           ),
           const Gap(15),
@@ -797,9 +819,8 @@ class _CreateScreenState extends State<CreateScreen> {
                   ),
                   const Gap(10),
                   Expanded(
-                    child:
-                      Container(
-                        alignment: Alignment.centerLeft,
+                    child: Container(
+                      alignment: Alignment.centerLeft,
                       child: Text(
                         steps[index],
                         style: const TextStyle(
@@ -948,11 +969,11 @@ class _CreateScreenState extends State<CreateScreen> {
                         ),
                         actions: [
                           CupertinoDialogAction(
-                            child: const Text('OK',
-                              style: TextStyle(
-                                color: CupertinoColors.activeBlue
-
-                              ),),
+                            child: const Text(
+                              'OK',
+                              style:
+                                  TextStyle(color: CupertinoColors.activeBlue),
+                            ),
                             onPressed: () {
                               Navigator.of(context).pop();
                             },
@@ -962,27 +983,29 @@ class _CreateScreenState extends State<CreateScreen> {
                     },
                   );
                 } else {
+                  final recipe = RecipeModel(
+                    name: titleController.text,
+                    description: descriptionController.text,
+                    imagePath: _image != null ? _image!.path : '',
+                    spicinessLevel: spicinessLevel,
+                    servings: 1,
+                    difficulty: difficulty ?? 'Easy',
+                    cuisine: cuisine ?? 'China',
+                    time: formatTime(selectedHour, selectedMinute),
+                    ingredients: ingredients,
+                    steps: steps,
+                    calories: double.tryParse(caloriesController.text) ?? 0,
+                    proteins: double.tryParse(proteinsController.text) ?? 0,
+                    fats: double.tryParse(fatsController.text) ?? 0,
+                    carbs: double.tryParse(carbsController.text) ?? 0,
+                  );
                   context.read<RecipeBloc>().add(
-                        AddRecipe(
-                          RecipeModel(
-                            name: titleController.text,
-                            description: descriptionController.text,
-                            imagePath: _image != null ? _image!.path : '',
-                            spicinessLevel: spicinessLevel,
-                            servings: 1,
-                            difficulty: difficulty ?? 'Easy',
-                            cuisine: cuisine ?? 'China',
-                            time: formatTime(selectedHour, selectedMinute),
-                            ingredients: ingredients,
-                            steps: steps,
-                            calories:
-                                double.tryParse(caloriesController.text) ?? 0,
-                            proteins:
-                                double.tryParse(proteinsController.text) ?? 0,
-                            fats: double.tryParse(fatsController.text) ?? 0,
-                            carbs: double.tryParse(carbsController.text) ?? 0,
-                          ),
-                        ),
+                        AddRecipe(recipe, () {
+                          context.pushReplacement(
+                            '${RouteValue.home.path}/${RouteValue.recipe.path}',
+                            extra: recipe,
+                          );
+                        }),
                       );
                 }
               },
@@ -1024,8 +1047,6 @@ String formatTime(int selectedHour, int selectedMinute) {
     return '0 min'; // если и часы, и минуты равны 0
   }
 }
-
-
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
@@ -1091,7 +1112,7 @@ class CustomTextField extends StatelessWidget {
             )
           : null,
       maxLines: maxLength,
-      minLines: minLength?? maxLength,
+      minLines: minLength ?? maxLength,
       textAlignVertical: TextAlignVertical.top,
       textAlign: isCenterText ? TextAlign.center : TextAlign.start,
       keyboardType: keyboardType,

@@ -17,7 +17,7 @@ class Ingredient extends Equatable {
   });
 
   @override
-  List<Object?> get props => [name, type, quantity, quantityType];
+  List<Object> get props => [name, quantity, quantityType, type];
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{

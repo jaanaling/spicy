@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Application</string>
+	<string>Spice Journey</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -45,5 +45,9 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSPhotoLibraryUsageDescription</key>
+    <string>We need access to your photo library so you can upload images for your personal recipes in the app.</string>
+    <key>NSUserTrackingUsageDescription</key>
+    <string>We use your IDFA to display personalized ads that are relevant to you.</string>
 </dict>
 </plist>

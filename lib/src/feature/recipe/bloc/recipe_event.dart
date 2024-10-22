@@ -9,11 +9,12 @@ class LoadRecipes extends RecipeEvent {}
 
 class AddRecipe extends RecipeEvent {
   final RecipeModel recipe;
+  final void Function() navigate;
 
-  AddRecipe(this.recipe);
+  AddRecipe(this.recipe, this.navigate);
 
   @override
-  List<Object> get props => [recipe];
+  List<Object> get props => [recipe, navigate];
 }
 
 class RemoveRecipe extends RecipeEvent {

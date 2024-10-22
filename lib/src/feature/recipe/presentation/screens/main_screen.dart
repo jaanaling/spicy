@@ -119,6 +119,7 @@ class _MainScreenState extends State<MainScreen> {
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
+                      fontFamily: 'poppins'
                   ),
                 ),
               ),
@@ -149,7 +150,7 @@ class _MainScreenState extends State<MainScreen> {
                         children: [
                           if (country != countries[6]) getCountryIcon(country),
                           const Gap(16),
-                          Text(country),
+                          Text(country, style: const TextStyle(fontFamily: 'poppins'),),
                         ],
                       ),
                     );
@@ -159,7 +160,7 @@ class _MainScreenState extends State<MainScreen> {
               CupertinoButton(
                 child: const Text(
                   'Done',
-                  style: TextStyle(color: CupertinoColors.activeBlue),
+                  style: TextStyle(color: CupertinoColors.activeBlue, fontFamily: 'poppins'),
                 ),
                 onPressed: () {
                   Navigator.pop(context);
@@ -189,6 +190,7 @@ class _MainScreenState extends State<MainScreen> {
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
+                      fontFamily: 'poppins'
                   ),
                 ),
               ),
@@ -215,7 +217,7 @@ class _MainScreenState extends State<MainScreen> {
                   },
                   children: timeRanges.map((String country) {
                     return Center(
-                      child: Text(country),
+                      child: Text(country, style: const TextStyle(fontFamily: 'poppins'),),
                     );
                   }).toList(),
                 ),
@@ -223,7 +225,7 @@ class _MainScreenState extends State<MainScreen> {
               CupertinoButton(
                 child: const Text(
                   'Done',
-                  style: TextStyle(color: CupertinoColors.activeBlue),
+                  style: TextStyle(color: CupertinoColors.activeBlue, fontFamily: 'poppins'),
                 ),
                 onPressed: () {
                   Navigator.pop(context);

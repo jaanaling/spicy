@@ -18,9 +18,10 @@ class ToggleFavoriteEvent extends ChallengeEvent {
 
 class ShareChallengeEvent extends ChallengeEvent {
   final String name;
+  final GlobalKey key;
 
-  ShareChallengeEvent(this.name);
+  ShareChallengeEvent(this.name, this.key);
 
   @override
-  List<Object?> get props => [name];
+  List<Object?> get props => [name, key];
 }

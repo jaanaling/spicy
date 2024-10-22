@@ -3,6 +3,7 @@ import 'package:application/src/feature/challenge/model/challenge.dart';
 import 'package:application/src/feature/challenge/repository/repository.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/cupertino.dart';
 
 part 'challenge_event.dart';
 part 'challenge_state.dart';
@@ -41,7 +42,7 @@ class ChallengeBloc extends Bloc<ChallengeEvent, ChallengeState> {
   Future<void> _onShareChallenge(
       ShareChallengeEvent event, Emitter<ChallengeState> emit) async {
     try {
-      await _repository.shareChallenge(event.name);
+      await _repository.shareChallenge(event.name, event.key);
     } catch (e) {
       emit(ChallengeError('Failed to share challenge'));
     }

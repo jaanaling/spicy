@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:application/src/feature/challenge/model/challenge.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:share_plus/share_plus.dart';
@@ -36,9 +37,10 @@ class ChallengeRepository {
   Future<List<ChallengeRecipe>> loadChallengesFromPrefs() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     final String? challengesString = prefs.getString('challenges');
-    
+
     if (challengesString != null) {
-      final List<dynamic> decodedData = jsonDecode(challengesString) as List<dynamic>;
+      final List<dynamic> decodedData =
+          jsonDecode(challengesString) as List<dynamic>;
       return decodedData
           .map((json) => ChallengeRecipe.fromMap(json as Map<String, dynamic>))
           .toList();
@@ -46,6 +48,7 @@ class ChallengeRepository {
 
     return await loadChallenges(); // Загружает дефолтные челленджи, если сохраненных нет
   }
+
   Future<void> toggleFavorite(ChallengeRecipe recipe) async {
     final recipes = await loadChallenges();
     final updatedRecipes = recipes.map((r) {
@@ -57,10 +60,29 @@ class ChallengeRepository {
     await saveChallenges(updatedRecipes);
   }
 
-  Future<void> shareChallenge(String name) async {
-      await Share.share('''
+  Future<void> shareChallenge(String name, GlobalKey shareButtonKey) async {
+    await Share.share(
+      '''
 I just had the craziest spicy dish called $name and it was on fire! 🔥 I dare you to try it! Can you handle the heat?\n\n
 Let’s see who can finish it without reaching for water. Are you up for the challenge? 💪\n\n
-Tag me when you take your first bite! 😆''', subject: 'Check out this challenge!');
+Tag me when you take your first bite! 😆''',
+      subject: 'Check out this challenge!',
+      sharePositionOrigin: shareButtonRect(shareButtonKey),
+    );
+  }
+
+  Rect? shareButtonRect(GlobalKey shareButtonKey) {
+    RenderBox? renderBox =
+        shareButtonKey.currentContext!.findRenderObject() as RenderBox?;
+    if (renderBox == null) return null;
+
+    Size size = renderBox.size;
+    Offset position = renderBox.localToGlobal(Offset.zero);
+
+    return Rect.fromCenter(
+      center: position + Offset(size.width / 2, size.height / 2),
+      width: size.width,
+      height: size.height,
+    );
   }
 }

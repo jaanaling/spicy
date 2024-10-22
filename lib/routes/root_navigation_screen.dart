@@ -26,7 +26,7 @@ class _RootNavigationScreenState extends State<RootNavigationScreen> {
       resizeToAvoidBottomInset: false,
       child: Stack(
         children: [
-          SafeArea(top: widget.route != '${RouteValue.home.path}/${RouteValue.recipe.path}', child: widget.navigationShell),
+          SafeArea(top: !widget.route.contains(RouteValue.recipe.path), child: widget.navigationShell),
           Positioned(bottom: 0, left: 0, right: 0, child: BottomBar(selectedIndex: currentIndex, onTap: _onTap)),
         ],
       ),

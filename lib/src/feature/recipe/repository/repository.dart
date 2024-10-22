@@ -57,7 +57,7 @@ class RecipeRepository {
     if (recipe.isFavorite != null) {
       recipe.isFavorite = !recipe.isFavorite!;
     } else {
-      recipe.isFavorite = false;
+      recipe.isFavorite = true;
     }
     final prefs = await SharedPreferences.getInstance();
     await _saveRecipesToPrefs(prefs, _recipes);
@@ -73,13 +73,14 @@ class RecipeRepository {
   }
 
   List<Ingredient> getIngredientsByType(String type) {
-    List<Ingredient> ingredients = [];
+    Set<String> uniqueIngredientNames = {};
+
     for (var recipe in _recipes) {
-      ingredients.addAll(recipe.ingredients
-          .where((ingredient) =>
-              ingredient.type.toLowerCase() == type.toLowerCase())
-          .toList());
+      uniqueIngredientNames.addAll(recipe.ingredients
+          .where((ingredient) => ingredient.type.toLowerCase() == type.toLowerCase())
+          .map((ingredient) => ingredient.name));
     }
-    return ingredients;
+
+    return uniqueIngredientNames.map((name) => Ingredient(name: name, type: type, quantityType: '', quantity: 0)).toList();
   }
 }
