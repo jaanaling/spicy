@@ -30,7 +30,7 @@ class _MainScreenState extends State<MainScreen> {
   int selectedIndexCountry = 0;
   int selectedIndexTime = 0;
   String? selectedTime;
-  late CarouselSliderController _pageController;
+  final CarouselSliderController _pageController = CarouselSliderController();
   int _currentPage = 0;
   List<RecipeModel> recipes = [];
 
@@ -120,36 +120,39 @@ class _MainScreenState extends State<MainScreen> {
                   ),
                 ),
               ),
-              CupertinoPicker(
-                scrollController: FixedExtentScrollController(
-                  initialItem: selectedIndexCountry,
-                ),
-                itemExtent: 32.0,
-                onSelectedItemChanged: (int index) {
-                  setState(() {
-                    selectedIndexCountry = index;
+              SizedBox(
+                height: 150,
+                child: CupertinoPicker(
+                  scrollController: FixedExtentScrollController(
+                    initialItem: selectedIndexCountry,
+                  ),
+                  itemExtent: 32.0,
+                  onSelectedItemChanged: (int index) {
+                    setState(() {
+                      selectedIndexCountry = index;
 
-                    if (selectedIndexCountry == 6) {
-                      cuisine = null;
-                    } else {
-                      cuisine = countries[selectedIndexCountry];
-                    }
-                  });
-                },
-                children: countries.map((String country) {
-                  return Padding(
-                    padding: EdgeInsets.only(
-                      left: MediaQuery.of(context).size.width * 0.28,
-                    ),
-                    child: Row(
-                      children: [
-                        if (country != countries[6]) getCountryIcon(country),
-                        const Gap(16),
-                        Text(country),
-                      ],
-                    ),
-                  );
-                }).toList(),
+                      if (selectedIndexCountry == 6) {
+                        cuisine = null;
+                      } else {
+                        cuisine = countries[selectedIndexCountry];
+                      }
+                    });
+                  },
+                  children: countries.map((String country) {
+                    return Padding(
+                      padding: EdgeInsets.only(
+                        left: MediaQuery.of(context).size.width * 0.28,
+                      ),
+                      child: Row(
+                        children: [
+                          if (country != countries[6]) getCountryIcon(country),
+                          const Gap(16),
+                          Text(country),
+                        ],
+                      ),
+                    );
+                  }).toList(),
+                ),
               ),
               CupertinoButton(
                 child: const Text(
@@ -187,30 +190,33 @@ class _MainScreenState extends State<MainScreen> {
                   ),
                 ),
               ),
-              CupertinoPicker(
-                scrollController: FixedExtentScrollController(
-                  initialItem: selectedIndexTime,
+              SizedBox(
+                height: 150,
+                child: CupertinoPicker(
+                  scrollController: FixedExtentScrollController(
+                    initialItem: selectedIndexTime,
+                  ),
+                  itemExtent: 32.0,
+                  onSelectedItemChanged: (int index) {
+                    setState(() {
+                      selectedIndexTime = index;
+                      if (selectedIndexTime == 0) {
+                        selectedTime = '<30 min';
+                      } else if (selectedIndexTime == 1) {
+                        selectedTime = '30-60 min';
+                      } else if (selectedIndexTime == 2) {
+                        selectedTime = '> 1 hr';
+                      } else {
+                        selectedTime = null;
+                      }
+                    });
+                  },
+                  children: timeRanges.map((String country) {
+                    return Center(
+                      child: Text(country),
+                    );
+                  }).toList(),
                 ),
-                itemExtent: 32.0,
-                onSelectedItemChanged: (int index) {
-                  setState(() {
-                    selectedIndexTime = index;
-                    if (selectedIndexTime == 0) {
-                      selectedTime = '<30 min';
-                    } else if (selectedIndexTime == 1) {
-                      selectedTime = '30-60 min';
-                    } else if (selectedIndexTime == 2) {
-                      selectedTime = '> 1 hr';
-                    } else {
-                      selectedTime = null;
-                    }
-                  });
-                },
-                children: timeRanges.map((String country) {
-                  return Center(
-                    child: Text(country),
-                  );
-                }).toList(),
               ),
               CupertinoButton(
                 child: const Text(
@@ -229,63 +235,57 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   @override
-  void initState() {
-    super.initState();
-    _pageController = CarouselSliderController();
-  }
-
-  @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
-    return BlocProvider(
-      create: (context) => RecipeBloc()..add(LoadRecipes()),
-      child: BlocBuilder<RecipeBloc, RecipeState>(
-        builder: (context, state) {
-          if (state is RecipeLoaded) {
-            recipes = state.recipes.where((recipe) {
-              if (cuisine != null) {
-                return recipe.cuisine == cuisine;
+    return BlocBuilder<RecipeBloc, RecipeState>(
+      builder: (context, state) {
+        if (state is RecipeLoaded) {
+          recipes = state.recipes.where((recipe) {
+            if (cuisine != null) {
+              return recipe.cuisine == cuisine;
+            }
+            return true;
+          }).where((recipe) {
+            return recipe.spicinessLevel == sliderValue;
+          }).where((recipe) {
+            if (difficulty.isNotEmpty) {
+              return difficulty.contains(recipe.difficulty);
+            }
+            return true;
+          }).where((recipe) {
+            if (selectedTime != null) {
+              int cookingTimeInMinutes = _convertTimeToMinutes(recipe.time);
+              switch (selectedTime) {
+                case '<30 min':
+                  return cookingTimeInMinutes <= 30;
+                case '30-60 min':
+                  return cookingTimeInMinutes > 30 &&
+                      cookingTimeInMinutes <= 60;
+                case '> 1hr':
+                  return cookingTimeInMinutes > 60;
+                default:
+                  return true;
               }
-              return true;
-            }).where((recipe) {
-              return recipe.spicinessLevel == sliderValue;
-            }).where((recipe) {
-              if (difficulty.isNotEmpty) {
-                return difficulty.contains(recipe.difficulty);
-              }
-              return true;
-            }).where((recipe) {
-              if (selectedTime != null) {
-                int cookingTimeInMinutes = _convertTimeToMinutes(recipe.time);
-                switch (selectedTime) {
-                  case '<30 min':
-                    return cookingTimeInMinutes <= 30;
-                  case '30-60 min':
-                    return cookingTimeInMinutes > 30 &&
-                        cookingTimeInMinutes <= 60;
-                  case '> 1hr':
-                    return cookingTimeInMinutes > 60;
-                  default:
-                    return true;
-                }
-              }
-              return true;
-            }).where((recipe) {
-              if (searchController.text.isNotEmpty) {
-                return recipe.name
-                    .toLowerCase()
-                    .contains(searchController.text.toLowerCase());
-              }
-              return true;
-            }).toList();
-            return SingleChildScrollView(
-              padding: const EdgeInsets.only(bottom: 110),
-              child: Padding(
-                padding: const EdgeInsets.only(left: 21, right: 21, top: 15),
-                child: Column(
-                  children: [
-                    CupertinoTextField(
+            }
+            return true;
+          }).where((recipe) {
+            if (searchController.text.isNotEmpty) {
+              return recipe.name
+                  .toLowerCase()
+                  .contains(searchController.text.toLowerCase());
+            }
+            return true;
+          }).toList();
+          return SingleChildScrollView(
+            padding: const EdgeInsets.only(bottom: 110),
+            child: Padding(
+              padding: const EdgeInsets.only(top: 15),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 21),
+                    child: CupertinoTextField(
                       controller: searchController,
                       onTapOutside: (event) {
                         setState(() {});
@@ -330,7 +330,10 @@ class _MainScreenState extends State<MainScreen> {
                         ],
                       ),
                     ),
-                    Stack(
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 21),
+                    child: Stack(
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(bottom: 2),
@@ -386,8 +389,11 @@ class _MainScreenState extends State<MainScreen> {
                         ),
                       ],
                     ),
-                    const Gap(13),
-                    Row(
+                  ),
+                  const Gap(13),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 21),
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         difficultyButton('Easy', const Color(0xFFA6FE7E)),
@@ -395,8 +401,11 @@ class _MainScreenState extends State<MainScreen> {
                         difficultyButton('Hard', const Color(0xFFFF5B62)),
                       ],
                     ),
-                    const Gap(17),
-                    Row(
+                  ),
+                  const Gap(17),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 21),
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         GestureDetector(
@@ -461,40 +470,43 @@ class _MainScreenState extends State<MainScreen> {
                             ),
                           ),
                         ),
-                        GestureDetector(
-                          onTap: () {
-                            _showTimePicker(context);
-                          },
-                          child: DecoratedBox(
-                            decoration: customDecoration(),
-                            child: SizedBox(
-                              width: MediaQuery.of(context).size.width * 0.43,
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 20,
-                                  vertical: 10,
-                                ),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      selectedTime != null
-                                          ? selectedTime ?? ''
-                                          : 'Time',
-                                      style: const TextStyle(
-                                        fontSize: 21,
-                                        color: Colors.black,
+                        Padding(
+                          padding: const EdgeInsets.only(right: 21),
+                          child: GestureDetector(
+                            onTap: () {
+                              _showTimePicker(context);
+                            },
+                            child: DecoratedBox(
+                              decoration: customDecoration(),
+                              child: SizedBox(
+                                width: MediaQuery.of(context).size.width * 0.43,
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 20,
+                                    vertical: 10,
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        selectedTime != null
+                                            ? selectedTime ?? ''
+                                            : 'Time',
+                                        style: const TextStyle(
+                                          fontSize: 21,
+                                          color: Colors.black,
+                                        ),
                                       ),
-                                    ),
-                                    AppIcon(
-                                      asset: IconProvider.chevronDown
-                                          .buildImageUrl(),
-                                      color: const Color.fromARGB(255, 0, 0, 0)
-                                          .withOpacity(0.51),
-                                      width: 16,
-                                    ),
-                                  ],
+                                      AppIcon(
+                                        asset: IconProvider.chevronDown
+                                            .buildImageUrl(),
+                                        color: const Color.fromARGB(255, 0, 0, 0)
+                                            .withOpacity(0.51),
+                                        width: 16,
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
@@ -502,105 +514,108 @@ class _MainScreenState extends State<MainScreen> {
                         ),
                       ],
                     ),
-                    const Gap(33),
-                    const Divider(
+                  ),
+                  const Gap(33),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 21),
+                    child: const Divider(
                       thickness: 1.5,
                       color: Color(0xFF9A0A10),
                     ),
-                    const Gap(24),
-                    if (recipes.isEmpty)
-                      const Center(
-                        child: Text(
-                          'No items found.',
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.black54,
-                          ),
+                  ),
+                  const Gap(24),
+                  if (recipes.isEmpty)
+                    const Center(
+                      child: Text(
+                        'No items found.',
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.black54,
                         ),
-                      )
-                    else
-                      Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          CarouselSlider.builder(
-                            carouselController: _pageController,
-                            itemCount: recipes.length,
-                            itemBuilder: (BuildContext context, int index,
-                                int pageViewIndex,) {
-                              final recipe = recipes[index];
-                              return Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: width * 0.007),
-                                child: GestureDetector(
-                                  onTap: () {
-                                    context.push(
-                                      '${RouteValue.home.path}/${RouteValue.recipe.path}',
-                                      extra: recipe,
-                                    );
-                                  },
-                                  child: RecipeCard(
-                                    recipe: recipe,
-                                  ),
-                                ),
-                              );
-                            },
-                            options: CarouselOptions(
-                                height: height * 0.381,
-                                initialPage: _currentPage,
-                                enableInfiniteScroll: false,
-                                enlargeCenterPage: true,
-                                onPageChanged: (int index,
-                                    CarouselPageChangedReason reason) {
-                                  setState(() {
-                                    _currentPage = index;
-                                  });
-                                }),
-                          ),
-                          if (_currentPage > 0)
-                            Positioned(
-                              left: 16.0,
-                              child: IconButton(
-                                icon: Transform(
-                                  alignment: Alignment.center,
-                                  transform: Matrix4.rotationY(pi),
-                                  child: AppIcon(
-                                      asset: IconProvider.arrowNext
-                                          .buildImageUrl()),
-                                ),
-                                onPressed: () {
-                                  _pageController.previousPage(
-                                    duration: const Duration(milliseconds: 300),
-                                    curve: Curves.easeInOut,
-                                  );
-                                },
-                              ),
-                            ),
-                          if (_currentPage < recipes.length - 1)
-                            Positioned(
-                              right: 16.0,
-                              child: IconButton(
-                                icon: AppIcon(
-                                    asset:
-                                        IconProvider.arrowNext.buildImageUrl()),
-                                onPressed: () {
-                                  _pageController.nextPage(
-                                    duration: const Duration(milliseconds: 300),
-                                    curve: Curves.easeInOut,
-                                  );
-                                },
-                              ),
-                            ),
-                        ],
                       ),
-                  ],
-                ),
+                    )
+                  else
+                    Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        CarouselSlider.builder(
+                          carouselController: _pageController,
+                          itemCount: recipes.length,
+                          itemBuilder: (BuildContext context, int index,
+                              int pageViewIndex,) {
+                            final recipe = recipes[index];
+                            return Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: width * 0.007),
+                              child: GestureDetector(
+                                onTap: () {
+                                  context.push(
+                                    '${RouteValue.home.path}/${RouteValue.recipe.path}',
+                                    extra: recipe,
+                                  );
+                                },
+                                child: RecipeCard(
+                                  recipe: recipe,
+                                ),
+                              ),
+                            );
+                          },
+                          options: CarouselOptions(
+                              height: height * 0.381,
+                              initialPage: _currentPage,
+                              enableInfiniteScroll: false,
+                              enlargeCenterPage: true,
+                              onPageChanged: (int index,
+                                  CarouselPageChangedReason reason) {
+                                setState(() {
+                                  _currentPage = index;
+                                });
+                              }),
+                        ),
+                        if (_currentPage > 0)
+                          Positioned(
+                            left: 11.0,
+                            child: IconButton(
+                              icon: Transform(
+                                alignment: Alignment.center,
+                                transform: Matrix4.rotationY(pi),
+                                child: AppIcon(
+                                    asset: IconProvider.arrowNext
+                                        .buildImageUrl()),
+                              ),
+                              onPressed: () {
+                                _pageController.previousPage(
+                                  duration: const Duration(milliseconds: 300),
+                                  curve: Curves.easeInOut,
+                                );
+                              },
+                            ),
+                          ),
+                        if (_currentPage < recipes.length - 1)
+                          Positioned(
+                            right: 11.0,
+                            child: IconButton(
+                              icon: AppIcon(
+                                  asset:
+                                      IconProvider.arrowNext.buildImageUrl()),
+                              onPressed: () {
+                                _pageController.nextPage(
+                                  duration: const Duration(milliseconds: 300),
+                                  curve: Curves.easeInOut,
+                                );
+                              },
+                            ),
+                          ),
+                      ],
+                    ),
+                ],
               ),
-            );
-          } else {
-            return const Center(child: CupertinoActivityIndicator());
-          }
-        },
-      ),
+            ),
+          );
+        } else {
+          return const Center(child: CupertinoActivityIndicator());
+        }
+      },
     );
   }
 

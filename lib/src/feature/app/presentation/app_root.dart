@@ -10,22 +10,25 @@ class AppRoot extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoApp.router(
-      routerConfig: buildGoRouter,
-      debugShowCheckedModeBanner: false,
-       localizationsDelegates: const [
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-      theme: const CupertinoThemeData(
-        brightness: Brightness.light,
-        primaryColor: const Color(0xFFFFFFFF),
-        textTheme: CupertinoTextThemeData(
-          textStyle: TextStyle(
-            fontFamily: 'poppins',
-            fontWeight: FontWeight.w400,
-            fontSize: 21,
+    return BlocProvider(
+      create: (context) => RecipeBloc()..add(LoadRecipes()),
+      child: CupertinoApp.router(
+        routerConfig: buildGoRouter,
+        debugShowCheckedModeBanner: false,
+         localizationsDelegates: const [
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+        theme: const CupertinoThemeData(
+          brightness: Brightness.light,
+          primaryColor: const Color(0xFFFFFFFF),
+          textTheme: CupertinoTextThemeData(
+            textStyle: TextStyle(
+              fontFamily: 'poppins',
+              fontWeight: FontWeight.w400,
+              fontSize: 21,
+            ),
           ),
         ),
       ),

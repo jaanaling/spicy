@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -21,26 +23,33 @@ class AppIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return asset.contains('.svg')
         ? Opacity(
-            opacity: 0.97,
-            child: SvgPicture.asset(
-              asset,
-              width: width,
-              height: height,
-              fit: fit,
-              allowDrawingOutsideViewBox: true,
-              colorFilter: color != null
-                  ? ColorFilter.mode(
-                      color!,
-                      BlendMode.srcIn,
-                    )
-                  : null,
-            ),
-          )
-        : Image.asset(
-            asset,
-            width: width,
-            height: height,
-            fit: fit,
-          );
+      opacity: 0.97,
+      child: SvgPicture.asset(
+        asset,
+        width: width,
+        height: height,
+        fit: fit,
+        allowDrawingOutsideViewBox: true,
+        colorFilter: color != null
+            ? ColorFilter.mode(
+          color!,
+          BlendMode.srcIn,
+        )
+            : null,
+      ),
+    )
+        : asset.startsWith('assets/')
+        ? Image.asset(
+      asset,
+      width: width,
+      height: height,
+      fit: fit,
+    )
+        : Image.file(
+      File(asset),
+      width: width,
+      height: height,
+      fit: fit,
+    );
   }
 }

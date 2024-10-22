@@ -27,6 +27,7 @@ enum IconProvider {
   chevronDown(imageName: 'chevron_down.svg'),
   arrowNext(imageName: 'back.svg'),
   pepperInactive(imageName: 'pepper_inactive.png'),
+  button(imageName: 'button.png'),
 
   unknown(imageName: '');
 

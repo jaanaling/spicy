@@ -73,8 +73,8 @@ class _CreateScreenState extends State<CreateScreen> {
   List<Ingredient> ingredients = [];
   List<String> steps = [];
 
-  bool isStep = false;
-  bool isIngredient = false;
+  bool isStep = true;
+  bool isIngredient = true;
 
   void _showDifficultySnackBar(BuildContext context) {
     showCupertinoModalPopup(
@@ -386,8 +386,7 @@ class _CreateScreenState extends State<CreateScreen> {
                                 ),
                               ),
                               AppIcon(
-                                asset:
-                                    IconProvider.chevronDown.buildImageUrl(),
+                                asset: IconProvider.chevronDown.buildImageUrl(),
                                 color: const Color.fromARGB(255, 0, 0, 0)
                                     .withOpacity(0.51),
                                 width: 16,
@@ -426,8 +425,7 @@ class _CreateScreenState extends State<CreateScreen> {
                                 ),
                               ),
                               AppIcon(
-                                asset:
-                                    IconProvider.chevronDown.buildImageUrl(),
+                                asset: IconProvider.chevronDown.buildImageUrl(),
                                 color: const Color.fromARGB(255, 0, 0, 0)
                                     .withOpacity(0.51),
                                 width: 16,
@@ -743,7 +741,7 @@ class _CreateScreenState extends State<CreateScreen> {
             height: 3,
           ),
           const Gap(15),
-          Row(
+          Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Text(
@@ -755,9 +753,15 @@ class _CreateScreenState extends State<CreateScreen> {
                   fontFamily: 'poppins',
                 ),
               ),
-              PlusButton(
-                onPressed: () => setState(() => isStep = true),
-              ),
+             Row(
+               children: [
+                 PlusButton(
+                   onPressed: () => setState(() => isStep = true),
+                 ),
+                 const Text('Add step', style: TextStyle(   color: CupertinoColors.black,
+                   fontFamily: 'poppins',),)
+               ],
+             )
             ],
           ),
           const Gap(15),
@@ -777,6 +781,7 @@ class _CreateScreenState extends State<CreateScreen> {
                       padding: const EdgeInsets.all(14),
                       child: Text(
                         (index + 1).toString(),
+                        textAlign: TextAlign.center,
                         style: const TextStyle(
                           fontSize: 21,
                           color: Colors.white,
@@ -788,12 +793,16 @@ class _CreateScreenState extends State<CreateScreen> {
                   ),
                   const Gap(10),
                   Expanded(
-                    child: Text(
-                      steps[index],
-                      style: const TextStyle(
-                        fontSize: 17,
-                        color: Colors.black,
-                        fontFamily: 'poppins',
+                    child:
+                      Container(
+                        alignment: Alignment.centerLeft,
+                      child: Text(
+                        steps[index],
+                        style: const TextStyle(
+                          fontSize: 17,
+                          color: Colors.black,
+                          fontFamily: 'poppins',
+                        ),
                       ),
                     ),
                   ),
@@ -817,8 +826,7 @@ class _CreateScreenState extends State<CreateScreen> {
                 DecoratedBox(
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color:
-                        const Color.fromARGB(255, 0, 0, 0).withOpacity(0.6),
+                    color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.6),
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(14),
@@ -839,6 +847,7 @@ class _CreateScreenState extends State<CreateScreen> {
                     controller: stepController,
                     placeholder: 'step...',
                     maxLength: 5,
+                    minLength: 1,
                     fontSize: 17,
                   ),
                 ),
@@ -917,15 +926,36 @@ class _CreateScreenState extends State<CreateScreen> {
                     difficulty == null ||
                     cuisine == null ||
                     selectedHour + selectedMinute == 0) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text(
-                        'Please fill in all fields',
-                        style: TextStyle(
-                          fontFamily: 'poppins',
+                  showCupertinoDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return CupertinoAlertDialog(
+                        title: const Text(
+                          'Warning',
+                          style: TextStyle(
+                            fontFamily: 'poppins',
+                          ),
                         ),
-                      ),
-                    ),
+                        content: const Text(
+                          'Please fill in all fields',
+                          style: TextStyle(
+                            fontFamily: 'poppins',
+                          ),
+                        ),
+                        actions: [
+                          CupertinoDialogAction(
+                            child: const Text('OK',
+                              style: TextStyle(
+                                color: CupertinoColors.activeBlue
+
+                              ),),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                          ),
+                        ],
+                      );
+                    },
                   );
                 } else {
                   context.read<RecipeBloc>().add(
@@ -938,7 +968,7 @@ class _CreateScreenState extends State<CreateScreen> {
                             servings: 1,
                             difficulty: difficulty ?? 'Easy',
                             cuisine: cuisine ?? 'China',
-                            time: '$selectedHour:$selectedMinute',
+                            time: formatTime(selectedHour, selectedMinute),
                             ingredients: ingredients,
                             steps: steps,
                             calories:
@@ -979,6 +1009,20 @@ class _CreateScreenState extends State<CreateScreen> {
   }
 }
 
+String formatTime(int selectedHour, int selectedMinute) {
+  if (selectedHour > 0 && selectedMinute > 0) {
+    return '$selectedHour h $selectedMinute min';
+  } else if (selectedHour > 0) {
+    return '$selectedHour h';
+  } else if (selectedMinute > 0) {
+    return '$selectedMinute min';
+  } else {
+    return '0 min'; // если и часы, и минуты равны 0
+  }
+}
+
+
+
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
     super.key,
@@ -993,6 +1037,7 @@ class CustomTextField extends StatelessWidget {
     this.keyboardType,
     this.isCenterText = false,
     this.inputFormatters,
+    this.minLength,
   });
 
   final TextEditingController controller;
@@ -1000,6 +1045,7 @@ class CustomTextField extends StatelessWidget {
   final String placeholder;
   final double fontSize;
   final int maxLength;
+  final int? minLength;
   final bool isCenterText;
   final TextInputType? keyboardType;
   final List<TextInputFormatter>? inputFormatters;
@@ -1041,7 +1087,7 @@ class CustomTextField extends StatelessWidget {
             )
           : null,
       maxLines: maxLength,
-      minLines: maxLength,
+      minLines: minLength?? maxLength,
       textAlignVertical: TextAlignVertical.top,
       textAlign: isCenterText ? TextAlign.center : TextAlign.start,
       keyboardType: keyboardType,
