@@ -19,10 +19,6 @@ dependencies:
   flutter_svg: ^2.0.10+1
   advertising_id: ^2.6.0
   carousel_slider: ^5.0.0
-  core_amplitude:
-    git:
-      url: git@railroad.git.emehanika.com:flutter/core/core_amplitude.git
-      tag: 1.0.0
   equatable: ^2.0.5
   loading_indicator: ^3.1.1
   share_plus: ^10.0.3

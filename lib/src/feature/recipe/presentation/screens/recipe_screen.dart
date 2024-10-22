@@ -23,12 +23,15 @@ class _RecipeScreenState extends State<RecipeScreen> {
   int _servings = 0;
   bool isStepByStepEnabled = false;
   bool isNextStepVisible = false;
+  bool isFavorite = false;
   final CarouselSliderController _pageController = CarouselSliderController();
 
   @override
   void initState() {
     super.initState();
     _servings = widget.recipe.servings;
+    isFavorite =
+                                widget.recipe.isFavorite ?? false;
   }
 
   @override
@@ -70,17 +73,18 @@ class _RecipeScreenState extends State<RecipeScreen> {
                     child: IconButton(
                       onPressed: () {
                         setState(() {
-                          widget.recipe.isFavorite =
-                              !widget.recipe.isFavorite!;
-                        });
-                        context
+                           context
                             .read<RecipeBloc>()
                             .add(ToggleFavorite(widget.recipe.name));
+                         isFavorite = !isFavorite;
+                          
+                        });
+                       
                       },
                       icon: Icon(
-                        widget.recipe.isFavorite ?? false
-                            ?  CupertinoIcons.heart_fill
-                            :CupertinoIcons.heart,
+                        isFavorite
+                            ? CupertinoIcons.heart_fill
+                            : CupertinoIcons.heart,
                         color: Colors.white,
                       ),
                       iconSize: 34,
@@ -242,7 +246,6 @@ class _RecipeScreenState extends State<RecipeScreen> {
                         color: Colors.black,
                       ),
                     ),
-                    const Gap(16),
                     ListView.separated(
                       itemCount: widget.recipe.ingredients.length,
                       shrinkWrap: true,
@@ -317,7 +320,7 @@ class _RecipeScreenState extends State<RecipeScreen> {
                         itemCount: widget.recipe.steps.length,
                         options: CarouselOptions(
                           viewportFraction: 1,
-                          height: height * 0.381 + 110,
+                          height: 305 + 110,
                           enableInfiniteScroll: false,
                           scrollPhysics: const NeverScrollableScrollPhysics(),
                         ),
@@ -622,7 +625,8 @@ class _StepCardState extends State<StepCard> {
             borderRadius: BorderRadius.circular(13),
             child: AppIcon(
               width: width * 0.71,
-              fit: BoxFit.fitWidth,
+              height: 305,
+              fit: BoxFit.contain,
               asset: IconProvider.dish_card.buildImageUrl(),
             ),
           ),
