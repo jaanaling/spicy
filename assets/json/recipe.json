@@ -830,7 +830,7 @@
         "spicinessLevel": 3,
         "servings": 3,
         "difficulty": "Easy",
-        "cuisine": "Asian",
+        "cuisine": "South Korea",
         "time": "25 min",
         "ingredients": [
             { "name": "Tofu", "quantity": 200, "quantityType": "g", "type": "Meat" },
@@ -860,7 +860,7 @@
         "spicinessLevel": 5,
         "servings": 4,
         "difficulty": "Medium",
-        "cuisine": "Chinese",
+        "cuisine": "China",
         "time": "35 min",
         "ingredients": [
             { "name": "Chicken thighs", "quantity": 500, "quantityType": "g", "type": "Meat" },
@@ -883,9 +883,125 @@
         "proteins": 35.0,
         "fats": 18.0,
         "carbs": 10.0
+    },
+    {
+        "name": "Gopchang",
+        "imagePath": "assets/images/gopchang.webp",
+        "description": "A classic Korean dish made from beef or pork intestines, stir-fried with vegetables and spices. Rich in flavor and perfect for spicy food lovers.",
+        "spicinessLevel": 4,
+        "servings": 3,
+        "difficulty": "Medium",
+        "cuisine": "South Korea",
+        "time": "45 min",
+        "ingredients": [
+            { "name": "Beef or pork intestines", "quantity": 400, "quantityType": "g", "type": "Meat" },
+            { "name": "Onion", "quantity": 100, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Green pepper", "quantity": 50, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Garlic", "quantity": 15, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Soy sauce", "quantity": 50, "quantityType": "ml", "type": "Other" },
+            { "name": "Gochujang", "quantity": 30, "quantityType": "g", "type": "Spices" }
+        ],
+        "steps": [
+            "Clean and prepare the intestines, then cut into bite-sized pieces.",
+            "Slice the onion, green pepper, and garlic.",
+            "In a pan, add oil and sauté the garlic until fragrant.",
+            "Add the intestines and cook until browned.",
+            "Add the soy sauce, gochujang, onion, and green pepper, and stir-fry until fully cooked.",
+            "Serve hot with rice."
+        ],
+        "calories": 300.0,
+        "proteins": 20.0,
+        "fats": 15.0,
+        "carbs": 10.0
+    },
+    {
+        "name": "Jeongol",
+        "imagePath": "assets/images/jeongol.webp",
+        "description": "A flavorful Korean stew with a variety of vegetables, mushrooms, and optional meat or seafood. The broth is spicy and rich, ideal for cold days.",
+        "spicinessLevel": 4,
+        "servings": 4,
+        "difficulty": "Medium",
+        "cuisine": "South Korea",
+        "time": "50 min",
+        "ingredients": [
+            { "name": "Beef slices", "quantity": 300, "quantityType": "g", "type": "Meat" },
+            { "name": "Enoki mushrooms", "quantity": 100, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Zucchini", "quantity": 100, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Tofu", "quantity": 150, "quantityType": "g", "type": "Other" },
+            { "name": "Gochugaru", "quantity": 20, "quantityType": "g", "type": "Spices" },
+            { "name": "Soy sauce", "quantity": 30, "quantityType": "ml", "type": "Other" },
+            { "name": "Garlic", "quantity": 10, "quantityType": "g", "type": "Vegetables" }
+        ],
+        "steps": [
+            "Prepare the broth by boiling water with garlic and soy sauce.",
+            "Add the beef slices and cook until tender.",
+            "Add the gochugaru and stir well.",
+            "Add vegetables, mushrooms, and tofu, and cook until all ingredients are tender.",
+            "Serve hot, ideally with a side of rice."
+        ],
+        "calories": 350.0,
+        "proteins": 25.0,
+        "fats": 12.0,
+        "carbs": 15.0
+    },
+    {
+        "name": "Stir-Fried Shrimp",
+        "imagePath": "assets/images/stir_fried_shrimp.webp",
+        "description": "A popular Malaysian stir-fry dish with juicy shrimp, fresh vegetables, and a mix of flavorful spices. Perfectly balanced and full of zest.",
+        "spicinessLevel": 3,
+        "servings": 2,
+        "difficulty": "Easy",
+        "cuisine": "Malaysia",
+        "time": "20 min",
+        "ingredients": [
+            { "name": "Shrimp", "quantity": 200, "quantityType": "g", "type": "Seafood" },
+            { "name": "Bell peppers", "quantity": 100, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Garlic", "quantity": 10, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Ginger", "quantity": 10, "quantityType": "g", "type": "Spices" },
+            { "name": "Soy sauce", "quantity": 30, "quantityType": "ml", "type": "Other" },
+            { "name": "Chili peppers", "quantity": 10, "quantityType": "g", "type": "Spices" }
+        ],
+        "steps": [
+            "Clean and devein the shrimp.",
+            "Slice the bell peppers, garlic, and ginger.",
+            "In a pan, heat oil and sauté garlic and ginger until fragrant.",
+            "Add the shrimp and cook until pink.",
+            "Add the bell peppers, soy sauce, and chili peppers, and stir-fry until vegetables are tender.",
+            "Serve hot with rice."
+        ],
+        "calories": 250.0,
+        "proteins": 20.0,
+        "fats": 10.0,
+        "carbs": 15.0
+    },
+    {
+        "name": "Chicken Curry",
+        "imagePath": "assets/images/chicken_curry.webp",
+        "description": "A fragrant and creamy chicken curry, spiced with a blend of curry powder and coconut milk, popular in many Asian cuisines.",
+        "spicinessLevel": 3,
+        "servings": 4,
+        "difficulty": "Medium",
+        "cuisine": "India",
+        "time": "40 min",
+        "ingredients": [
+            { "name": "Chicken breast", "quantity": 400, "quantityType": "g", "type": "Meat" },
+            { "name": "Coconut milk", "quantity": 200, "quantityType": "ml", "type": "Other" },
+            { "name": "Curry powder", "quantity": 20, "quantityType": "g", "type": "Spices" },
+            { "name": "Onion", "quantity": 100, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Garlic", "quantity": 15, "quantityType": "g", "type": "Vegetables" },
+            { "name": "Ginger", "quantity": 10, "quantityType": "g", "type": "Spices" },
+            { "name": "Oil", "quantity": 20, "quantityType": "ml", "type": "Other" }
+        ],
+        "steps": [
+            "Cut the chicken breast into cubes.",
+            "In a pot, heat oil and sauté garlic, ginger, and onion until golden.",
+            "Add chicken cubes and curry powder, and stir well.",
+            "Pour in coconut milk and let simmer until chicken is fully cooked.",
+            "Serve hot with rice."
+        ],
+        "calories": 350.0,
+        "proteins": 25.0,
+        "fats": 20.0,
+        "carbs": 8.0
     }
-    
-    
-    
-    
 ]

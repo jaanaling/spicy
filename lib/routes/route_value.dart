@@ -17,9 +17,8 @@ enum RouteValue {
   recommendation(
     path: '/recommendation',
   ),
-
-  privicy(
-    path: '/privicy',
+   privacyScreen(
+    path: '/privacyScreen',
   ),
   unknown(
     path: '',

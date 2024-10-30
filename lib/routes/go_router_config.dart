@@ -4,9 +4,11 @@ import 'package:application/src/feature/challenge/presentation/screens/challenge
 import 'package:application/src/feature/recipe/model/recipe.dart';
 import 'package:application/src/feature/recipe/presentation/screens/main_screen.dart';
 import 'package:application/src/feature/recipe/presentation/screens/create_screen.dart';
+import 'package:application/src/feature/recipe/presentation/screens/privicy_screen.dart';
 import 'package:application/src/feature/recipe/presentation/screens/recipe_screen.dart';
 import 'package:application/src/feature/recipe/presentation/screens/recommendation_screen.dart';
 import 'package:application/src/feature/splash/presentation/screens/splash_screen.dart';
+import 'package:core_logic/core_logic.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -118,6 +120,25 @@ GoRouter buildGoRouter = GoRouter(
         ),
       ],
     ),
+    GoRoute(
+  parentNavigatorKey: _rootNavigatorKey,
+  path: '/core',
+  pageBuilder: (context, state) {
+    return NoTransitionPage(
+      child: CoreScreen(
+        key: UniqueKey(),
+      ),
+    );
+  },
+),
+ GoRoute(
+          path: RouteValue.privacyScreen.path,
+          pageBuilder: (context, state) => NoTransitionPage(
+            child: PrivicyScreen(
+              key: UniqueKey(),
+            ),
+          ),
+        ),
     ShellRoute(
       navigatorKey: _shellNavigatorKey,
       pageBuilder: (context, state, child) {

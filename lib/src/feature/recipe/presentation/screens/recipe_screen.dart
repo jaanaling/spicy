@@ -617,99 +617,103 @@ class _StepCardState extends State<StepCard> {
 
     return Padding(
       padding: const EdgeInsets.only(top: 24),
-      child: Stack(
-        clipBehavior: Clip.none,
-        alignment: Alignment.center,
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(13),
-            child: AppIcon(
-              width: width * 0.71,
-              height: 305,
-              fit: BoxFit.contain,
-              asset: IconProvider.dish_card.buildImageUrl(),
-            ),
-          ),
-          Positioned(
-            top: -24,
-            left: -24,
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.6),
+      child: SizedBox(
+        width: width * 0.71,
+        height: 305,
+        child: Stack(
+          clipBehavior: Clip.none,
+          alignment: Alignment.center,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(13),
+              child: AppIcon(
+                width: width * 0.71,
+                height: 305,
+                fit: BoxFit.contain,
+                asset: IconProvider.dish_card.buildImageUrl(),
               ),
-              child: SizedBox(
-                width: 69,
-                height: 69,
-                child: Center(
-                  child: Text(
-                    (widget.index + 1).toString(),
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontSize: 21,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w700,
-                      fontFamily: 'poppins',
+            ),
+            Positioned(
+              top: -14,
+              left: -14,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.6),
+                ),
+                child: SizedBox(
+                  width: 69,
+                  height: 69,
+                  child: Center(
+                    child: Text(
+                      (widget.index + 1).toString(),
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontSize: 21,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w700,
+                        fontFamily: 'poppins',
+                      ),
                     ),
                   ),
                 ),
               ),
             ),
-          ),
-          Visibility(
-            visible: widget.isCheckBoxVisible,
-            child: Positioned(
-              right: 5,
-              bottom: 5,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const Text(
-                    'mark as done',
-                    style: TextStyle(
-                      color: Color(
-                        0x54000000,
+            Visibility(
+              visible: widget.isCheckBoxVisible,
+              child: Positioned(
+                right: 18,
+                bottom: 5,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Text(
+                      'mark as done',
+                      style: TextStyle(
+                        color: Color(
+                          0x54000000,
+                        ),
                       ),
                     ),
-                  ),
-                  const Gap(7),
-                  SizedBox(
-                    width: 47,
-                    height: 47,
-                    child: FittedBox(
-                      fit: BoxFit.fill,
-                      child: CupertinoCheckbox(
-                        value: isChecked,
-                        onChanged: (bool? value) {
-                          setState(() {
-                            isChecked = value ?? false;
-                          });
-                          widget.onChanged(value ?? false);
-                        },
+                    const Gap(7),
+                    SizedBox(
+                      width: 47,
+                      height: 47,
+                      child: FittedBox(
+                        fit: BoxFit.fill,
+                        child: CupertinoCheckbox(
+                          value: isChecked,
+                          onChanged: (bool? value) {
+                            setState(() {
+                              isChecked = value ?? false;
+                            });
+                            widget.onChanged(value ?? false);
+                          },
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-          Positioned(
-            left: 0,
-            bottom: 0,
-            right: 0,
-            top: 0,
-            child: Padding(
-              padding: EdgeInsets.only(
-                top: 15,
-                right: 15,
-                left: 15,
-                bottom: widget.isCheckBoxVisible ? 60 : 15,
+            Positioned(
+              left: 15,
+              bottom: 0,
+              right: 0,
+              top: 5,
+              child: Padding(
+                padding: EdgeInsets.only(
+                  top: 15,
+                  right: 15,
+                  left: 15,
+                  bottom: widget.isCheckBoxVisible ? 60 : 15,
+                ),
+                child: SingleChildScrollView(child: Text(widget.step)),
               ),
-              child: SingleChildScrollView(child: Text(widget.step)),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

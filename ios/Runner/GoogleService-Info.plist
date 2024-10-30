@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyBTi-b8zyEAm8EsYtBw3OoKLSUa_0ReX9Q</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1095909760909</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.gametrucklls.spicejourney</string>
+	<key>PROJECT_ID</key>
+	<string>spice-journey-bfbd1</string>
+	<key>STORAGE_BUCKET</key>
+	<string>spice-journey-bfbd1.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1095909760909:ios:2fb2ab9913a795e390e7c4</string>
+</dict>
+</plist>

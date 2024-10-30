@@ -35,7 +35,6 @@ class _MainScreenState extends State<MainScreen> {
   List<RecipeModel> recipes = [];
   bool isFavorite = false;
 
-
   List<String> countries = [
     'China',
     'India',
@@ -116,11 +115,10 @@ class _MainScreenState extends State<MainScreen> {
                 child: const Text(
                   'Select Country',
                   style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                      fontFamily: 'poppins'
-                  ),
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                      fontFamily: 'poppins'),
                 ),
               ),
               SizedBox(
@@ -150,7 +148,10 @@ class _MainScreenState extends State<MainScreen> {
                         children: [
                           if (country != countries[6]) getCountryIcon(country),
                           const Gap(16),
-                          Text(country, style: const TextStyle(fontFamily: 'poppins'),),
+                          Text(
+                            country,
+                            style: const TextStyle(fontFamily: 'poppins'),
+                          ),
                         ],
                       ),
                     );
@@ -160,7 +161,8 @@ class _MainScreenState extends State<MainScreen> {
               CupertinoButton(
                 child: const Text(
                   'Done',
-                  style: TextStyle(color: CupertinoColors.activeBlue, fontFamily: 'poppins'),
+                  style: TextStyle(
+                      color: CupertinoColors.activeBlue, fontFamily: 'poppins'),
                 ),
                 onPressed: () {
                   Navigator.pop(context);
@@ -187,11 +189,10 @@ class _MainScreenState extends State<MainScreen> {
                 child: const Text(
                   'Select Time',
                   style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                      fontFamily: 'poppins'
-                  ),
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                      fontFamily: 'poppins'),
                 ),
               ),
               SizedBox(
@@ -217,7 +218,10 @@ class _MainScreenState extends State<MainScreen> {
                   },
                   children: timeRanges.map((String country) {
                     return Center(
-                      child: Text(country, style: const TextStyle(fontFamily: 'poppins'),),
+                      child: Text(
+                        country,
+                        style: const TextStyle(fontFamily: 'poppins'),
+                      ),
                     );
                   }).toList(),
                 ),
@@ -225,7 +229,8 @@ class _MainScreenState extends State<MainScreen> {
               CupertinoButton(
                 child: const Text(
                   'Done',
-                  style: TextStyle(color: CupertinoColors.activeBlue, fontFamily: 'poppins'),
+                  style: TextStyle(
+                      color: CupertinoColors.activeBlue, fontFamily: 'poppins'),
                 ),
                 onPressed: () {
                   Navigator.pop(context);
@@ -254,7 +259,7 @@ class _MainScreenState extends State<MainScreen> {
             return recipe.spicinessLevel == sliderValue;
           }).where((recipe) {
             return isFavorite ? recipe.isFavorite == true : true;
-          }) .where((recipe) {
+          }).where((recipe) {
             if (difficulty.isNotEmpty) {
               return difficulty.contains(recipe.difficulty);
             }
@@ -289,352 +294,394 @@ class _MainScreenState extends State<MainScreen> {
               padding: const EdgeInsets.only(top: 15),
               child: Column(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 21),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: CupertinoTextField(
-                            controller: searchController,
-                            onTapOutside: (event) {
-                              setState(() {});
-                              FocusManager.instance.primaryFocus?.unfocus();
-                            },
-                            textInputAction: TextInputAction.search,
-                            onSubmitted: (value) {
-                              setState(() {});
-                              FocusManager.instance.primaryFocus?.unfocus();
-                            },
-                            padding: const EdgeInsets.all(17),
-                            placeholder: 'Enter text...',
-                            suffix: Padding(
-                              padding: const EdgeInsets.only(right: 17),
-                              child: AppIcon(
-                                asset: IconProvider.search.buildImageUrl(),
-                              ),
-                            ),
-                            placeholderStyle: const TextStyle(
-                              fontSize: 25,
-                              fontStyle: FontStyle.italic,
-                              color: Color(0xFFA5A5A5),
-                            ),
-                            style: const TextStyle(
-                              fontSize: 27,
-                              color: CupertinoColors.black,
-                            ),
-                            onChanged: (value) {
-                              setState(() {});
-                            },
-                            decoration: BoxDecoration(
-                              color: const Color(0xFFF3F3F3),
-                              borderRadius: BorderRadius.circular(12),
-                              border: Border.all(color: const Color(0xFFD0D0D0)),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: const Color(0xFF000000).withOpacity(0.1),
-                                  offset: const Offset(0, 2),
-                                  blurRadius: 4,
-                                  spreadRadius: 1,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                         const Gap(15),
-                        IconButton(
-                          onPressed: () {
-                           setState(() {
-                              isFavorite = !isFavorite;
-                           });
-                          },
-                          icon: Icon(
-                            isFavorite 
-                                ? CupertinoIcons.heart_fill
-                                : CupertinoIcons.heart,
-                            color: Color.fromARGB(255, 189, 188, 188),
-                          ),
-                          iconSize: 50,
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 21),
-                    child: Stack(
+                   Container(
+                constraints: BoxConstraints(
+                  minHeight: MediaQuery.of(context).size.height * 0.75,
+                ),
+                    child: Column(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(bottom: 2),
-                          child: FlutterSlider(
-                            min: 1,
-                            max: 5,
-                            onDragging: (handlerIndex, lowerValue, upperValue) {
-                              sliderValue = lowerValue as double;
-                              setState(() {});
-                            },
-                            tooltip: FlutterSliderTooltip(
-                              format: getSpiceLevel,
-                            ),
-                            trackBar: FlutterSliderTrackBar(
-                              activeTrackBar: BoxDecoration(
-                                color: const Color(0xFF9A0A10),
-                                borderRadius: BorderRadius.circular(23),
-                              ),
-                              activeTrackBarHeight: 4,
-                              inactiveTrackBarHeight: 4,
-                              inactiveTrackBar: BoxDecoration(
-                                color: const Color(0xFFD9D9D9),
-                                borderRadius: BorderRadius.circular(23),
-                              ),
-                            ),
-                            handler: FlutterSliderHandler(
-                              decoration: const BoxDecoration(),
-                              child: Material(
-                                color: Colors.transparent,
-                                child: AppIcon(
-                                  asset: IconProvider.pepper.buildImageUrl(),
-                                ),
-                              ),
-                            ),
-                            values: [sliderValue],
-                          ),
-                        ),
-                        const Positioned(
-                          bottom: 0,
-                          left: 5,
-                          child: Text(
-                            '1',
-                            style: TextStyle(fontSize: 18, color: Colors.black),
-                          ),
-                        ),
-                        const Positioned(
-                          bottom: 0,
-                          right: 5,
-                          child: Text(
-                            '5',
-                            style: TextStyle(fontSize: 18, color: Colors.black),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const Gap(13),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 21),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        difficultyButton('Easy', const Color(0xFFA6FE7E)),
-                        difficultyButton('Medium', const Color(0xFFFFAB57)),
-                        difficultyButton('Hard', const Color(0xFFFF5B62)),
-                      ],
-                    ),
-                  ),
-                  const Gap(17),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 21),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            _showCountrySnackBar(context);
-                          },
-                          child: DecoratedBox(
-                            decoration: customDecoration(),
-                            child: SizedBox(
-                              width: MediaQuery.of(context).size.width * 0.43,
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 20,
-                                  vertical: 10,
-                                ),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    if (cuisine != null)
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          SizedBox(
-                                            height: 25,
-                                            child: FittedBox(
-                                              fit: BoxFit.scaleDown,
-                                              child: getCountryIcon(
-                                                cuisine ?? '',
-                                              ),
-                                            ),
-                                          ),
-                                          const Gap(8),
-                                          Text(
-                                            getShortCountryName(cuisine ?? ''),
-                                            style: const TextStyle(
-                                              fontSize: 21,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ],
-                                      )
-                                    else
-                                      const Text(
-                                        'Country',
-                                        style: TextStyle(
-                                          fontSize: 21,
-                                          color: Colors.black,
-                                        ),
-                                      ),
-                                    AppIcon(
-                                      asset: IconProvider.chevronDown
-                                          .buildImageUrl(),
-                                      color: const Color.fromARGB(255, 0, 0, 0)
-                                          .withOpacity(0.51),
-                                      width: 16,
+                          padding: const EdgeInsets.symmetric(horizontal: 21),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: CupertinoTextField(
+                                  controller: searchController,
+                                  onTapOutside: (event) {
+                                    setState(() {});
+                                    FocusManager.instance.primaryFocus?.unfocus();
+                                  },
+                                  textInputAction: TextInputAction.search,
+                                  onSubmitted: (value) {
+                                    setState(() {});
+                                    FocusManager.instance.primaryFocus?.unfocus();
+                                  },
+                                  padding: const EdgeInsets.all(17),
+                                  placeholder: 'Enter text...',
+                                  suffix: Padding(
+                                    padding: const EdgeInsets.only(right: 17),
+                                    child: AppIcon(
+                                      asset: IconProvider.search.buildImageUrl(),
                                     ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 21),
-                          child: GestureDetector(
-                            onTap: () {
-                              _showTimePicker(context);
-                            },
-                            child: DecoratedBox(
-                              decoration: customDecoration(),
-                              child: SizedBox(
-                                width: MediaQuery.of(context).size.width * 0.43,
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 20,
-                                    vertical: 10,
                                   ),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        selectedTime != null
-                                            ? selectedTime ?? ''
-                                            : 'Time',
-                                        style: const TextStyle(
-                                          fontSize: 21,
-                                          color: Colors.black,
-                                        ),
-                                      ),
-                                      AppIcon(
-                                        asset: IconProvider.chevronDown
-                                            .buildImageUrl(),
-                                        color: const Color.fromARGB(255, 0, 0, 0)
-                                            .withOpacity(0.51),
-                                        width: 16,
+                                  placeholderStyle: const TextStyle(
+                                    fontSize: 25,
+                                    fontStyle: FontStyle.italic,
+                                    color: Color(0xFFA5A5A5),
+                                  ),
+                                  style: const TextStyle(
+                                    fontSize: 27,
+                                    color: CupertinoColors.black,
+                                  ),
+                                  onChanged: (value) {
+                                    setState(() {});
+                                  },
+                                  decoration: BoxDecoration(
+                                    color: const Color(0xFFF3F3F3),
+                                    borderRadius: BorderRadius.circular(12),
+                                    border: Border.all(
+                                        color: const Color(0xFFD0D0D0)),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: const Color(0xFF000000)
+                                            .withOpacity(0.1),
+                                        offset: const Offset(0, 2),
+                                        blurRadius: 4,
+                                        spreadRadius: 1,
                                       ),
                                     ],
                                   ),
                                 ),
                               ),
-                            ),
+                              const Gap(15),
+                              IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    isFavorite = !isFavorite;
+                                  });
+                                },
+                                icon: Icon(
+                                  isFavorite
+                                      ? CupertinoIcons.heart_fill
+                                      : CupertinoIcons.heart,
+                                  color: Color.fromARGB(255, 189, 188, 188),
+                                ),
+                                iconSize: 50,
+                              ),
+                            ],
                           ),
                         ),
-                      ],
-                    ),
-                  ),
-                  const Gap(33),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 21),
-                    child: const Divider(
-                      thickness: 1.5,
-                      color: Color(0xFF9A0A10),
-                    ),
-                  ),
-                  const Gap(24),
-                  if (recipes.isEmpty)
-                    const Center(
-                      child: Text(
-                        'No items found.',
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.black54,
-                        ),
-                      ),
-                    )
-                  else
-                    Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        CarouselSlider.builder(
-                          carouselController: _pageController,
-                          itemCount: recipes.length,
-                          itemBuilder: (BuildContext context, int index,
-                              int pageViewIndex,) {
-                            final recipe = recipes[index];
-                            return Padding(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: width * 0.007),
-                              child: GestureDetector(
-                                onTap: () {
-                                  context.push(
-                                    '${RouteValue.home.path}/${RouteValue.recipe.path}',
-                                    extra: recipe,
-                                  );
-                                },
-                                child: RecipeCard(
-                                  recipe: recipe,
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 21),
+                          child: Stack(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 2),
+                                child: FlutterSlider(
+                                  min: 1,
+                                  max: 5,
+                                  onDragging:
+                                      (handlerIndex, lowerValue, upperValue) {
+                                    sliderValue = lowerValue as double;
+                                    setState(() {});
+                                  },
+                                  tooltip: FlutterSliderTooltip(
+                                    format: getSpiceLevel,
+                                  ),
+                                  trackBar: FlutterSliderTrackBar(
+                                    activeTrackBar: BoxDecoration(
+                                      color: const Color(0xFF9A0A10),
+                                      borderRadius: BorderRadius.circular(23),
+                                    ),
+                                    activeTrackBarHeight: 4,
+                                    inactiveTrackBarHeight: 4,
+                                    inactiveTrackBar: BoxDecoration(
+                                      color: const Color(0xFFD9D9D9),
+                                      borderRadius: BorderRadius.circular(23),
+                                    ),
+                                  ),
+                                  handler: FlutterSliderHandler(
+                                    decoration: const BoxDecoration(),
+                                    child: Material(
+                                      color: Colors.transparent,
+                                      child: AppIcon(
+                                        asset:
+                                            IconProvider.pepper.buildImageUrl(),
+                                      ),
+                                    ),
+                                  ),
+                                  values: [sliderValue],
                                 ),
                               ),
-                            );
-                          },
-                          options: CarouselOptions(
-                              height: height * 0.381,
-                              initialPage: _currentPage,
-                              enableInfiniteScroll: false,
-                              enlargeCenterPage: true,
-                              onPageChanged: (int index,
-                                  CarouselPageChangedReason reason) {
-                                setState(() {
-                                  _currentPage = index;
-                                });
-                              }),
-                        ),
-                        if (_currentPage > 0)
-                          Positioned(
-                            left: 11.0,
-                            child: IconButton(
-                              icon: Transform(
-                                alignment: Alignment.center,
-                                transform: Matrix4.rotationY(pi),
-                                child: AppIcon(
-                                    asset: IconProvider.arrowNext
-                                        .buildImageUrl()),
+                              const Positioned(
+                                bottom: 0,
+                                left: 5,
+                                child: Text(
+                                  '1',
+                                  style: TextStyle(
+                                      fontSize: 18, color: Colors.black),
+                                ),
                               ),
-                              onPressed: () {
-                                _pageController.previousPage(
-                                  duration: const Duration(milliseconds: 300),
-                                  curve: Curves.easeInOut,
-                                );
-                              },
-                            ),
+                              const Positioned(
+                                bottom: 0,
+                                right: 5,
+                                child: Text(
+                                  '5',
+                                  style: TextStyle(
+                                      fontSize: 18, color: Colors.black),
+                                ),
+                              ),
+                            ],
                           ),
-                        if (_currentPage < recipes.length - 1)
-                          Positioned(
-                            right: 11.0,
-                            child: IconButton(
-                              icon: AppIcon(
-                                  asset:
-                                      IconProvider.arrowNext.buildImageUrl()),
-                              onPressed: () {
-                                _pageController.nextPage(
-                                  duration: const Duration(milliseconds: 300),
-                                  curve: Curves.easeInOut,
-                                );
-                              },
+                        ),
+                        const Gap(13),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 21),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              difficultyButton('Easy', const Color(0xFFA6FE7E)),
+                              difficultyButton('Medium', const Color(0xFFFFAB57)),
+                              difficultyButton('Hard', const Color(0xFFFF5B62)),
+                            ],
+                          ),
+                        ),
+                        const Gap(17),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 21),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  _showCountrySnackBar(context);
+                                },
+                                child: DecoratedBox(
+                                  decoration: customDecoration(),
+                                  child: SizedBox(
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.43,
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 20,
+                                        vertical: 10,
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          if (cuisine != null)
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                SizedBox(
+                                                  height: 25,
+                                                  child: FittedBox(
+                                                    fit: BoxFit.scaleDown,
+                                                    child: getCountryIcon(
+                                                      cuisine ?? '',
+                                                    ),
+                                                  ),
+                                                ),
+                                                const Gap(8),
+                                                Text(
+                                                  getShortCountryName(
+                                                      cuisine ?? ''),
+                                                  style: const TextStyle(
+                                                    fontSize: 21,
+                                                    color: Colors.black,
+                                                  ),
+                                                ),
+                                              ],
+                                            )
+                                          else
+                                            const Text(
+                                              'Country',
+                                              style: TextStyle(
+                                                fontSize: 21,
+                                                color: Colors.black,
+                                              ),
+                                            ),
+                                          AppIcon(
+                                            asset: IconProvider.chevronDown
+                                                .buildImageUrl(),
+                                            color:
+                                                const Color.fromARGB(255, 0, 0, 0)
+                                                    .withOpacity(0.51),
+                                            width: 16,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(right: 21),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    _showTimePicker(context);
+                                  },
+                                  child: DecoratedBox(
+                                    decoration: customDecoration(),
+                                    child: SizedBox(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.43,
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 20,
+                                          vertical: 10,
+                                        ),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              selectedTime != null
+                                                  ? selectedTime ?? ''
+                                                  : 'Time',
+                                              style: const TextStyle(
+                                                fontSize: 21,
+                                                color: Colors.black,
+                                              ),
+                                            ),
+                                            AppIcon(
+                                              asset: IconProvider.chevronDown
+                                                  .buildImageUrl(),
+                                              color: const Color.fromARGB(
+                                                      255, 0, 0, 0)
+                                                  .withOpacity(0.51),
+                                              width: 16,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const Gap(33),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 21),
+                          child: const Divider(
+                            thickness: 1.5,
+                            color: Color(0xFF9A0A10),
+                          ),
+                        ),
+                        const Gap(24),
+                        if (recipes.isEmpty)
+                          const Center(
+                            child: Text(
+                              'No items found.',
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.black54,
+                              ),
                             ),
+                          )
+                        else
+                          Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              CarouselSlider.builder(
+                                carouselController: _pageController,
+                                itemCount: recipes.length,
+                                itemBuilder: (
+                                  BuildContext context,
+                                  int index,
+                                  int pageViewIndex,
+                                ) {
+                                  final recipe = recipes[index];
+                                  return Padding(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: width * 0.007),
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        context.push(
+                                          '${RouteValue.home.path}/${RouteValue.recipe.path}',
+                                          extra: recipe,
+                                        );
+                                      },
+                                      child: RecipeCard(
+                                        recipe: recipe,
+                                      ),
+                                    ),
+                                  );
+                                },
+                                options: CarouselOptions(
+                                    height: height * 0.381,
+                                    initialPage: _currentPage,
+                                    enableInfiniteScroll: false,
+                                    enlargeCenterPage: true,
+                                    onPageChanged: (int index,
+                                        CarouselPageChangedReason reason) {
+                                      setState(() {
+                                        _currentPage = index;
+                                      });
+                                    }),
+                              ),
+                              if (_currentPage > 0)
+                                Positioned(
+                                  left: 11.0,
+                                  child: IconButton(
+                                    icon: Transform(
+                                      alignment: Alignment.center,
+                                      transform: Matrix4.rotationY(pi),
+                                      child: AppIcon(
+                                          asset: IconProvider.arrowNext
+                                              .buildImageUrl()),
+                                    ),
+                                    onPressed: () {
+                                      _pageController.previousPage(
+                                        duration:
+                                            const Duration(milliseconds: 300),
+                                        curve: Curves.easeInOut,
+                                      );
+                                    },
+                                  ),
+                                ),
+                              if (_currentPage < recipes.length - 1)
+                                Positioned(
+                                  right: 11.0,
+                                  child: IconButton(
+                                    icon: AppIcon(
+                                        asset: IconProvider.arrowNext
+                                            .buildImageUrl()),
+                                    onPressed: () {
+                                      _pageController.nextPage(
+                                        duration:
+                                            const Duration(milliseconds: 300),
+                                        curve: Curves.easeInOut,
+                                      );
+                                    },
+                                  ),
+                                ),
+                            ],
                           ),
                       ],
                     ),
+                  ),
+                  Gap(16),
+                  Container(
+                    padding: EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+                    color: Color.fromARGB(102, 154, 10, 15),
+                    alignment: Alignment.center,
+                    width: double.infinity,
+                    child: CupertinoButton(
+                      onPressed: () {
+                        context.push(RouteValue.privacyScreen.path);
+                      },
+                      child: const Text(
+                        'Privacy Policy',
+                        style:
+                            TextStyle(fontSize: 16, color: Color(0xFF9A0A10)),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
